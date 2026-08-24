@@ -1,9 +1,10 @@
 import React from 'react';
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Code2
+import {
+  ArrowRight,
+  CheckCircle2,
+  ShieldCheck,
+  Code2,
+  ChevronDown
 } from 'lucide-react';
 
 interface HeroProps {
@@ -21,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   ];
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#090d16] border-b border-slate-800">
+    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-spotlight border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
@@ -163,6 +164,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
         </div>
       </div>
+
+      {/* Scroll Cue */}
+      <a
+        href="#sobre"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-slate-500 hover:text-blue-400 transition-colors group"
+        aria-label="Rolar para conhecer a Shinra"
+      >
+        <span className="text-[10px] font-mono uppercase tracking-widest">Desça e conheça a fábrica</span>
+        <span className="w-6 h-6 rounded-full border border-slate-700 group-hover:border-blue-500/50 flex items-center justify-center animate-bounce">
+          <ChevronDown className="w-3.5 h-3.5" />
+        </span>
+      </a>
     </section>
   );
 };

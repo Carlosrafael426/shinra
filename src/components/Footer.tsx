@@ -58,6 +58,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs text-slate-400">
               <li><a href="#estimador" className="hover:text-white transition-colors">Calculadora de Escopo</a></li>
               <li><a href="#metodologia" className="hover:text-white transition-colors">Metodologia Ágil</a></li>
+              <li><a href="#squad" className="hover:text-white transition-colors">Nosso Squad</a></li>
               <li><a href="#cases" className="hover:text-white transition-colors">Cases de Sucesso</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">Perguntas Frequentes</a></li>
               <li><a href="#contato" className="hover:text-white transition-colors">Fale com a Engenharia</a></li>

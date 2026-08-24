@@ -3,6 +3,9 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Pillars } from './components/Pillars';
 import { Services } from './components/Services';
+import { Methodology } from './components/Methodology';
+import { Squad } from './components/Squad';
+import { TechEcosystem } from './components/TechEcosystem';
 import { AISolutions } from './components/AISolutions';
 import { CaseStudies } from './components/CaseStudies';
 import { Testimonials } from './components/Testimonials';
@@ -29,13 +32,18 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-200">
+    <div className="min-h-screen bg-tech-dots bg-fixed text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-200 relative overflow-x-hidden">
       
+      {/* Global Ambient Glow Blobs */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[160px] pointer-events-none rounded-full z-0" />
+      <div className="fixed top-1/3 -right-40 w-[500px] h-[500px] bg-blue-600/5 blur-[140px] pointer-events-none rounded-full z-0" />
+      <div className="fixed bottom-1/4 -left-40 w-[500px] h-[500px] bg-blue-600/5 blur-[140px] pointer-events-none rounded-full z-0" />
+
       {/* Navigation */}
       <Navbar onOpenModal={() => handleOpenModal()} />
 
       {/* Main Content */}
-      <main>
+      <main className="relative z-10">
         {/* Hero Section */}
         <Hero onOpenModal={() => handleOpenModal()} />
 
@@ -44,6 +52,15 @@ export function App() {
 
         {/* High Tech Embedded Services */}
         <Services onSelectService={(serviceTitle) => handleOpenModal(serviceTitle)} />
+
+        {/* Agile Delivery Methodology */}
+        <Methodology />
+
+        {/* Multidisciplinary Squad / Production Line */}
+        <Squad />
+
+        {/* Metrics & Tech Stack Ecosystem */}
+        <TechEcosystem />
 
         {/* AI & Machine Learning Solutions */}
         <AISolutions onOpenModal={() => handleOpenModal()} />

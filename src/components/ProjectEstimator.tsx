@@ -114,7 +114,7 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
   };
 
   return (
-    <section id="estimador" className="py-24 relative bg-[#0b0f19] border-b border-slate-800">
+    <section id="estimador" className="py-24 relative bg-transparent border-b border-slate-800/80">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

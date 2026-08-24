@@ -6,7 +6,7 @@ export const TechEcosystem: React.FC = () => {
   const duplicatedTech = [...TECH_STACKS, ...TECH_STACKS];
 
   return (
-    <section id="ecossistema" className="py-16 border-b border-slate-800 bg-[#0b0f19] relative overflow-hidden">
+    <section id="ecossistema" className="py-16 border-b border-slate-800/80 bg-transparent relative overflow-hidden">
       
       {/* Numbers Strip */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
@@ -40,8 +40,8 @@ export const TechEcosystem: React.FC = () => {
       {/* Infinite Tech Marquee */}
       <div className="relative w-full overflow-hidden py-4">
         {/* Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-[#0b0f19] z-10 pointer-events-none opacity-80" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-[#0b0f19] z-10 pointer-events-none opacity-80" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#080c16] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#080c16] to-transparent z-10 pointer-events-none" />
 
         <div className="animate-marquee flex gap-4">
           {duplicatedTech.map((tech, index) => (

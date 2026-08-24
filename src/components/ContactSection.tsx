@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contato" className="py-24 relative bg-[#090d16] border-b border-slate-800">
+    <section id="contato" className="py-24 relative bg-transparent border-b border-slate-800/80">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

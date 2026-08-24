@@ -4,7 +4,7 @@ import { GitBranch, CheckCircle2, Clock, Terminal } from 'lucide-react';
 
 export const Methodology: React.FC = () => {
   return (
-    <section id="metodologia" className="py-24 relative bg-[#0b0f19] border-b border-slate-800">
+    <section id="metodologia" className="py-24 relative bg-transparent border-b border-slate-800/80">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

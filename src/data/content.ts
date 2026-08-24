@@ -99,14 +99,60 @@ export const METHODOLOGY_STEPS: MethodologyStep[] = [
 ];
 
 export const NAV_LINKS: NavItem[] = [
-  { label: 'Início', href: '#' },
   { label: 'Fábrica de Soluções', href: '#sobre' },
   { label: 'Soluções', href: '#solucoes' },
+  { label: 'Metodologia', href: '#metodologia' },
   { label: 'Inteligência Artificial', href: '#ia' },
   { label: 'Cases', href: '#cases' },
   { label: 'Estimador', href: '#estimador', badge: 'Simular' },
   { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'Contato', href: '#contato' },
+];
+
+export interface TeamRole {
+  step: string;
+  title: string;
+  desc: string;
+  icon: string;
+}
+
+export const TEAM_ROLES: TeamRole[] = [
+  {
+    step: '01',
+    title: 'Time Comercial & Discovery',
+    desc: 'Entende a fundo o seu negócio antes de qualquer linha de código ser escrita.',
+    icon: 'Users'
+  },
+  {
+    step: '02',
+    title: 'Product Owners',
+    desc: 'Traduz visão de negócio em backlog priorizado e decisões de escopo ágeis.',
+    icon: 'Compass'
+  },
+  {
+    step: '03',
+    title: 'UX/UI Designers',
+    desc: 'Desenha jornadas e interfaces validadas com usuários reais antes do desenvolvimento.',
+    icon: 'Palette'
+  },
+  {
+    step: '04',
+    title: 'Arquitetos de Software',
+    desc: 'Projeta a arquitetura técnica, escalável e segura, sob medida para o seu produto.',
+    icon: 'Boxes'
+  },
+  {
+    step: '05',
+    title: 'Engenheiros de Desenvolvimento',
+    desc: 'Constrói o sistema em sprints, com código limpo e 100% documentado.',
+    icon: 'Code2'
+  },
+  {
+    step: '06',
+    title: 'Quality Assurance',
+    desc: 'Testa cada entrega à exaustão até garantir zero bugs críticos em produção.',
+    icon: 'Bug'
+  }
 ];
 
 export const TRUST_PILLARS = [
