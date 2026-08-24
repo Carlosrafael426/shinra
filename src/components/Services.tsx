@@ -5,7 +5,7 @@ import {
   Bot, 
   Smartphone, 
   Cpu, 
-  ServerCrash, 
+  Sparkles, 
   ArrowRight, 
   CheckCircle2, 
   Layers
@@ -22,14 +22,14 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
     switch (iconName) {
       case 'LayoutGrid':
         return <LayoutGrid className="w-6 h-6 text-blue-400" />;
-      case 'Bot':
-        return <Bot className="w-6 h-6 text-blue-400" />;
       case 'Smartphone':
         return <Smartphone className="w-6 h-6 text-blue-400" />;
+      case 'Bot':
+        return <Bot className="w-6 h-6 text-blue-400" />;
+      case 'Sparkles':
+        return <Sparkles className="w-6 h-6 text-blue-400" />;
       case 'Cpu':
         return <Cpu className="w-6 h-6 text-blue-400" />;
-      case 'ServerCrash':
-        return <ServerCrash className="w-6 h-6 text-blue-400" />;
       default:
         return <Layers className="w-6 h-6 text-blue-400" />;
     }
@@ -38,21 +38,20 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const currentService = SERVICES_DATA.find((s) => s.id === selectedServiceId) || SERVICES_DATA[0];
 
   return (
-    <section id="servicos" className="py-24 relative bg-[#0b0f19] border-b border-slate-800">
+    <section id="solucoes" className="py-24 relative bg-[#090d16] border-b border-slate-800">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
-            <Layers className="w-3.5 h-3.5 text-blue-400" />
-            <span>Capacidades de Engenharia de Software</span>
-          </div>
+        <div className="max-w-3xl mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-400 block mb-2">
+            Nossas Especialidades
+          </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Soluções sob medida para <span className="text-blue-400">desafios de alta complexidade</span>.
+            Alta tecnologia embarcada no <span className="text-blue-400">desenvolvimento de softwares</span>.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light">
-            Não entregamos apenas código; projetamos sistemas resilientes, seguros e estruturados para suportar crescimento exponencial.
+          <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+            A Shinra analisa o seu projeto e fornece a solução ideal baseada no que é necessário para o seu crescimento. Seja no Design Sprint, Ágil ou microsserviços, nós desenvolvemos com máxima eficiência.
           </p>
         </div>
 
@@ -120,7 +119,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   </div>
                   <div>
                     <span className="text-xs font-mono text-blue-400 uppercase tracking-wider">
-                      Serviço Especializado
+                      Solução Especializada
                     </span>
                     <h3 className="font-display text-2xl font-bold text-white">
                       {currentService.title}
@@ -140,7 +139,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
                 {/* Key Features List */}
                 <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
-                  <span>Diferenciais de Arquitetura & Entregáveis</span>
+                  <span>Diferenciais de Entrega & Metodologia</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
                   {currentService.features.map((feature, idx) => (
@@ -159,7 +158,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {/* Tech Stack Pills */}
                 <div className="mb-8">
                   <span className="text-xs font-mono uppercase tracking-widest text-slate-400 block mb-3">
-                    Tecnologias Empregadas:
+                    Tecnologias & Ferramentas Utilizadas:
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {currentService.techStack.map((tech, idx) => (
@@ -176,13 +175,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {/* Action CTA */}
                 <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-slate-400">
-                    <span className="text-white font-medium">Estimativa média de sprint:</span> 2 a 6 semanas para MVP
+                    <span className="text-white font-medium">Metodologia Ágil:</span> Sprints quinzenais com staging ao vivo
                   </div>
                   <button
                     onClick={() => onSelectService(currentService.title)}
                     className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/30"
                   >
-                    <span>Especificar este Projeto</span>
+                    <span>Iniciar este Projeto</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
