@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contato" className="py-24 relative bg-[#090d16] border-b border-slate-800">
+    <section id="contato" className="py-24 relative bg-[#0b0f19] border-b border-slate-800">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -51,12 +51,12 @@ export const ContactSection: React.FC = () => {
           {/* Left Info Column */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 <span>Inicie sua Próxima Evolução</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                Vamos construir seu sistema com <span className="text-slate-200 underline decoration-slate-600 underline-offset-8">engenharia de ponta</span>.
+                Vamos construir seu sistema com <span className="text-blue-400">engenharia de ponta</span>.
               </h2>
               <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
                 Preencha o formulário para receber uma sessão de diagnóstico técnico com nossa equipe de arquitetos de software em até 2 horas úteis.
@@ -66,7 +66,7 @@ export const ContactSection: React.FC = () => {
             {/* Quick Contact Badges */}
             <div className="space-y-4">
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                <div className="p-3 rounded-xl bg-slate-800 text-slate-200">
+                <div className="p-3 rounded-xl bg-blue-600/15 text-blue-400 border border-blue-500/30">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                <div className="p-3 rounded-xl bg-slate-800 text-slate-200">
+                <div className="p-3 rounded-xl bg-blue-600/15 text-blue-400 border border-blue-500/30">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                <div className="p-3 rounded-xl bg-slate-800 text-slate-200">
+                <div className="p-3 rounded-xl bg-blue-600/15 text-blue-400 border border-blue-500/30">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
@@ -105,7 +105,7 @@ export const ContactSection: React.FC = () => {
               <button
                 type="button"
                 onClick={handleWhatsAppDirect}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-950 hover:bg-white transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors flex items-center gap-1.5 cursor-pointer shadow-md shadow-blue-600/25"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>Abrir Chat</span>
@@ -119,7 +119,7 @@ export const ContactSection: React.FC = () => {
               
               {isSuccess ? (
                 <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 text-slate-200 mx-auto flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/40 text-blue-400 mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="font-display text-2xl font-bold text-white">
@@ -130,7 +130,7 @@ export const ContactSection: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="px-6 py-2.5 rounded-xl bg-slate-800 text-xs font-mono text-slate-200 hover:bg-slate-700 transition-colors cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-slate-800 text-xs font-mono text-blue-300 hover:bg-slate-700 transition-colors cursor-pointer"
                   >
                     Enviar outra mensagem
                   </button>
@@ -148,7 +148,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="Ex: Roberto Mendes"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       />
                     </div>
 
@@ -162,7 +162,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="roberto@empresa.com.br"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -178,7 +178,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="(11) 98765-4321"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       />
                     </div>
 
@@ -191,7 +191,7 @@ export const ContactSection: React.FC = () => {
                         placeholder="Ex: StartUp Tech"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -204,7 +204,7 @@ export const ContactSection: React.FC = () => {
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       >
                         <option>SaaS / Plataforma Web</option>
                         <option>App Mobile (iOS & Android)</option>
@@ -221,7 +221,7 @@ export const ContactSection: React.FC = () => {
                       <select
                         value={formData.budgetRange}
                         onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       >
                         <option>R$ 15k a R$ 30k (MVP)</option>
                         <option>R$ 30k a R$ 60k (Tração)</option>
@@ -240,18 +240,18 @@ export const ContactSection: React.FC = () => {
                       placeholder="Conte-nos brevemente o objetivo do sistema, integrações necessárias ou prazo desejado..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-slate-400 transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl font-bold text-sm text-slate-950 bg-slate-100 hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-md"
+                    className="w-full py-4 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-lg shadow-blue-600/30"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                         Processando solicitação...
                       </span>
                     ) : (

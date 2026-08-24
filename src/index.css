@@ -14,40 +14,29 @@
   }
 }
 
-/* Clean Tech Solid / Light Gray Accents */
+/* Premium Dark + Tech Blue + Light Gray Harmony */
+.bg-app {
+  background-color: #0b0f19;
+}
+
 .glass-card {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.12);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.1);
 }
 
-.glass-card-hover {
-  transition: all 0.25s ease-in-out;
+.glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
 }
 
-.glass-card-hover:hover {
-  background: rgba(30, 41, 59, 0.9);
-  border-color: rgba(226, 232, 240, 0.35);
-  transform: translateY(-2px);
+.card-tech {
+  background-color: #0f172a;
+  border: 1px solid rgba(51, 65, 85, 0.9);
 }
 
-.text-gradient-cyan,
-.text-gradient-emerald,
-.text-gradient-shinra {
-  color: #f1f5f9;
-}
-
-.text-light-gray {
-  color: #e2e8f0;
-}
-
-.text-muted-gray {
-  color: #94a3b8;
-}
-
-.border-light-gray {
-  border-color: rgba(226, 232, 240, 0.15);
+.card-tech:hover {
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 /* Animations */
@@ -66,20 +55,20 @@
   animation-play-state: paused;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #0b0f19;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1e293b;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #cbd5e1;
+  background: #3b82f6;
 }

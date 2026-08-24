@@ -28,7 +28,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans selection:bg-slate-700 selection:text-white">
+    <div className="min-h-screen bg-[#0b0f19] text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-200">
       
       {/* Navigation */}
       <Navbar onOpenModal={() => handleOpenModal()} />
@@ -76,10 +76,10 @@ export function App() {
           href="https://wa.me/5511999999999?text=Ol%C3%A1%20Shinra%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20sistema."
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-slate-100 text-slate-950 font-bold text-xs shadow-2xl hover:scale-105 hover:bg-white transition-all duration-200"
+          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-blue-600 text-white font-bold text-xs shadow-xl shadow-blue-600/30 hover:scale-105 hover:bg-blue-500 transition-all duration-200"
           aria-label="Falar pelo WhatsApp"
         >
-          <MessageSquare className="w-4 h-4 fill-slate-950" />
+          <MessageSquare className="w-4 h-4 fill-white" />
           <span className="hidden sm:inline">WhatsApp Plantão</span>
         </a>
       </div>
