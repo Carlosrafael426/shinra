@@ -7,21 +7,21 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#02040a] border-t border-slate-800/80 pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-[#060910] border-t border-slate-800 pt-16 pb-12 relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-cyan-500/20 border border-cyan-400/40 p-1 flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-cyan-400" />
+              <div className="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center">
+                <Cpu className="w-5 h-5 text-slate-200" />
               </div>
               <span className="font-display text-2xl font-bold tracking-wider text-white">
-                SHINRA<span className="text-cyan-400">.</span>
+                SHINRA<span className="text-slate-400">.</span>
               </span>
             </div>
 
@@ -30,15 +30,15 @@ export const Footer: React.FC = () => {
             </p>
 
             {/* Live Operational Status */}
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-[11px] font-mono text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-slate-400" />
               <span>Infraestrutura Shinra Cloud: 99.99% Uptime</span>
             </div>
           </div>
 
           {/* Col 3: Soluções */}
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-300 mb-4">
               Soluções
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Links Rápidos */}
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-300 mb-4">
               Navegação
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
@@ -66,14 +66,14 @@ export const Footer: React.FC = () => {
 
           {/* Col 5: Segurança & Conformidade */}
           <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-4">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-300 mb-4">
               Conformidade
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> LGPD & GDPR Ready</li>
-              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-cyan-400" /> OWASP Top 10 Standards</li>
-              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-purple-400" /> Criptografia TLS 1.3 / AES-256</li>
-              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> Acordo de NDA & IP Transfer</li>
+              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-slate-400" /> LGPD & GDPR Ready</li>
+              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-slate-400" /> OWASP Top 10 Standards</li>
+              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-slate-400" /> Criptografia TLS 1.3 / AES-256</li>
+              <li className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-slate-400" /> Acordo de NDA & IP Transfer</li>
             </ul>
           </div>
 
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 text-slate-400 hover:text-cyan-300 transition-colors flex items-center gap-1 cursor-pointer"
+              className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-600 text-slate-400 hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
             >
               <span>Topo</span>
               <ArrowUp className="w-3.5 h-3.5" />

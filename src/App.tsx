@@ -28,7 +28,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040711] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#090d16] text-slate-100 font-sans selection:bg-slate-700 selection:text-white">
       
       {/* Navigation */}
       <Navbar onOpenModal={() => handleOpenModal()} />
@@ -76,7 +76,7 @@ export function App() {
           href="https://wa.me/5511999999999?text=Ol%C3%A1%20Shinra%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20sistema."
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#25D366] text-slate-950 font-bold text-xs shadow-2xl shadow-[#25D366]/30 hover:scale-105 hover:bg-[#22c35e] transition-all duration-300"
+          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-slate-100 text-slate-950 font-bold text-xs shadow-2xl hover:scale-105 hover:bg-white transition-all duration-200"
           aria-label="Falar pelo WhatsApp"
         >
           <MessageSquare className="w-4 h-4 fill-slate-950" />

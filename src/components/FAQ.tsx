@@ -17,18 +17,18 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 relative bg-[#040711] overflow-hidden border-t border-slate-800">
+    <section id="faq" className="py-24 relative bg-[#090d16] border-b border-slate-800">
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400 mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Dúvidas Frequentes & Transparência</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Tudo o que você precisa saber antes de <span className="text-gradient-cyan">iniciar seu projeto</span>.
+            Tudo o que você precisa saber antes de <span className="text-slate-200 underline decoration-slate-600 underline-offset-8">iniciar seu projeto</span>.
           </h2>
           <p className="text-sm sm:text-base text-slate-300 font-light">
             Esclarecemos modelos contratuais, propriedade de código, prazos e sustentação técnica.
@@ -43,8 +43,8 @@ export const FAQ: React.FC = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-mono transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-bold shadow-[0_0_15px_rgba(0,242,254,0.2)]'
-                  : 'bg-slate-900/60 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700'
+                  ? 'bg-slate-200 text-slate-950 font-bold shadow-sm'
+                  : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700'
               }`}
             >
               {cat}
@@ -59,10 +59,10 @@ export const FAQ: React.FC = () => {
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'bg-[#0d1424] border-cyan-500/40 shadow-lg shadow-cyan-950/20'
-                    : 'bg-slate-900/40 border-slate-800 hover:border-slate-700'
+                    ? 'bg-slate-900 border-slate-600 shadow-md'
+                    : 'bg-slate-950 border-slate-800 hover:border-slate-700'
                 }`}
               >
                 <button
@@ -71,7 +71,7 @@ export const FAQ: React.FC = () => {
                   className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-cyan-400 border border-slate-700">
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
                       {item.category}
                     </span>
                     <span className="font-display font-semibold text-white text-sm sm:text-base leading-snug">
@@ -79,14 +79,14 @@ export const FAQ: React.FC = () => {
                     </span>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-cyan-400 transition-transform duration-300 flex-shrink-0 ${
-                      isOpen ? 'rotate-180 text-cyan-300' : ''
+                    className={`w-5 h-5 text-slate-400 transition-transform duration-200 flex-shrink-0 ${
+                      isOpen ? 'rotate-180 text-white' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-slate-300 font-light leading-relaxed border-t border-slate-800/60">
+                  <div className="px-6 pb-6 pt-2 text-xs sm:text-sm text-slate-300 font-light leading-relaxed border-t border-slate-800">
                     {item.answer}
                   </div>
                 )}
@@ -96,7 +96,7 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Support Callout */}
-        <div className="mt-12 text-center p-6 rounded-2xl bg-slate-900/40 border border-slate-800">
+        <div className="mt-12 text-center p-6 rounded-2xl bg-slate-900 border border-slate-800">
           <p className="text-xs text-slate-300 mb-2">
             Ainda tem uma dúvida técnica ou arquitetura específica para discutir?
           </p>
@@ -104,7 +104,7 @@ export const FAQ: React.FC = () => {
             href="https://wa.me/5511999999999?text=Ol%C3%A1%20Shinra%2C%20tenho%20uma%20d%C3%BAvida%20t%C3%A9cnica%20sobre%20meu%20projeto."
             target="_blank"
             rel="noreferrer"
-            className="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline font-semibold"
+            className="text-xs font-mono text-slate-300 hover:text-white underline font-semibold"
           >
             Falar diretamente com um Arquiteto de Soluções →
           </a>
