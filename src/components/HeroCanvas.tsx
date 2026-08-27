@@ -56,7 +56,7 @@ function Wave() {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        color="#3b82f6"
+        color="#06b6d4"
         size={0.06}
         sizeAttenuation
         transparent

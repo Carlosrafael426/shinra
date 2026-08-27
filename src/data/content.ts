@@ -61,20 +61,20 @@ export const HERO_SLIDES = [
   },
   {
     eyebrow: 'Manutenção e evolução',
-    title: 'Cuido do site que você já tem.',
+    title: 'Cuidamos do site que você já tem.',
     text: 'Ajustes, novas seções, correções e melhora de performance em projetos que já estão no ar.',
   },
   {
     eyebrow: 'IA e automações',
     title: 'Integração com IA e automação de tarefas.',
-    text: 'Conecto seu site a APIs de IA e automatizo o trabalho manual que se repete todo dia.',
+    text: 'Conectamos seu site a APIs de IA e automatizamos o trabalho manual que se repete todo dia.',
   },
 ];
 
 // "O que você ganha" — benefícios verificáveis.
 export const BENEFITS = [
   { title: 'Escopo e prazo por escrito', desc: 'Você sabe o que vai receber e em quanto tempo antes de começar.' },
-  { title: 'Sem intermediário', desc: 'Fala direto comigo, do primeiro contato ao suporte depois da entrega.' },
+  { title: 'Contato direto', desc: 'Você fala com quem desenvolve, do primeiro contato ao suporte depois da entrega.' },
   { title: 'Código 100% seu', desc: 'Código-fonte e acessos são seus. Sem lock-in.' },
   { title: 'Entrega publicada', desc: 'O projeto vai para o ar funcionando, não fica só em arquivo.' },
   { title: 'Acompanhamento no caminho', desc: 'Versões para revisão ao longo do desenvolvimento.' },
@@ -83,7 +83,7 @@ export const BENEFITS = [
 
 // Também ajudo com — apoios que entram junto do projeto.
 export const ADDONS = [
-  { title: 'Domínio e publicação', desc: 'Configuro domínio, hospedagem e deixo tudo publicado e acessível.' },
+  { title: 'Domínio e publicação', desc: 'Configuração de domínio, hospedagem e publicação, tudo acessível.' },
   { title: 'SEO básico', desc: 'Títulos, descrições e estrutura semântica para o site ser encontrado.' },
   { title: 'Integrações com APIs', desc: 'Formulários, pagamentos, mapas, IA e outros serviços conectados ao site.' },
 ];
@@ -91,7 +91,7 @@ export const ADDONS = [
 // Três princípios curtos, mostrados de forma compacta no Hero.
 export const PRINCIPLES = [
   { title: 'Escopo por escrito', desc: 'O que será entregue, o prazo e o valor combinados antes de começar.' },
-  { title: 'Quem atende programa', desc: 'Você fala direto comigo, do primeiro contato ao suporte.' },
+  { title: 'Contato direto', desc: 'Você fala com quem desenvolve, do primeiro contato ao suporte.' },
   { title: 'Código 100% seu', desc: 'Código-fonte e acessos são seus, sem dependência da Shinra.' },
 ];
 
@@ -99,12 +99,12 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: '01',
     title: 'Conversa e proposta',
-    description: 'Entendo o negócio e o objetivo. Você recebe escopo, prazo e valor por escrito antes de qualquer código.',
+    description: 'A Shinra entende o negócio e o objetivo. Você recebe escopo, prazo e valor por escrito antes de qualquer código.',
   },
   {
     step: '02',
     title: 'Desenvolvimento com acompanhamento',
-    description: 'Eu programo e envio versões para revisão ao longo do caminho. Ajustes combinados durante o projeto.',
+    description: 'O desenvolvimento acontece com versões enviadas para revisão ao longo do caminho. Ajustes combinados durante o projeto.',
   },
   {
     step: '03',

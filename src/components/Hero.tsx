@@ -23,10 +23,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
     <section
       id="top"
-      className="relative min-h-[42rem] flex items-center pt-32 pb-24 overflow-hidden bg-hero-spotlight"
+      className="relative min-h-[46rem] flex items-center pt-36 pb-28 overflow-hidden bg-hero-spotlight border-b-2 border-cyan-400 shadow-[0_30px_90px_-20px_rgba(34,211,238,0.55)]"
     >
+      {/* three.js — campo de pontos em azul piscina sobre o branco */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-60 [mask-image:radial-gradient(120%_90%_at_75%_15%,black,transparent_74%)]"
+        className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(120%_90%_at_75%_12%,black,transparent_74%)]"
         aria-hidden="true"
       >
         <Suspense fallback={null}>
@@ -35,8 +36,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/70 backdrop-blur border border-slate-200 text-xs font-mono text-blue-500 mb-7">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-cyan-400/50 text-xs font-mono text-cyan-600 mb-7 neon-ring">
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
           <span>{slide.eyebrow}</span>
         </div>
 
@@ -56,24 +57,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <div className="flex flex-col sm:flex-row gap-3 mb-10">
           <button
             onClick={onOpenModal}
-            className="group px-6 py-3.5 rounded-lg text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25 active:scale-95"
+            className="group px-6 py-3.5 rounded-lg text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_26px_rgba(34,211,238,0.6)] active:scale-95"
           >
             <span>Solicitar orçamento</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
           <a
             href="#solucoes"
-            className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-700 hover:text-slate-900 bg-white/70 backdrop-blur hover:bg-white border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             Ver serviços
           </a>
         </div>
 
-        {/* Slider controls */}
         <div className="flex items-center gap-3">
           <button
             onClick={() => go(i - 1)}
-            className="w-9 h-9 rounded-full bg-white/70 backdrop-blur border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-cyan-400/60 transition-colors cursor-pointer"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -85,14 +85,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
                 onClick={() => setI(idx)}
                 aria-label={`Slide ${idx + 1}`}
                 className={`h-1.5 rounded-full transition-all ${
-                  idx === i ? 'w-6 bg-blue-500' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                  idx === i
+                    ? 'w-6 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'
+                    : 'w-1.5 bg-slate-300 hover:bg-slate-400'
                 }`}
               />
             ))}
           </div>
           <button
             onClick={() => go(i + 1)}
-            className="w-9 h-9 rounded-full bg-white/70 backdrop-blur border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-cyan-400/60 transition-colors cursor-pointer"
             aria-label="Próximo"
           >
             <ChevronRight className="w-4 h-4" />

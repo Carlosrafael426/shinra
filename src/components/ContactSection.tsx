@@ -39,24 +39,24 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left */}
           <Reveal>
-            <p className="text-xs font-mono uppercase tracking-widest text-blue-500 mb-3">
+            <p className="text-xs font-mono uppercase tracking-widest text-cyan-400 neon-text mb-3">
               Contato
             </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
               Tem um projeto em mente?
             </h2>
-            <p className="text-sm text-slate-600 font-light leading-relaxed mb-8 max-w-md">
-              Descreva o que você precisa. Eu respondo para entender a ideia e dizer o que
+            <p className="text-sm text-slate-300 font-light leading-relaxed mb-8 max-w-md">
+              Descreva o que você precisa. A Shinra responde para entender a ideia e dizer o que
               dá para fazer, em quanto tempo e como seguimos.
             </p>
 
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-3 text-slate-700">
-                <Mail className="w-4 h-4 text-blue-500" />
+              <div className="flex items-center gap-3 text-slate-200">
+                <Mail className="w-4 h-4 text-cyan-400" />
                 <span className="font-mono">contato@exemplo.com</span>
               </div>
-              <div className="flex items-center gap-3 text-slate-700">
-                <Phone className="w-4 h-4 text-blue-500" />
+              <div className="flex items-center gap-3 text-slate-200">
+                <Phone className="w-4 h-4 text-cyan-400" />
                 <span className="font-mono">(00) 00000-0000</span>
               </div>
             </div>
@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
             <button
               type="button"
               onClick={handleWhatsAppDirect}
-              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-500 transition-colors flex items-center gap-2 cursor-pointer"
+              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#0b0b0d] border border-white/10 text-slate-200 hover:border-cyan-400/40 hover:text-cyan-400 transition-colors flex items-center gap-2 cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               Falar pelo WhatsApp
@@ -76,19 +76,19 @@ export const ContactSection: React.FC = () => {
 
           {/* Form */}
           <Reveal delay={100}>
-            <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8">
+            <div className="rounded-2xl bg-[#0b0b0d] border border-white/10 p-6 sm:p-8">
               {isSuccess ? (
                 <div className="text-center py-10 space-y-3">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 text-blue-500 mx-auto flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-400/30 text-cyan-400 mx-auto flex items-center justify-center">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="font-display text-xl font-bold text-slate-900">Mensagem recebida!</h3>
-                  <p className="text-sm text-slate-600 max-w-xs mx-auto">
-                    Vou responder assim que possível, por e-mail ou WhatsApp.
+                  <h3 className="font-display text-xl font-bold text-white">Mensagem recebida!</h3>
+                  <p className="text-sm text-slate-300 max-w-xs mx-auto">
+                    A Shinra responde assim que possível, por e-mail ou WhatsApp.
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
-                    className="text-xs font-mono text-blue-500 hover:text-blue-500 cursor-pointer"
+                    className="text-xs font-mono text-cyan-400 hover:text-cyan-400 cursor-pointer"
                   >
                     Enviar outra
                   </button>
@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="Seu nome *"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#141418] border border-white/10 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-400/40 transition-colors"
                     />
                     <input
                       type="email"
@@ -110,7 +110,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="E-mail *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#141418] border border-white/10 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-400/40 transition-colors"
                     />
                   </div>
 
@@ -120,12 +120,12 @@ export const ContactSection: React.FC = () => {
                       placeholder="WhatsApp"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#141418] border border-white/10 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-400/40 transition-colors"
                     />
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#141418] border border-white/10 text-sm text-white focus:outline-none focus:border-cyan-400/40 transition-colors"
                     >
                       <option>Sites e landing pages</option>
                       <option>Sistemas web sob medida</option>
@@ -140,13 +140,13 @@ export const ContactSection: React.FC = () => {
                     placeholder="Descreva brevemente sua ideia ou necessidade"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-[#141418] border border-white/10 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-cyan-400/40 transition-colors resize-none"
                   />
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-blue-500 hover:bg-blue-400 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-lg shadow-blue-500/25"
+                    className="w-full py-3.5 rounded-xl font-bold text-sm text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 shadow-lg shadow-cyan-400/25"
                   >
                     {isSubmitting ? (
                       <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

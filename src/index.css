@@ -14,32 +14,37 @@
   }
 }
 
-/* Fundo azul claro com textura de pontos. Cards brancos por cima. */
+/* Fundo preto com textura de pontos em azul piscina. */
 .bg-tech-dots {
-  background-color: #e6eefb;
-  background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+  background-color: #000000;
+  background-image: radial-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px);
   background-size: 34px 34px;
 }
 
-/* Hero: azul claro com um brilho mais claro no topo para o three.js aparecer. */
+/* Hero em branco — destaque forte contra o preto do resto do site. */
 .bg-hero-spotlight {
   background:
-    radial-gradient(65% 60% at 70% 12%, rgba(147, 197, 253, 0.55), transparent 72%),
-    #e6eefb;
+    radial-gradient(70% 60% at 50% 6%, rgba(34, 211, 238, 0.16), transparent 70%),
+    #ffffff;
 }
 
-/* Animações */
+/* Neon azul piscina */
+.neon-text {
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.7), 0 0 22px rgba(34, 211, 238, 0.35);
+}
+.neon-ring {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.55), 0 0 28px rgba(34, 211, 238, 0.4);
+}
+
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
 }
-
 .animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 32s linear infinite;
 }
-
 .animate-marquee:hover {
   animation-play-state: paused;
 }
@@ -57,20 +62,16 @@
   }
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #eef0f3;
+  background: #0a0a0a;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #c2c8d2;
+  background: #1f2937;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #22d3ee;
 }
