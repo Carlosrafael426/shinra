@@ -2,14 +2,9 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
-import { Showcase } from './components/Showcase';
+import { ResponsiveText } from './components/ResponsiveText';
 import { Benefits } from './components/Benefits';
-import { Methodology } from './components/Methodology';
 import { AddOns } from './components/AddOns';
-import { CaseStudies } from './components/CaseStudies';
-import { ProjectEstimator } from './components/ProjectEstimator';
-import { FAQ } from './components/FAQ';
-import { ContactSection } from './components/ContactSection';
 import { CtaBand } from './components/CtaBand';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
@@ -28,17 +23,12 @@ export function App() {
     <div className="min-h-screen bg-tech-dots bg-fixed text-white font-sans selection:bg-cyan-400 selection:text-black relative overflow-x-hidden">
       <Navbar onOpenModal={() => handleOpenModal()} />
 
-      <main className="relative z-10 divide-y divide-white/10">
+      <main className="relative z-10">
         <Hero onOpenModal={() => handleOpenModal()} />
         <Services onSelectService={(t) => handleOpenModal(t)} />
-        <Showcase />
+        <ResponsiveText onOpenModal={() => handleOpenModal()} />
         <Benefits />
-        <Methodology />
         <AddOns />
-        <CaseStudies onOpenModal={() => handleOpenModal()} />
-        <ProjectEstimator />
-        <FAQ />
-        <ContactSection />
         <CtaBand onOpenModal={() => handleOpenModal()} />
       </main>
 

@@ -4,9 +4,8 @@ import { Cpu, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 const NAV = [
   { label: 'Início', href: '#top' },
   { label: 'Sobre', href: '#sobre' },
-  { label: 'Projetos', href: '#cases' },
-  { label: 'Estimativa', href: '#estimador' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Serviços', href: '#solucoes' },
+  { label: 'Orçamento', href: '#rodape' },
 ];
 
 const SERVICES = [
@@ -18,7 +17,7 @@ const SERVICES = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0b0b0d] border-t border-white/10">
+    <footer id="rodape" className="bg-[#0b0b0d] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}

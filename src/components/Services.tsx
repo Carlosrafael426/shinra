@@ -25,23 +25,8 @@ const icon = (name: string) => {
 
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   return (
-    <section id="solucoes" className="py-24 sm:py-28 bg-transparent">
+    <section id="solucoes" className="py-20 sm:py-24 bg-transparent -mt-px">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="text-xs font-mono uppercase tracking-widest text-cyan-400 neon-text mb-3">
-              Serviços
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
-              O que a Shinra desenvolve
-            </h2>
-            <p className="text-sm sm:text-base text-slate-300 font-light">
-              De um site institucional a um sistema com login e painel administrativo. Você
-              conta o problema; a Shinra diz o que dá para fazer, em quanto tempo e por quanto.
-            </p>
-          </div>
-        </Reveal>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {SERVICES_DATA.map((s, idx) => (
             <Reveal key={s.id} delay={idx * 70}>

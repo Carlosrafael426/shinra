@@ -23,11 +23,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
   return (
     <section
       id="top"
-      className="relative min-h-[46rem] flex items-center pt-36 pb-28 overflow-hidden bg-hero-spotlight border-b-2 border-cyan-400 shadow-[0_30px_90px_-20px_rgba(34,211,238,0.55)]"
+      className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-hero-spotlight border-b-2 border-cyan-400 shadow-[0_30px_90px_-20px_rgba(34,211,238,0.55)]"
     >
       {/* three.js — campo de pontos em azul piscina sobre o branco */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(120%_90%_at_75%_12%,black,transparent_74%)]"
+        className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(130%_100%_at_70%_10%,black,transparent_78%)]"
         aria-hidden="true"
       >
         <Suspense fallback={null}>
@@ -35,70 +35,73 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         </Suspense>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-cyan-400/50 text-xs font-mono text-cyan-600 mb-7 neon-ring">
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-          <span>{slide.eyebrow}</span>
-        </div>
+      {/* Edge arrows */}
+      <button
+        onClick={() => go(i - 1)}
+        aria-label="Anterior"
+        className="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-slate-200 items-center justify-center text-slate-700 hover:border-cyan-400/60 hover:text-cyan-600 transition-colors cursor-pointer shadow-md"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() => go(i + 1)}
+        aria-label="Próximo"
+        className="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-slate-200 items-center justify-center text-slate-700 hover:border-cyan-400/60 hover:text-cyan-600 transition-colors cursor-pointer shadow-md"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
 
-        <h1
-          key={`t-${i}`}
-          className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-5 max-w-3xl animate-[fadeIn_.4s_ease-out_both]"
-        >
-          {slide.title}
-        </h1>
-        <p
-          key={`p-${i}`}
-          className="text-base sm:text-lg text-slate-600 leading-relaxed mb-9 max-w-xl font-light animate-[fadeIn_.5s_ease-out_both]"
-        >
-          {slide.text}
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 mb-10">
-          <button
-            onClick={onOpenModal}
-            className="group px-6 py-3.5 rounded-lg text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_26px_rgba(34,211,238,0.6)] active:scale-95"
-          >
-            <span>Solicitar orçamento</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </button>
-          <a
-            href="#solucoes"
-            className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-          >
-            Ver serviços
-          </a>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => go(i - 1)}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-cyan-400/60 transition-colors cursor-pointer"
-            aria-label="Anterior"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <div className="flex items-center gap-1.5">
-            {HERO_SLIDES.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setI(idx)}
-                aria-label={`Slide ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === i
-                    ? 'w-6 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'
-                    : 'w-1.5 bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
+      {/* Slide content — lower-left */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-40">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-cyan-400/50 text-xs font-mono text-cyan-600 mb-6 neon-ring">
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span>{slide.eyebrow}</span>
           </div>
-          <button
-            onClick={() => go(i + 1)}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:border-cyan-400/60 transition-colors cursor-pointer"
-            aria-label="Próximo"
+
+          <h1
+            key={`t-${i}`}
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5 animate-[fadeIn_.4s_ease-out_both]"
           >
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            {slide.title}
+          </h1>
+          <p
+            key={`p-${i}`}
+            className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl font-light animate-[fadeIn_.5s_ease-out_both]"
+          >
+            {slide.text}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <a
+              href="#solucoes"
+              className="group px-6 py-3.5 rounded-lg text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center gap-2 cursor-pointer shadow-[0_0_26px_rgba(34,211,238,0.6)]"
+            >
+              Saiba mais
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
+            <button
+              onClick={onOpenModal}
+              className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer"
+            >
+              Solicitar orçamento
+            </button>
+
+            <div className="flex items-center gap-1.5 sm:ml-4 mt-2 sm:mt-0">
+              {HERO_SLIDES.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setI(idx)}
+                  aria-label={`Slide ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    idx === i
+                      ? 'w-6 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'
+                      : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
