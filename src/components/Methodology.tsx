@@ -7,7 +7,7 @@ export const Methodology: React.FC = () => {
     <section id="metodologia" className="py-24 sm:py-32 bg-transparent">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">
+          <p className="text-xs font-mono uppercase tracking-widest text-blue-500 mb-3">
             Como funciona
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-16 max-w-2xl">
@@ -16,13 +16,13 @@ export const Methodology: React.FC = () => {
         </Reveal>
 
         <Reveal>
-          <div className="rounded-2xl border border-slate-300 bg-[#C1BAA1] divide-y divide-slate-300 overflow-hidden">
+          <div className="rounded-2xl border border-slate-200 bg-white divide-y divide-slate-200 overflow-hidden">
             {PROCESS_STEPS.map((step) => (
               <div
                 key={step.step}
                 className="grid grid-cols-1 sm:grid-cols-[72px_1fr] gap-3 sm:gap-8 p-6 sm:p-8"
               >
-                <span className="font-mono text-2xl font-extrabold text-blue-600/40">
+                <span className="font-mono text-2xl font-extrabold text-blue-500/40">
                   {step.step}
                 </span>
                 <div>

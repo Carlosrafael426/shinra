@@ -113,12 +113,12 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C1BAA1] border border-blue-300/30 text-xs font-mono text-blue-600 mb-4">
-            <Calculator className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-blue-300/30 text-xs font-mono text-blue-500 mb-4">
+            <Calculator className="w-3.5 h-3.5 text-blue-500" />
             <span>Estimativa de escopo e prazo</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-            Monte seu projeto e veja uma <span className="text-blue-600">estimativa inicial de prazo</span>.
+            Monte seu projeto e veja uma <span className="text-blue-500">estimativa inicial de prazo</span>.
           </h2>
           <p className="text-base sm:text-lg text-slate-600 font-light">
             Selecione o tipo de projeto, o porte e os recursos para ter uma ideia do prazo e da complexidade. É um ponto de partida para a conversa, não um orçamento fechado.
@@ -131,7 +131,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
           <div className="lg:col-span-7 space-y-8">
 
             {/* Step 1: Project Type */}
-            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>01. Tipo de projeto</span>
               </label>
@@ -147,10 +147,10 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       className={`p-4 rounded-xl border text-left transition-all duration-200 flex items-start gap-3 cursor-pointer ${
                         isSelected
                           ? 'bg-blue-50 border-blue-300 text-slate-900 shadow-sm ring-1 ring-blue-300/30'
-                          : 'bg-white border-slate-300 text-slate-600 hover:border-slate-400'
+                          : 'bg-[#eef3fc] border-slate-200 text-slate-600 hover:border-blue-300'
                       }`}
                     >
-                      <div className={`p-2 rounded-lg ${isSelected ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'}`}>
+                      <div className={`p-2 rounded-lg ${isSelected ? 'bg-blue-500 text-white' : 'bg-[#eef3fc] text-blue-500'}`}>
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
@@ -164,7 +164,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 2: Scope size */}
-            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>02. Porte do projeto</span>
               </label>
@@ -179,7 +179,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       className={`p-4 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
                         isSelected
                           ? 'bg-blue-50 border-blue-300 text-slate-900 ring-1 ring-blue-300/30'
-                          : 'bg-white border-slate-300 text-slate-600 hover:border-slate-400'
+                          : 'bg-[#eef3fc] border-slate-200 text-slate-600 hover:border-blue-300'
                       }`}
                     >
                       <p className="font-semibold text-sm text-slate-900">{opt.name.split('/')[0]}</p>
@@ -191,7 +191,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 3: Features Checklist */}
-            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center justify-between">
                 <span>03. Recursos</span>
                 <span className="text-slate-500 lowercase font-normal">{selectedFeatures.length} selecionados</span>
@@ -207,15 +207,15 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       className={`p-3.5 rounded-xl border text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${
                         isSelected
                           ? 'bg-blue-50 border-blue-300 text-slate-900'
-                          : 'bg-white border-slate-300 text-slate-500 hover:border-slate-400'
+                          : 'bg-[#eef3fc] border-slate-200 text-slate-500 hover:border-blue-300'
                       }`}
                     >
                       <span className="text-xs font-medium text-slate-700">{feat.name}</span>
                       <div
                         className={`w-5 h-5 rounded-md flex items-center justify-center border transition-colors ${
                           isSelected
-                            ? 'bg-blue-600 border-blue-300 text-white'
-                            : 'border-slate-400 bg-white'
+                            ? 'bg-blue-500 border-blue-300 text-white'
+                            : 'border-slate-200 bg-[#eef3fc]'
                         }`}
                       >
                         {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -226,9 +226,9 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
               </div>
 
               {/* AI Add-on Toggle */}
-              <div className="mt-4 pt-4 border-t border-slate-300 flex items-center justify-between p-4 rounded-xl bg-white border border-blue-300/20">
+              <div className="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between p-4 rounded-xl bg-[#eef3fc] border border-blue-300/20">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-100 text-blue-600">
+                  <div className="p-2 rounded-lg bg-blue-100 text-blue-500">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
@@ -241,8 +241,8 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                   onClick={() => setIncludeAI(!includeAI)}
                   className={`px-4 py-1.5 rounded-lg text-xs font-bold font-mono transition-colors cursor-pointer ${
                     includeAI
-                      ? 'bg-blue-600 text-white shadow-sm'
-                      : 'bg-white text-slate-500 border border-slate-400'
+                      ? 'bg-blue-500 text-white shadow-sm'
+                      : 'bg-[#eef3fc] text-slate-500 border border-slate-200'
                   }`}
                 >
                   {includeAI ? 'INCLUSO' : 'DESATIVADO'}
@@ -254,10 +254,10 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
 
           {/* Right Live Summary & Proposal Submission Card */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-7 rounded-3xl bg-[#C1BAA1] border border-slate-400 shadow-2xl relative overflow-hidden">
+            <div className="p-7 rounded-3xl bg-white border border-slate-200 shadow-2xl relative overflow-hidden">
 
-              <div className="flex items-center justify-between pb-4 border-b border-slate-300">
-                <span className="text-xs font-mono text-blue-600 uppercase tracking-wider flex items-center gap-1.5">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                <span className="text-xs font-mono text-blue-500 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-blue-500" />
                   Estimativa
                 </span>
@@ -265,28 +265,28 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
               </div>
 
               {/* Estimate Numbers */}
-              <div className="py-6 border-b border-slate-300">
+              <div className="py-6 border-b border-slate-200">
                 <p className="text-xs font-mono text-slate-500 uppercase">Prazo estimado:</p>
-                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight mt-1 text-blue-600">
+                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight mt-1 text-blue-500">
                   ~{estimatedWeeks} semana{estimatedWeeks > 1 ? 's' : ''}
                 </div>
                 <div className="flex items-center gap-4 mt-3 text-xs text-slate-600">
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-blue-600" />
+                    <Clock className="w-4 h-4 text-blue-500" />
                     Complexidade: <strong>{complexityLabel}</strong>
                   </span>
                 </div>
               </div>
 
               {/* Blueprint Summary */}
-              <div className="py-4 space-y-2.5 text-xs text-slate-600 border-b border-slate-300">
+              <div className="py-4 space-y-2.5 text-xs text-slate-600 border-b border-slate-200">
                 <div className="flex justify-between gap-4">
                   <span className="text-slate-500">Tipo:</span>
                   <span className="font-semibold text-slate-900 text-right">{currentTypeObj.name}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span className="text-slate-500">Porte:</span>
-                  <span className="font-semibold text-blue-600 text-right">{currentScaleObj.name.split('/')[0]}</span>
+                  <span className="font-semibold text-blue-500 text-right">{currentScaleObj.name.split('/')[0]}</span>
                 </div>
                 <div className="flex justify-between gap-4">
                   <span className="text-slate-500">Recursos:</span>
@@ -294,15 +294,15 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                 </div>
                 <div className="flex justify-between gap-4">
                   <span className="text-slate-500">Integração com IA:</span>
-                  <span className={includeAI ? 'text-blue-600 font-semibold' : 'text-slate-500'}>
+                  <span className={includeAI ? 'text-blue-500 font-semibold' : 'text-slate-500'}>
                     {includeAI ? 'Sim' : 'Não'}
                   </span>
                 </div>
               </div>
 
               {/* Disclaimer */}
-              <div className="mt-4 p-3 rounded-xl bg-white border border-slate-300 flex items-start gap-2 text-[11px] text-slate-500 leading-relaxed">
-                <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+              <div className="mt-4 p-3 rounded-xl bg-[#eef3fc] border border-slate-200 flex items-start gap-2 text-[11px] text-slate-500 leading-relaxed">
+                <Info className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                 <span>Estimativa inicial, sujeita a conversa. O escopo, o prazo e o valor só são fechados por escrito depois de entender o projeto.</span>
               </div>
 
@@ -318,7 +318,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                     placeholder="Ex: Ana Martins"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                   />
                 </div>
 
@@ -332,20 +332,20 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                     placeholder="(00) 00000-0000"
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2.5 cursor-pointer mt-2 shadow-lg shadow-blue-600/30"
+                  className="w-full py-4 px-6 rounded-xl font-bold text-sm text-white bg-blue-500 hover:bg-blue-400 transition-all flex items-center justify-center gap-2.5 cursor-pointer mt-2 shadow-lg shadow-blue-500/30"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
                   <span>Enviar estimativa via WhatsApp</span>
                 </button>
 
                 <p className="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1.5 pt-1">
-                  <Info className="w-3.5 h-3.5 text-blue-600" />
+                  <Info className="w-3.5 h-3.5 text-blue-500" />
                   Sem compromisso. Quem responde é quem vai programar.
                 </p>
               </form>

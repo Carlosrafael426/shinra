@@ -14,18 +14,18 @@
   }
 }
 
-/* Fundo branco com textura de pontos discreta. Cards em prata por cima. */
+/* Fundo azul claro com textura de pontos. Cards brancos por cima. */
 .bg-tech-dots {
-  background-color: #ffffff;
-  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-color: #e6eefb;
+  background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px);
   background-size: 34px 34px;
 }
 
-/* Hero: branco com um leve brilho azul para o three.js aparecer. */
+/* Hero: azul claro com um brilho mais claro no topo para o three.js aparecer. */
 .bg-hero-spotlight {
   background:
-    radial-gradient(60% 55% at 72% 16%, rgba(37, 99, 235, 0.09), transparent 70%),
-    #ffffff;
+    radial-gradient(65% 60% at 70% 12%, rgba(147, 197, 253, 0.55), transparent 72%),
+    #e6eefb;
 }
 
 /* Animações */

@@ -10,7 +10,7 @@ export const FAQ: React.FC = () => {
     <section id="faq" className="py-24 sm:py-32 bg-transparent">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">
+          <p className="text-xs font-mono uppercase tracking-widest text-blue-500 mb-3">
             Perguntas frequentes
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-14">
@@ -18,7 +18,7 @@ export const FAQ: React.FC = () => {
           </h2>
         </Reveal>
 
-        <div className="divide-y divide-slate-300 border-y border-slate-300">
+        <div className="divide-y divide-slate-200 border-y border-slate-200">
           {FAQ_DATA.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
@@ -32,7 +32,7 @@ export const FAQ: React.FC = () => {
                     {item.question}
                   </span>
                   <Plus
-                    className={`w-4 h-4 text-blue-600 flex-shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-blue-500 flex-shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-45' : 'group-hover:rotate-90'
                     }`}
                   />

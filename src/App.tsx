@@ -24,7 +24,7 @@ export function App() {
     <div className="min-h-screen bg-tech-dots bg-fixed text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900 relative overflow-x-hidden">
       <Navbar onOpenModal={() => handleOpenModal()} />
 
-      <main className="relative z-10 divide-y divide-slate-300/70">
+      <main className="relative z-10 divide-y divide-slate-200/70">
         <Hero onOpenModal={() => handleOpenModal()} />
         <Services onSelectService={(t) => handleOpenModal(t)} />
         <Methodology />
@@ -48,7 +48,7 @@ export function App() {
           href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto."
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-blue-600 text-white font-bold text-xs shadow-xl shadow-blue-600/30 hover:scale-105 hover:bg-blue-500 transition-all duration-200"
+          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-blue-500 text-white font-bold text-xs shadow-xl shadow-blue-500/30 hover:scale-105 hover:bg-blue-400 transition-all duration-200"
           aria-label="Falar pelo WhatsApp"
         >
           <MessageSquare className="w-4 h-4 fill-white" />

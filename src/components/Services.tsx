@@ -31,7 +31,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
     <section id="solucoes" className="py-24 sm:py-32 bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">
+          <p className="text-xs font-mono uppercase tracking-widest text-blue-500 mb-3">
             O que eu faço
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 max-w-2xl">
@@ -52,13 +52,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 <button
                   key={s.id}
                   onClick={() => setSelectedId(s.id)}
-                  className={`w-full text-left py-4 border-b border-slate-300 flex items-center gap-4 transition-colors cursor-pointer ${
+                  className={`w-full text-left py-4 border-b border-slate-200 flex items-center gap-4 transition-colors cursor-pointer ${
                     active ? 'text-slate-900' : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
                   <span
                     className={`flex-shrink-0 transition-colors ${
-                      active ? 'text-blue-600' : 'text-slate-400'
+                      active ? 'text-blue-500' : 'text-slate-400'
                     }`}
                   >
                     {icon(s.iconName)}
@@ -71,7 +71,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   </span>
                   <ArrowRight
                     className={`w-4 h-4 flex-shrink-0 transition-all ${
-                      active ? 'opacity-100 text-blue-600' : 'opacity-0'
+                      active ? 'opacity-100 text-blue-500' : 'opacity-0'
                     }`}
                   />
                 </button>
@@ -97,7 +97,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {current.techStack.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-0.5 rounded-md bg-[#C1BAA1] border border-slate-300 text-[11px] font-mono text-slate-500"
+                    className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-slate-500"
                   >
                     {t}
                   </span>
@@ -105,7 +105,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
               </div>
               <button
                 onClick={() => onSelectService(current.title)}
-                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-colors flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-600/25"
+                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-blue-500 hover:bg-blue-400 transition-colors flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25"
               >
                 Falar sobre este serviço
                 <ArrowRight className="w-4 h-4" />

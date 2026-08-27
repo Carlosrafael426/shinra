@@ -56,11 +56,11 @@ function Wave() {
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        color="#C1BAA1"
+        color="#3b82f6"
         size={0.06}
         sizeAttenuation
         transparent
-        opacity={0.95}
+        opacity={0.8}
         depthWrite={false}
       />
     </points>

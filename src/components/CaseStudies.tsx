@@ -12,7 +12,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
     <section id="cases" className="py-24 sm:py-32 bg-transparent">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">
+          <p className="text-xs font-mono uppercase tracking-widest text-blue-500 mb-3">
             Projetos
           </p>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 max-w-2xl">
@@ -26,13 +26,13 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {CASE_STUDIES.map((study, idx) => (
             <Reveal key={study.id} delay={idx * 70}>
-              <div className="group h-full rounded-2xl bg-[#C1BAA1] border border-slate-300 p-6 flex flex-col hover:border-blue-300 transition-colors">
+              <div className="group h-full rounded-2xl bg-white border border-slate-200 p-6 flex flex-col hover:border-blue-300 transition-colors">
                 <div className="flex items-center gap-2 mb-4">
                   <span
                     className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border ${
                       study.nature === 'Cliente real'
                         ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
-                        : 'bg-white border-slate-300 text-slate-500'
+                        : 'bg-[#eef3fc] border-slate-200 text-slate-500'
                     }`}
                   >
                     {study.nature}
@@ -51,7 +51,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
                   {study.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded-md bg-white border border-slate-300 text-[10px] font-mono text-slate-500"
+                      className="px-2 py-0.5 rounded-md bg-[#eef3fc] border border-slate-200 text-[10px] font-mono text-slate-500"
                     >
                       {tag}
                     </span>
@@ -63,7 +63,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
                     href={study.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-500 transition-colors w-fit"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-500 hover:text-blue-500 transition-colors w-fit"
                   >
                     Ver no ar
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -71,7 +71,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
                 ) : (
                   <button
                     onClick={onOpenModal}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-blue-600 transition-colors w-fit cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-blue-500 transition-colors w-fit cursor-pointer"
                   >
                     Quero algo parecido
                     <ArrowUpRight className="w-3.5 h-3.5" />

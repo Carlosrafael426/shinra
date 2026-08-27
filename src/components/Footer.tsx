@@ -11,11 +11,11 @@ const LINKS = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#C1BAA1] border-t border-slate-300">
+    <footer className="bg-white border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
           <span className="font-display text-lg font-bold tracking-wider text-slate-900">
-            SHINRA<span className="text-blue-600">.</span>
+            SHINRA<span className="text-blue-500">.</span>
           </span>
           <span className="text-xs text-slate-400 font-mono hidden sm:inline">
             Estúdio de desenvolvimento web
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
           <span>© {new Date().getFullYear()} Shinra</span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="p-2 rounded-lg border border-slate-300 hover:border-blue-300 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
+            className="p-2 rounded-lg border border-slate-200 hover:border-blue-300 text-slate-400 hover:text-slate-900 transition-colors cursor-pointer"
             aria-label="Voltar ao topo"
           >
             <ArrowUp className="w-3.5 h-3.5" />

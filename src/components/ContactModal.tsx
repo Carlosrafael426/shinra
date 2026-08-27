@@ -50,18 +50,18 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
       <div
-        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#C1BAA1] border border-slate-400 shadow-2xl animate-in fade-in zoom-in duration-200"
+        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-2xl animate-in fade-in zoom-in duration-200"
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-[#eef3fc] transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {isSuccess ? (
           <div className="text-center py-8 space-y-3">
-            <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 mx-auto flex items-center justify-center border border-blue-300/40">
+            <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-500 mx-auto flex items-center justify-center border border-blue-300/40">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="font-display text-xl font-bold text-slate-900">
@@ -73,7 +73,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-blue-600 mb-2">
+            <div className="flex items-center gap-2 text-xs font-mono text-blue-500 mb-2">
               <Cpu className="w-4 h-4" />
               <span>Conversa inicial</span>
             </div>
@@ -95,7 +95,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="Ana Martins"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -109,7 +109,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="(00) 00000-0000"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="ana@empresa.com.br"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -135,20 +135,20 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#eef3fc] border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/30 mt-4"
+                className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-blue-500 hover:bg-blue-400 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/30 mt-4"
               >
                 <Send className="w-4 h-4" />
                 <span>Enviar e abrir o WhatsApp</span>
               </button>
 
               <p className="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-500" />
                 Uso seus dados apenas para responder o contato.
               </p>
             </form>
