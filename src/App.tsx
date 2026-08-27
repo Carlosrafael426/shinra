@@ -31,12 +31,12 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-tech-dots bg-fixed text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-200 relative overflow-x-hidden">
+    <div className="min-h-screen bg-tech-dots bg-fixed text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900 relative overflow-x-hidden">
       
       {/* Global Ambient Glow Blobs */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[160px] pointer-events-none rounded-full z-0" />
-      <div className="fixed top-1/3 -right-40 w-[500px] h-[500px] bg-blue-600/5 blur-[140px] pointer-events-none rounded-full z-0" />
-      <div className="fixed bottom-1/4 -left-40 w-[500px] h-[500px] bg-blue-600/5 blur-[140px] pointer-events-none rounded-full z-0" />
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-200/40 blur-[160px] pointer-events-none rounded-full z-0" />
+      <div className="fixed top-1/3 -right-40 w-[500px] h-[500px] bg-blue-200/25 blur-[140px] pointer-events-none rounded-full z-0" />
+      <div className="fixed bottom-1/4 -left-40 w-[500px] h-[500px] bg-blue-200/25 blur-[140px] pointer-events-none rounded-full z-0" />
 
       {/* Navigation */}
       <Navbar onOpenModal={() => handleOpenModal()} />

@@ -107,20 +107,20 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
   };
 
   return (
-    <section id="estimador" className="py-24 relative bg-transparent border-b border-slate-800/80">
+    <section id="estimador" className="py-24 relative bg-transparent border-b border-slate-200/80">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
-            <Calculator className="w-3.5 h-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-blue-300/30 text-xs font-mono text-blue-600 mb-4">
+            <Calculator className="w-3.5 h-3.5 text-blue-600" />
             <span>Estimativa de escopo e prazo</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Monte seu projeto e veja uma <span className="text-blue-400">estimativa inicial de prazo</span>.
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            Monte seu projeto e veja uma <span className="text-blue-600">estimativa inicial de prazo</span>.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light">
+          <p className="text-base sm:text-lg text-slate-600 font-light">
             Selecione o tipo de projeto, o porte e os recursos para ter uma ideia do prazo e da complexidade. É um ponto de partida para a conversa, não um orçamento fechado.
           </p>
         </div>
@@ -131,8 +131,8 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
           <div className="lg:col-span-7 space-y-8">
 
             {/* Step 1: Project Type */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-              <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center gap-2">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
+              <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>01. Tipo de projeto</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -146,16 +146,16 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       onClick={() => setProjectType(type.id)}
                       className={`p-4 rounded-xl border text-left transition-all duration-200 flex items-start gap-3 cursor-pointer ${
                         isSelected
-                          ? 'bg-blue-600/10 border-blue-500 text-white shadow-sm ring-1 ring-blue-500/30'
-                          : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
+                          ? 'bg-blue-50 border-blue-300 text-slate-900 shadow-sm ring-1 ring-blue-300/30'
+                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300'
                       }`}
                     >
-                      <div className={`p-2 rounded-lg ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-800 text-blue-400'}`}>
+                      <div className={`p-2 rounded-lg ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-blue-600'}`}>
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="font-semibold text-sm leading-tight text-white">{type.name}</p>
-                        <p className="text-[11px] text-slate-400 mt-1">Base ~{type.baseWeeks} semana(s)</p>
+                        <p className="font-semibold text-sm leading-tight text-slate-900">{type.name}</p>
+                        <p className="text-[11px] text-slate-500 mt-1">Base ~{type.baseWeeks} semana(s)</p>
                       </div>
                     </button>
                   );
@@ -164,8 +164,8 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 2: Scope size */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-              <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center gap-2">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
+              <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>02. Porte do projeto</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -178,12 +178,12 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       onClick={() => setScale(opt.id)}
                       className={`p-4 rounded-xl border text-left transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? 'bg-blue-600/10 border-blue-500 text-white ring-1 ring-blue-500/30'
-                          : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
+                          ? 'bg-blue-50 border-blue-300 text-slate-900 ring-1 ring-blue-300/30'
+                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300'
                       }`}
                     >
-                      <p className="font-semibold text-sm text-white">{opt.name.split('/')[0]}</p>
-                      <p className="text-[11px] text-slate-400 mt-1">{opt.name.split('/')[1] || ''}</p>
+                      <p className="font-semibold text-sm text-slate-900">{opt.name.split('/')[0]}</p>
+                      <p className="text-[11px] text-slate-500 mt-1">{opt.name.split('/')[1] || ''}</p>
                     </button>
                   );
                 })}
@@ -191,10 +191,10 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 3: Features Checklist */}
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
-              <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center justify-between">
+            <div className="p-6 rounded-2xl bg-white border border-slate-200">
+              <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center justify-between">
                 <span>03. Recursos</span>
-                <span className="text-slate-400 lowercase font-normal">{selectedFeatures.length} selecionados</span>
+                <span className="text-slate-500 lowercase font-normal">{selectedFeatures.length} selecionados</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {availableFeatures.map((feat) => {
@@ -206,16 +206,16 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                       onClick={() => toggleFeature(feat.id)}
                       className={`p-3.5 rounded-xl border text-left transition-all duration-200 flex items-center justify-between cursor-pointer ${
                         isSelected
-                          ? 'bg-blue-600/10 border-blue-500 text-white'
-                          : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
+                          ? 'bg-blue-50 border-blue-300 text-slate-900'
+                          : 'bg-slate-50 border-slate-200 text-slate-500 hover:border-slate-300'
                       }`}
                     >
-                      <span className="text-xs font-medium text-slate-200">{feat.name}</span>
+                      <span className="text-xs font-medium text-slate-700">{feat.name}</span>
                       <div
                         className={`w-5 h-5 rounded-md flex items-center justify-center border transition-colors ${
                           isSelected
-                            ? 'bg-blue-600 border-blue-500 text-white'
-                            : 'border-slate-700 bg-slate-800'
+                            ? 'bg-blue-600 border-blue-300 text-white'
+                            : 'border-slate-300 bg-slate-100'
                         }`}
                       >
                         {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
@@ -226,14 +226,14 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
               </div>
 
               {/* AI Add-on Toggle */}
-              <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between p-4 rounded-xl bg-slate-950 border border-blue-500/20">
+              <div className="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-blue-300/20">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-500/20 text-blue-300">
+                  <div className="p-2 rounded-lg bg-blue-100 text-blue-600">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">Incluir integração com IA</p>
-                    <p className="text-xs text-slate-400">Conexão com APIs de IA (assistente, geração de texto) ou automação de tarefas.</p>
+                    <p className="text-sm font-semibold text-slate-900">Incluir integração com IA</p>
+                    <p className="text-xs text-slate-500">Conexão com APIs de IA (assistente, geração de texto) ou automação de tarefas.</p>
                   </div>
                 </div>
                 <button
@@ -242,7 +242,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                   className={`px-4 py-1.5 rounded-lg text-xs font-bold font-mono transition-colors cursor-pointer ${
                     includeAI
                       ? 'bg-blue-600 text-white shadow-sm'
-                      : 'bg-slate-800 text-slate-400 border border-slate-700'
+                      : 'bg-slate-100 text-slate-500 border border-slate-300'
                   }`}
                 >
                   {includeAI ? 'INCLUSO' : 'DESATIVADO'}
@@ -254,62 +254,62 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
 
           {/* Right Live Summary & Proposal Submission Card */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-7 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl relative overflow-hidden">
+            <div className="p-7 rounded-3xl bg-white border border-slate-300 shadow-2xl relative overflow-hidden">
 
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <span className="text-xs font-mono text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-blue-400" />
+              <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                <span className="text-xs font-mono text-blue-600 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-blue-500" />
                   Estimativa
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">Ponto de partida</span>
+                <span className="text-[11px] font-mono text-slate-500">Ponto de partida</span>
               </div>
 
               {/* Estimate Numbers */}
-              <div className="py-6 border-b border-slate-800">
-                <p className="text-xs font-mono text-slate-400 uppercase">Prazo estimado:</p>
-                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight mt-1 text-blue-400">
+              <div className="py-6 border-b border-slate-200">
+                <p className="text-xs font-mono text-slate-500 uppercase">Prazo estimado:</p>
+                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight mt-1 text-blue-600">
                   ~{estimatedWeeks} semana{estimatedWeeks > 1 ? 's' : ''}
                 </div>
-                <div className="flex items-center gap-4 mt-3 text-xs text-slate-300">
+                <div className="flex items-center gap-4 mt-3 text-xs text-slate-600">
                   <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-blue-400" />
+                    <Clock className="w-4 h-4 text-blue-600" />
                     Complexidade: <strong>{complexityLabel}</strong>
                   </span>
                 </div>
               </div>
 
               {/* Blueprint Summary */}
-              <div className="py-4 space-y-2.5 text-xs text-slate-300 border-b border-slate-800">
+              <div className="py-4 space-y-2.5 text-xs text-slate-600 border-b border-slate-200">
                 <div className="flex justify-between gap-4">
-                  <span className="text-slate-400">Tipo:</span>
-                  <span className="font-semibold text-white text-right">{currentTypeObj.name}</span>
+                  <span className="text-slate-500">Tipo:</span>
+                  <span className="font-semibold text-slate-900 text-right">{currentTypeObj.name}</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-slate-400">Porte:</span>
-                  <span className="font-semibold text-blue-300 text-right">{currentScaleObj.name.split('/')[0]}</span>
+                  <span className="text-slate-500">Porte:</span>
+                  <span className="font-semibold text-blue-600 text-right">{currentScaleObj.name.split('/')[0]}</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-slate-400">Recursos:</span>
-                  <span className="font-semibold text-slate-200">{selectedFeatures.length} selecionados</span>
+                  <span className="text-slate-500">Recursos:</span>
+                  <span className="font-semibold text-slate-700">{selectedFeatures.length} selecionados</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-slate-400">Integração com IA:</span>
-                  <span className={includeAI ? 'text-blue-300 font-semibold' : 'text-slate-500'}>
+                  <span className="text-slate-500">Integração com IA:</span>
+                  <span className={includeAI ? 'text-blue-600 font-semibold' : 'text-slate-500'}>
                     {includeAI ? 'Sim' : 'Não'}
                   </span>
                 </div>
               </div>
 
               {/* Disclaimer */}
-              <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-2 text-[11px] text-slate-400 leading-relaxed">
-                <Info className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+              <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2 text-[11px] text-slate-500 leading-relaxed">
+                <Info className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                 <span>Estimativa inicial, sujeita a conversa. O escopo, o prazo e o valor só são fechados por escrito depois de entender o projeto.</span>
               </div>
 
               {/* Lead Information & Submit Form */}
               <form onSubmit={handleSendWhatsApp} className="pt-5 space-y-3">
                 <div>
-                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                  <label className="text-[11px] font-mono uppercase text-slate-500 block mb-1">
                     Seu nome / empresa:
                   </label>
                   <input
@@ -318,12 +318,12 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                     placeholder="Ex: Ana Martins"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
+                  <label className="text-[11px] font-mono uppercase text-slate-500 block mb-1">
                     WhatsApp para contato:
                   </label>
                   <input
@@ -332,7 +332,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                     placeholder="(00) 00000-0000"
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                   />
                 </div>
 
@@ -344,8 +344,8 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
                   <span>Enviar estimativa via WhatsApp</span>
                 </button>
 
-                <p className="text-[10px] text-center text-slate-400 flex items-center justify-center gap-1.5 pt-1">
-                  <Info className="w-3.5 h-3.5 text-blue-400" />
+                <p className="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1.5 pt-1">
+                  <Info className="w-3.5 h-3.5 text-blue-600" />
                   Sem compromisso. Quem responde é quem vai programar.
                 </p>
               </form>

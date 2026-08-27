@@ -48,45 +48,45 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
       <div
-        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl animate-in fade-in zoom-in duration-200"
+        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-white border border-slate-300 shadow-2xl animate-in fade-in zoom-in duration-200"
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {isSuccess ? (
           <div className="text-center py-8 space-y-3">
-            <div className="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 mx-auto flex items-center justify-center border border-blue-500/40">
+            <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 mx-auto flex items-center justify-center border border-blue-300/40">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="font-display text-xl font-bold text-white">
+            <h3 className="font-display text-xl font-bold text-slate-900">
               Abrindo o WhatsApp...
             </h3>
-            <p className="text-xs text-slate-300">
+            <p className="text-xs text-slate-600">
               Você vai conversar direto comigo sobre o seu projeto.
             </p>
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
+            <div className="flex items-center gap-2 text-xs font-mono text-blue-600 mb-2">
               <Cpu className="w-4 h-4" />
               <span>Conversa inicial</span>
             </div>
-            <h3 className="font-display text-2xl font-bold text-white mb-1">
+            <h3 className="font-display text-2xl font-bold text-slate-900 mb-1">
               Falar sobre seu projeto
             </h3>
-            <p className="text-xs text-slate-300 font-light mb-6">
+            <p className="text-xs text-slate-600 font-light mb-6">
               Me conte a ideia e eu retorno para entender melhor e estimar o prazo. Sem compromisso.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                <label className="text-[11px] font-mono text-slate-500 uppercase block mb-1">
                   Seu Nome
                 </label>
                 <input
@@ -95,12 +95,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="Ana Martins"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                <label className="text-[11px] font-mono text-slate-500 uppercase block mb-1">
                   WhatsApp com DDD
                 </label>
                 <input
@@ -109,12 +109,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="(00) 00000-0000"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                <label className="text-[11px] font-mono text-slate-500 uppercase block mb-1">
                   E-mail
                 </label>
                 <input
@@ -123,19 +123,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="ana@empresa.com.br"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
+                <label className="text-[11px] font-mono text-slate-500 uppercase block mb-1">
                   Serviço de Interesse
                 </label>
                 <input
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -147,8 +147,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <span>Enviar e abrir o WhatsApp</span>
               </button>
 
-              <p className="text-[10px] text-center text-slate-400 flex items-center justify-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+              <p className="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
                 Uso seus dados apenas para responder o contato.
               </p>
             </form>

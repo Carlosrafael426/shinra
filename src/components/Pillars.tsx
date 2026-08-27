@@ -10,29 +10,29 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Clock':
-        return <Clock className="w-7 h-7 text-blue-400" />;
+        return <Clock className="w-7 h-7 text-blue-600" />;
       case 'Target':
-        return <Target className="w-7 h-7 text-blue-400" />;
+        return <Target className="w-7 h-7 text-blue-600" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-7 h-7 text-blue-400" />;
+        return <ShieldCheck className="w-7 h-7 text-blue-600" />;
       default:
-        return <ShieldCheck className="w-7 h-7 text-blue-400" />;
+        return <ShieldCheck className="w-7 h-7 text-blue-600" />;
     }
   };
 
   return (
-    <section id="sobre" className="py-24 bg-transparent border-b border-slate-800/80 relative">
+    <section id="sobre" className="py-24 bg-transparent border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-blue-400 block mb-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 block mb-2">
             Por que a Shinra
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Um estúdio <span className="text-blue-400">pequeno e direto</span>, não uma agência.
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            Um estúdio <span className="text-blue-600">pequeno e direto</span>, não uma agência.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
             A Shinra sou eu, Carlos Rafael, desenvolvedor full stack, acionando parceiros especializados quando o projeto pede. Sem camadas de intermediário entre você e quem escreve o código.
           </p>
         </div>
@@ -42,29 +42,29 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
           {TRUST_PILLARS.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-3xl bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between group shadow-lg"
+              className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-blue-300/50 transition-all duration-300 flex flex-col justify-between group shadow-lg"
             >
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-blue-100 border border-blue-300/30 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                   {getIcon(pillar.icon)}
                 </div>
 
-                <span className="text-xs font-mono text-blue-400 uppercase tracking-wider block mb-1">
+                <span className="text-xs font-mono text-blue-600 uppercase tracking-wider block mb-1">
                   {pillar.subtitle}
                 </span>
 
-                <h3 className="font-display text-xl font-bold text-white mb-3 leading-snug group-hover:text-blue-300 transition-colors">
+                <h3 className="font-display text-xl font-bold text-slate-900 mb-3 leading-snug group-hover:text-blue-600 transition-colors">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm text-slate-300 font-light leading-relaxed">
+                <p className="text-sm text-slate-600 font-light leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 font-mono">
+              <div className="mt-8 pt-6 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 font-mono">
                 <span>Pilar 0{idx + 1}</span>
-                <span className="text-blue-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
+                <span className="text-blue-600 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
                   Saiba mais →
                 </span>
               </div>
@@ -73,14 +73,14 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
         </div>
 
         {/* Quote Strip */}
-        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 p-6 sm:p-8 rounded-2xl bg-white/60 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-3 h-10 bg-blue-500 rounded-full" />
             <div>
-              <p className="text-base font-semibold text-white">
+              <p className="text-base font-semibold text-slate-900">
                 "Você cuida do seu negócio. Eu cuido do código."
               </p>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Um ponto de contato só, do briefing ao suporte depois da entrega.
               </p>
             </div>

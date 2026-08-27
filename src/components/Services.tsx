@@ -21,36 +21,36 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
       case 'LayoutGrid':
-        return <LayoutGrid className="w-6 h-6 text-blue-400" />;
+        return <LayoutGrid className="w-6 h-6 text-blue-600" />;
       case 'Smartphone':
-        return <Smartphone className="w-6 h-6 text-blue-400" />;
+        return <Smartphone className="w-6 h-6 text-blue-600" />;
       case 'Bot':
-        return <Bot className="w-6 h-6 text-blue-400" />;
+        return <Bot className="w-6 h-6 text-blue-600" />;
       case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-blue-400" />;
+        return <Sparkles className="w-6 h-6 text-blue-600" />;
       case 'Cpu':
-        return <Cpu className="w-6 h-6 text-blue-400" />;
+        return <Cpu className="w-6 h-6 text-blue-600" />;
       default:
-        return <Layers className="w-6 h-6 text-blue-400" />;
+        return <Layers className="w-6 h-6 text-blue-600" />;
     }
   };
 
   const currentService = SERVICES_DATA.find((s) => s.id === selectedServiceId) || SERVICES_DATA[0];
 
   return (
-    <section id="solucoes" className="py-24 relative bg-transparent border-b border-slate-800/80">
+    <section id="solucoes" className="py-24 relative bg-transparent border-b border-slate-200/80">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-blue-400 block mb-2">
+          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 block mb-2">
             O que eu faço
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Quatro serviços, <span className="text-blue-400">sem sopa de siglas</span>.
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            Quatro serviços, <span className="text-blue-600">sem sopa de siglas</span>.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
             De um site institucional a um sistema com login e painel administrativo. Você me conta o problema; eu digo o que dá para fazer, em quanto tempo e por quanto.
           </p>
         </div>
@@ -68,27 +68,27 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   onClick={() => setSelectedServiceId(service.id)}
                   className={`w-full text-left p-5 rounded-2xl transition-all duration-200 border flex items-center justify-between cursor-pointer ${
                     isSelected
-                      ? 'bg-slate-900 border-blue-500 shadow-md ring-1 ring-blue-500/40'
-                      : 'bg-slate-900/60 border-slate-800 hover:bg-slate-900 hover:border-slate-700'
+                      ? 'bg-white border-blue-300 shadow-md ring-1 ring-blue-300/40'
+                      : 'bg-white/60 border-slate-200 hover:bg-white hover:border-slate-300'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div
                       className={`p-3 rounded-xl border ${
                         isSelected
-                          ? 'bg-blue-600/15 border-blue-500/40 text-blue-400'
-                          : 'bg-slate-800 border-slate-700 text-slate-400'
+                          ? 'bg-blue-100 border-blue-300/40 text-blue-600'
+                          : 'bg-slate-100 border-slate-300 text-slate-500'
                       }`}
                     >
                       {getServiceIcon(service.iconName)}
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-display font-bold text-white text-base">
+                        <span className="font-display font-bold text-slate-900 text-base">
                           {service.title}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400 line-clamp-1 mt-0.5 font-light">
+                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5 font-light">
                         {service.tagline}
                       </p>
                     </div>
@@ -96,8 +96,8 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   <span
                     className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border ${
                       isSelected
-                        ? 'bg-blue-500/20 text-blue-300 border-blue-500/40'
-                        : 'bg-slate-800 text-slate-400 border-slate-700'
+                        ? 'bg-blue-100 text-blue-600 border-blue-300/40'
+                        : 'bg-slate-100 text-slate-500 border-slate-300'
                     }`}
                   >
                     {service.badge}
@@ -109,46 +109,46 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
           {/* Right Detailed Panel */}
           <div className="lg:col-span-7">
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl relative overflow-hidden">
+            <div className="p-8 rounded-3xl bg-white border border-slate-300 shadow-2xl relative overflow-hidden">
               
               {/* Top Meta */}
-              <div className="flex items-center justify-between pb-6 border-b border-slate-800">
+              <div className="flex items-center justify-between pb-6 border-b border-slate-200">
                 <div className="flex items-center gap-3">
-                  <div className="p-3.5 rounded-2xl bg-blue-600/15 border border-blue-500/30">
+                  <div className="p-3.5 rounded-2xl bg-blue-100 border border-blue-300/30">
                     {getServiceIcon(currentService.iconName)}
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-blue-400 uppercase tracking-wider">
+                    <span className="text-xs font-mono text-blue-600 uppercase tracking-wider">
                       Solução Especializada
                     </span>
-                    <h3 className="font-display text-2xl font-bold text-white">
+                    <h3 className="font-display text-2xl font-bold text-slate-900">
                       {currentService.title}
                     </h3>
                   </div>
                 </div>
-                <span className="text-xs font-mono px-3 py-1 bg-blue-500/15 text-blue-300 border border-blue-500/30 rounded-full">
+                <span className="text-xs font-mono px-3 py-1 bg-blue-100 text-blue-600 border border-blue-300/30 rounded-full">
                   Entrega publicada
                 </span>
               </div>
 
               {/* Description */}
               <div className="py-6">
-                <p className="text-base text-slate-200 leading-relaxed font-light mb-6">
+                <p className="text-base text-slate-700 leading-relaxed font-light mb-6">
                   {currentService.description}
                 </p>
 
                 {/* Key Features List */}
-                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
+                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
                   <span>O que está incluído</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
                   {currentService.features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-2.5"
+                      className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-slate-300 font-normal leading-snug">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-slate-600 font-normal leading-snug">
                         {feature}
                       </span>
                     </div>
@@ -157,14 +157,14 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
                 {/* Tech Stack Pills */}
                 <div className="mb-8">
-                  <span className="text-xs font-mono uppercase tracking-widest text-slate-400 block mb-3">
+                  <span className="text-xs font-mono uppercase tracking-widest text-slate-500 block mb-3">
                     Tecnologias & Ferramentas Utilizadas:
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {currentService.techStack.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 rounded-lg bg-slate-800 border border-blue-500/20 text-xs font-mono text-blue-300"
+                        className="px-3 py-1 rounded-lg bg-slate-100 border border-blue-300/20 text-xs font-mono text-blue-600"
                       >
                         {tech}
                       </span>
@@ -173,9 +173,9 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 </div>
 
                 {/* Action CTA */}
-                <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="text-xs text-slate-400">
-                    <span className="text-white font-medium">Sempre:</span> escopo, prazo e valor combinados por escrito antes de começar
+                <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div className="text-xs text-slate-500">
+                    <span className="text-slate-900 font-medium">Sempre:</span> escopo, prazo e valor combinados por escrito antes de começar
                   </div>
                   <button
                     onClick={() => onSelectService(currentService.title)}
