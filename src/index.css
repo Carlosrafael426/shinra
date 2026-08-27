@@ -14,50 +14,21 @@
   }
 }
 
-/* Background Patterns & Glows — light blue-white / light gray theme */
+/* Canvas: cinza claro neutro. Cards brancos por cima criam o contraste. */
 .bg-tech-dots {
-  background-color: #eef2f9;
-  background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-color: #e9edf3;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
 }
 
-.bg-tech-grid {
-  background-image:
-    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
+/* Hero: leve tom branco-azulado sobre o cinza. */
 .bg-hero-spotlight {
-  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.10) 0%, rgba(255, 255, 255, 0) 60%);
+  background:
+    radial-gradient(60% 55% at 70% 15%, rgba(37, 99, 235, 0.10), transparent 70%),
+    linear-gradient(180deg, #eef3fc 0%, #e9edf3 60%);
 }
 
-.bg-section-spotlight {
-  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-}
-
-/* Cards & Glassmorphism */
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-}
-
-.glass-card:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-}
-
-.card-tech {
-  background-color: #ffffff;
-  border: 1px solid rgba(203, 213, 225, 0.9);
-}
-
-.card-tech:hover {
-  border-color: rgba(59, 130, 246, 0.5);
-}
-
-/* Animations */
+/* Animações */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -66,11 +37,24 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
+  }
 }
 
 /* Scrollbar */

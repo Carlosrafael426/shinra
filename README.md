@@ -14,21 +14,23 @@ Este repositório é apenas o site (front-end estático). Não há back-end aqui
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) como build tool e dev server
 - [Tailwind CSS v4](https://tailwindcss.com/) para estilo
+- [three.js](https://threejs.org/) via [@react-three/fiber](https://r3f.docs.pmnd.rs/) — campo de pontos animado no Hero (carregado sob demanda / code-split)
 - [Lucide React](https://lucide.dev/) para ícones e [canvas-confetti](https://www.npmjs.com/package/canvas-confetti) para microinterações
-- Tipografia: Plus Jakarta Sans e JetBrains Mono (Google Fonts)
+- Tipografia: Plus Jakarta Sans, Space Grotesk e JetBrains Mono (Google Fonts)
 
 ## Seções
 
-- **Hero** — o que o estúdio faz e como um projeto anda, em 3 etapas
-- **Sobre** — estúdio de uma pessoa, com parceiros sob demanda
-- **Serviços** — sites e landing pages, sistemas web sob medida, manutenção e evolução, IA e automações
-- **Como o projeto anda** — conversa e proposta, desenvolvimento com acompanhamento, testes e publicação
-- **Como eu trabalho** — o fluxo real de um projeto, do primeiro contato ao suporte
-- **IA e automações** — integração com APIs de IA e automação de tarefas (nível de integração, sem treinar modelos)
+- **Hero** — proposta em uma frase, CTA e três princípios; fundo em three.js
+- **Serviços** — sites e landing pages, sistemas web sob medida, manutenção e evolução, IA e automações (lista interativa)
+- **Processo** — conversa e proposta · desenvolvimento com acompanhamento · testes e publicação
 - **Projetos** — projetos reais entregues, marcados como "cliente real" ou "projeto próprio"
 - **Estimador de escopo** — monta o projeto e mostra uma estimativa inicial de prazo e complexidade (não é orçamento fechado)
 - **FAQ** — preço, prazo, pagamento, propriedade do código, pós-entrega
-- **Contato** — formulário e canais diretos
+- **Contato** — formulário compacto + canais diretos
+
+Animações: revelação em scroll (`Reveal`, IntersectionObserver + CSS), marquee da
+stack, acordeão do FAQ e o campo de pontos em three.js. Tudo respeita
+`prefers-reduced-motion`.
 
 > Os dados de conteúdo ficam concentrados em [`src/data/content.ts`](src/data/content.ts).
 > Os prints dos projetos vão em [`public/cases/`](public/cases/) — ver o README de lá.

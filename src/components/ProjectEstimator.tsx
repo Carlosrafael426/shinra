@@ -107,7 +107,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
   };
 
   return (
-    <section id="estimador" className="py-24 relative bg-transparent border-b border-slate-200/80">
+    <section id="estimador" className="py-24 sm:py-32 relative bg-transparent">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 

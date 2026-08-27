@@ -1,197 +1,118 @@
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/content';
-import { 
-  LayoutGrid, 
-  Bot, 
-  Smartphone, 
-  Cpu, 
-  Sparkles, 
-  ArrowRight, 
-  CheckCircle2, 
-  Layers
-} from 'lucide-react';
+import { LayoutGrid, Bot, Cpu, Sparkles, ArrowRight, Layers } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 interface ServicesProps {
   onSelectService: (serviceName: string) => void;
 }
 
+const icon = (name: string) => {
+  const cls = 'w-5 h-5';
+  switch (name) {
+    case 'LayoutGrid':
+      return <LayoutGrid className={cls} />;
+    case 'Bot':
+      return <Bot className={cls} />;
+    case 'Sparkles':
+      return <Sparkles className={cls} />;
+    case 'Cpu':
+      return <Cpu className={cls} />;
+    default:
+      return <Layers className={cls} />;
+  }
+};
+
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
-  const [selectedServiceId, setSelectedServiceId] = useState<string>(SERVICES_DATA[0].id);
-
-  const getServiceIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'LayoutGrid':
-        return <LayoutGrid className="w-6 h-6 text-blue-600" />;
-      case 'Smartphone':
-        return <Smartphone className="w-6 h-6 text-blue-600" />;
-      case 'Bot':
-        return <Bot className="w-6 h-6 text-blue-600" />;
-      case 'Sparkles':
-        return <Sparkles className="w-6 h-6 text-blue-600" />;
-      case 'Cpu':
-        return <Cpu className="w-6 h-6 text-blue-600" />;
-      default:
-        return <Layers className="w-6 h-6 text-blue-600" />;
-    }
-  };
-
-  const currentService = SERVICES_DATA.find((s) => s.id === selectedServiceId) || SERVICES_DATA[0];
+  const [selectedId, setSelectedId] = useState<string>(SERVICES_DATA[0].id);
+  const current = SERVICES_DATA.find((s) => s.id === selectedId) || SERVICES_DATA[0];
 
   return (
-    <section id="solucoes" className="py-24 relative bg-transparent border-b border-slate-200/80">
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-blue-600 block mb-2">
+    <section id="solucoes" className="py-24 sm:py-32 bg-transparent">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <p className="text-xs font-mono uppercase tracking-widest text-blue-600 mb-3">
             O que eu faço
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-            Quatro serviços, <span className="text-blue-600">sem sopa de siglas</span>.
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 font-light leading-relaxed">
-            De um site institucional a um sistema com login e painel administrativo. Você me conta o problema; eu digo o que dá para fazer, em quanto tempo e por quanto.
           </p>
-        </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 max-w-2xl">
+            Quatro serviços, sem sopa de siglas.
+          </h2>
+          <p className="text-sm text-slate-600 font-light mb-16 max-w-xl">
+            De um site institucional a um sistema com login e painel. Você conta o problema;
+            eu digo o que dá para fazer, em quanto tempo e por quanto.
+          </p>
+        </Reveal>
 
-        {/* Desktop Interactive Service Selector & Detailed Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          {/* Left Menu List */}
-          <div className="lg:col-span-5 flex flex-col gap-3">
-            {SERVICES_DATA.map((service) => {
-              const isSelected = service.id === selectedServiceId;
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Tabs */}
+          <div className="lg:col-span-5 flex flex-col">
+            {SERVICES_DATA.map((s) => {
+              const active = s.id === selectedId;
               return (
                 <button
-                  key={service.id}
-                  onClick={() => setSelectedServiceId(service.id)}
-                  className={`w-full text-left p-5 rounded-2xl transition-all duration-200 border flex items-center justify-between cursor-pointer ${
-                    isSelected
-                      ? 'bg-white border-blue-300 shadow-md ring-1 ring-blue-300/40'
-                      : 'bg-white/60 border-slate-200 hover:bg-white hover:border-slate-300'
+                  key={s.id}
+                  onClick={() => setSelectedId(s.id)}
+                  className={`w-full text-left py-4 border-b border-slate-200 flex items-center gap-4 transition-colors cursor-pointer ${
+                    active ? 'text-slate-900' : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`p-3 rounded-xl border ${
-                        isSelected
-                          ? 'bg-blue-100 border-blue-300/40 text-blue-600'
-                          : 'bg-slate-100 border-slate-300 text-slate-500'
-                      }`}
-                    >
-                      {getServiceIcon(service.iconName)}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-display font-bold text-slate-900 text-base">
-                          {service.title}
-                        </span>
-                      </div>
-                      <p className="text-xs text-slate-500 line-clamp-1 mt-0.5 font-light">
-                        {service.tagline}
-                      </p>
-                    </div>
-                  </div>
                   <span
-                    className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border ${
-                      isSelected
-                        ? 'bg-blue-100 text-blue-600 border-blue-300/40'
-                        : 'bg-slate-100 text-slate-500 border-slate-300'
+                    className={`flex-shrink-0 transition-colors ${
+                      active ? 'text-blue-600' : 'text-slate-400'
                     }`}
                   >
-                    {service.badge}
+                    {icon(s.iconName)}
                   </span>
+                  <span className="flex-1">
+                    <span className="font-display font-bold text-sm sm:text-base block">
+                      {s.title}
+                    </span>
+                    <span className="text-xs text-slate-400 font-light">{s.tagline}</span>
+                  </span>
+                  <ArrowRight
+                    className={`w-4 h-4 flex-shrink-0 transition-all ${
+                      active ? 'opacity-100 text-blue-600' : 'opacity-0'
+                    }`}
+                  />
                 </button>
               );
             })}
           </div>
 
-          {/* Right Detailed Panel */}
+          {/* Panel */}
           <div className="lg:col-span-7">
-            <div className="p-8 rounded-3xl bg-white border border-slate-300 shadow-2xl relative overflow-hidden">
-              
-              {/* Top Meta */}
-              <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-                <div className="flex items-center gap-3">
-                  <div className="p-3.5 rounded-2xl bg-blue-100 border border-blue-300/30">
-                    {getServiceIcon(currentService.iconName)}
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono text-blue-600 uppercase tracking-wider">
-                      Solução Especializada
-                    </span>
-                    <h3 className="font-display text-2xl font-bold text-slate-900">
-                      {currentService.title}
-                    </h3>
-                  </div>
-                </div>
-                <span className="text-xs font-mono px-3 py-1 bg-blue-100 text-blue-600 border border-blue-300/30 rounded-full">
-                  Entrega publicada
-                </span>
-              </div>
-
-              {/* Description */}
-              <div className="py-6">
-                <p className="text-base text-slate-700 leading-relaxed font-light mb-6">
-                  {currentService.description}
-                </p>
-
-                {/* Key Features List */}
-                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4 flex items-center gap-2">
-                  <span>O que está incluído</span>
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
-                  {currentService.features.map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-slate-600 font-normal leading-snug">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Tech Stack Pills */}
-                <div className="mb-8">
-                  <span className="text-xs font-mono uppercase tracking-widest text-slate-500 block mb-3">
-                    Tecnologias & Ferramentas Utilizadas:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {currentService.techStack.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 rounded-lg bg-slate-100 border border-blue-300/20 text-xs font-mono text-blue-600"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action CTA */}
-                <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="text-xs text-slate-500">
-                    <span className="text-slate-900 font-medium">Sempre:</span> escopo, prazo e valor combinados por escrito antes de começar
-                  </div>
-                  <button
-                    onClick={() => onSelectService(currentService.title)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/30"
+            <div key={current.id} className="animate-[fadeIn_.3s_ease-out]">
+              <p className="text-base text-slate-700 font-light leading-relaxed mb-6">
+                {current.description}
+              </p>
+              <ul className="space-y-2.5 mb-8">
+                {current.features.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <span className="mt-2 w-1 h-1 rounded-full bg-blue-500 flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {current.techStack.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-slate-500"
                   >
-                    <span>Falar sobre este serviço</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+                    {t}
+                  </span>
+                ))}
               </div>
-
+              <button
+                onClick={() => onSelectService(current.title)}
+                className="px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-colors flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-600/25"
+              >
+                Falar sobre este serviço
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );
