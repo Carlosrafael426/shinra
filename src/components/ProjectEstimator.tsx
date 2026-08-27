@@ -113,7 +113,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ccd1d9] border border-blue-300/30 text-xs font-mono text-blue-600 mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C1BAA1] border border-blue-300/30 text-xs font-mono text-blue-600 mb-4">
             <Calculator className="w-3.5 h-3.5 text-blue-600" />
             <span>Estimativa de escopo e prazo</span>
           </div>
@@ -131,7 +131,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
           <div className="lg:col-span-7 space-y-8">
 
             {/* Step 1: Project Type */}
-            <div className="p-6 rounded-2xl bg-[#ccd1d9] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>01. Tipo de projeto</span>
               </label>
@@ -164,7 +164,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 2: Scope size */}
-            <div className="p-6 rounded-2xl bg-[#ccd1d9] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center gap-2">
                 <span>02. Porte do projeto</span>
               </label>
@@ -191,7 +191,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
             </div>
 
             {/* Step 3: Features Checklist */}
-            <div className="p-6 rounded-2xl bg-[#ccd1d9] border border-slate-300">
+            <div className="p-6 rounded-2xl bg-[#C1BAA1] border border-slate-300">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-600 block mb-4 flex items-center justify-between">
                 <span>03. Recursos</span>
                 <span className="text-slate-500 lowercase font-normal">{selectedFeatures.length} selecionados</span>
@@ -254,7 +254,7 @@ Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um
 
           {/* Right Live Summary & Proposal Submission Card */}
           <div className="lg:col-span-5 sticky top-28">
-            <div className="p-7 rounded-3xl bg-[#ccd1d9] border border-slate-400 shadow-2xl relative overflow-hidden">
+            <div className="p-7 rounded-3xl bg-[#C1BAA1] border border-slate-400 shadow-2xl relative overflow-hidden">
 
               <div className="flex items-center justify-between pb-4 border-b border-slate-300">
                 <span className="text-xs font-mono text-blue-600 uppercase tracking-wider flex items-center gap-1.5">

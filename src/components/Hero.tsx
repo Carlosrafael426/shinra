@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#ccd1d9]/70 backdrop-blur border border-slate-300 text-xs font-mono text-blue-600 mb-8">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#C1BAA1]/70 backdrop-blur border border-slate-300 text-xs font-mono text-blue-600 mb-8">
           <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
           <span>Estúdio de desenvolvimento web</span>
         </div>
@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           </button>
           <a
             href="#solucoes"
-            className="px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-900 bg-[#ccd1d9]/70 backdrop-blur hover:bg-[#ccd1d9] border border-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-900 bg-[#C1BAA1]/70 backdrop-blur hover:bg-[#C1BAA1] border border-slate-300 transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             Ver serviços
           </a>
@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         {/* 3 princípios compactos */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-slate-300 bg-slate-300 max-w-3xl">
           {PRINCIPLES.map((p) => (
-            <div key={p.title} className="bg-[#ccd1d9]/80 backdrop-blur p-4">
+            <div key={p.title} className="bg-[#C1BAA1]/80 backdrop-blur p-4">
               <p className="text-sm font-semibold text-slate-900 mb-1">{p.title}</p>
               <p className="text-xs text-slate-500 leading-relaxed">{p.desc}</p>
             </div>

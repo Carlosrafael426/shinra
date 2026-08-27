@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#ccd1d9]/90 backdrop-blur-xl border-b border-slate-300 py-3 shadow-lg shadow-slate-400/30'
+          ? 'bg-[#C1BAA1]/90 backdrop-blur-xl border-b border-slate-300 py-3 shadow-lg shadow-slate-400/30'
           : 'bg-transparent py-5'
       }`}
     >
@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#ccd1d9]/80 border border-slate-300 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden lg:flex items-center gap-1 bg-[#C1BAA1]/80 border border-slate-300 rounded-full px-4 py-1.5 backdrop-blur-md">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
 
           {/* Action CTAs */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-[#ccd1d9] border border-slate-300 text-xs font-mono text-slate-600">
+            <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-[#C1BAA1] border border-slate-300 text-xs font-mono text-slate-600">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               <span>Aberto para novos projetos</span>
             </div>
@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg bg-[#ccd1d9] border border-slate-300 focus:outline-none cursor-pointer"
+            className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg bg-[#C1BAA1] border border-slate-300 focus:outline-none cursor-pointer"
             aria-label="Abrir menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
 
         {/* Mobile Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 p-4 rounded-2xl bg-[#ccd1d9] border border-slate-300 backdrop-blur-2xl shadow-2xl flex flex-col gap-3">
+          <div className="lg:hidden mt-4 p-4 rounded-2xl bg-[#C1BAA1] border border-slate-300 backdrop-blur-2xl shadow-2xl flex flex-col gap-3">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}

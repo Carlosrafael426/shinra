@@ -20,7 +20,7 @@ export const TechEcosystem: React.FC = () => {
           {items.map((tech, i) => (
             <span
               key={i}
-              className="px-4 py-2 rounded-lg bg-[#ccd1d9] border border-slate-300 text-xs font-mono text-slate-600 whitespace-nowrap"
+              className="px-4 py-2 rounded-lg bg-[#C1BAA1] border border-slate-300 text-xs font-mono text-slate-600 whitespace-nowrap"
             >
               {tech}
             </span>

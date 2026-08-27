@@ -97,7 +97,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {current.techStack.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-0.5 rounded-md bg-[#ccd1d9] border border-slate-300 text-[11px] font-mono text-slate-500"
+                    className="px-2.5 py-0.5 rounded-md bg-[#C1BAA1] border border-slate-300 text-[11px] font-mono text-slate-500"
                   >
                     {t}
                   </span>

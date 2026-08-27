@@ -50,7 +50,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
       <div
-        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#ccd1d9] border border-slate-400 shadow-2xl animate-in fade-in zoom-in duration-200"
+        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#C1BAA1] border border-slate-400 shadow-2xl animate-in fade-in zoom-in duration-200"
       >
         <button
           onClick={onClose}

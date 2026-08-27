@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
             <button
               type="button"
               onClick={handleWhatsAppDirect}
-              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#ccd1d9] border border-slate-300 text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
+              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#C1BAA1] border border-slate-300 text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               Falar pelo WhatsApp
@@ -76,7 +76,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Form */}
           <Reveal delay={100}>
-            <div className="rounded-2xl bg-[#ccd1d9] border border-slate-300 p-6 sm:p-8">
+            <div className="rounded-2xl bg-[#C1BAA1] border border-slate-300 p-6 sm:p-8">
               {isSuccess ? (
                 <div className="text-center py-10 space-y-3">
                   <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 mx-auto flex items-center justify-center">

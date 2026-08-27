@@ -26,7 +26,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {CASE_STUDIES.map((study, idx) => (
             <Reveal key={study.id} delay={idx * 70}>
-              <div className="group h-full rounded-2xl bg-[#ccd1d9] border border-slate-300 p-6 flex flex-col hover:border-blue-300 transition-colors">
+              <div className="group h-full rounded-2xl bg-[#C1BAA1] border border-slate-300 p-6 flex flex-col hover:border-blue-300 transition-colors">
                 <div className="flex items-center gap-2 mb-4">
                   <span
                     className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border ${
