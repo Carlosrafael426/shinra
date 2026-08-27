@@ -72,10 +72,6 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
 ];
 
-export const TECH_STACKS = [
-  'React', 'TypeScript', 'Tailwind CSS', 'React Router', 'Motion',
-  'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'Vite',
-];
 
 export const SERVICES_DATA: ServiceItem[] = [
   {

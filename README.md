@@ -28,9 +28,8 @@ Este repositório é apenas o site (front-end estático). Não há back-end aqui
 - **FAQ** — preço, prazo, pagamento, propriedade do código, pós-entrega
 - **Contato** — formulário compacto + canais diretos
 
-Animações: revelação em scroll (`Reveal`, IntersectionObserver + CSS), marquee da
-stack, acordeão do FAQ e o campo de pontos em three.js. Tudo respeita
-`prefers-reduced-motion`.
+Animações: revelação em scroll (`Reveal`, IntersectionObserver + CSS), acordeão
+do FAQ e o campo de pontos em three.js. Tudo respeita `prefers-reduced-motion`.
 
 > Os dados de conteúdo ficam concentrados em [`src/data/content.ts`](src/data/content.ts).
 > Os prints dos projetos vão em [`public/cases/`](public/cases/) — ver o README de lá.

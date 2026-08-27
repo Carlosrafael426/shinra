@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { Methodology } from './components/Methodology';
-import { TechEcosystem } from './components/TechEcosystem';
 import { CaseStudies } from './components/CaseStudies';
 import { ProjectEstimator } from './components/ProjectEstimator';
 import { FAQ } from './components/FAQ';
@@ -29,7 +28,6 @@ export function App() {
         <Hero onOpenModal={() => handleOpenModal()} />
         <Services onSelectService={(t) => handleOpenModal(t)} />
         <Methodology />
-        <TechEcosystem />
         <CaseStudies onOpenModal={() => handleOpenModal()} />
         <ProjectEstimator />
         <FAQ />
