@@ -30,10 +30,10 @@ export const TechEcosystem: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
         <div className="inline-flex items-center gap-2 text-xs uppercase font-mono tracking-widest text-blue-400 mb-2">
           <Cpu className="w-3.5 h-3.5" />
-          <span>Stack Tecnológica & Padrões da Indústria</span>
+          <span>Stack</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold font-display text-white">
-          Arquiteturas construídas com o que há de mais moderno e resiliente
+          As ferramentas que uso no dia a dia
         </h2>
       </div>
 
@@ -63,10 +63,10 @@ export const TechEcosystem: React.FC = () => {
 
       {/* Architecture Highlights Pill */}
       <div className="max-w-4xl mx-auto mt-8 px-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-mono">
-        <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-blue-400" /> DevSecOps & SAST/DAST</span>
-        <span className="flex items-center gap-1.5"><Cloud className="w-4 h-4 text-blue-400" /> Multi-Cloud Ready (AWS / GCP)</span>
-        <span className="flex items-center gap-1.5"><Server className="w-4 h-4 text-blue-400" /> Zero-Trust Security</span>
-        <span className="flex items-center gap-1.5"><Database className="w-4 h-4 text-blue-400" /> ACID Compliant & Sharding</span>
+        <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-blue-400" /> Código versionado no Git</span>
+        <span className="flex items-center gap-1.5"><Cloud className="w-4 h-4 text-blue-400" /> Publicação em produção</span>
+        <span className="flex items-center gap-1.5"><Server className="w-4 h-4 text-blue-400" /> Layout responsivo</span>
+        <span className="flex items-center gap-1.5"><Database className="w-4 h-4 text-blue-400" /> SEO básico</span>
       </div>
 
     </section>

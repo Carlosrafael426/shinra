@@ -8,8 +8,8 @@ export const ContactSection: React.FC = () => {
     email: '',
     phone: '',
     company: '',
-    projectType: 'Fábrica de Software Sob Medida',
-    budgetRange: 'R$ 30k a R$ 60k',
+    projectType: 'Sites e landing pages',
+    timeline: 'Sem pressa',
     message: ''
   });
 
@@ -33,12 +33,12 @@ export const ContactSection: React.FC = () => {
 
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Olá time da Shinra! Gostaria de conversar sobre o desenvolvimento de um projeto de software.\n\n` +
+      `Olá! Gostaria de conversar sobre o desenvolvimento de um projeto.\n\n` +
       `*Nome/Empresa:* ${formData.name || 'A definir'}\n` +
-      `*Solução de Interesse:* ${formData.projectType}\n` +
-      `*Faixa Estimada:* ${formData.budgetRange}`
+      `*Serviço de interesse:* ${formData.projectType}\n` +
+      `*Prazo:* ${formData.timeline}`
     );
-    window.open(`https://wa.me/5511999999999?text=${text}`, '_blank');
+    window.open(`https://wa.me/5500000000000?text=${text}`, '_blank');
   };
 
   return (
@@ -56,10 +56,10 @@ export const ContactSection: React.FC = () => {
                 <span>Vamos Conversar</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-                Gostaria de iniciar um projeto? <span className="text-blue-400">Converse com nossa equipe</span>.
+                Tem um projeto em mente? <span className="text-blue-400">Me conta</span>.
               </h2>
               <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed">
-                Conte-nos sobre o desafio do seu negócio. Nossa equipe de arquitetos e especialistas entrará em contato para entender sua necessidade e estruturar o plano ideal de desenvolvimento.
+                Descreva o que você precisa. Eu respondo para entender melhor a ideia e dizer o que dá para fazer, em quanto tempo e como seguimos.
               </p>
             </div>
 
@@ -70,8 +70,8 @@ export const ContactSection: React.FC = () => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400">Canal Comercial</p>
-                  <p className="text-sm font-semibold text-white">contato@shinra.tech</p>
+                  <p className="text-xs font-mono text-slate-400">E-mail</p>
+                  <p className="text-sm font-semibold text-white">contato@exemplo.com</p>
                 </div>
               </div>
 
@@ -80,8 +80,8 @@ export const ContactSection: React.FC = () => {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400">WhatsApp & Atendimento Direto</p>
-                  <p className="text-sm font-semibold text-white">+55 (11) 99999-9999</p>
+                  <p className="text-xs font-mono text-slate-400">WhatsApp</p>
+                  <p className="text-sm font-semibold text-white">(00) 00000-0000</p>
                 </div>
               </div>
 
@@ -90,8 +90,8 @@ export const ContactSection: React.FC = () => {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400">Confidencialidade</p>
-                  <p className="text-sm font-semibold text-white">Acordo de NDA e sigilo total</p>
+                  <p className="text-xs font-mono text-slate-400">Sigilo</p>
+                  <p className="text-sm font-semibold text-white">Só uso seus dados para responder o contato</p>
                 </div>
               </div>
             </div>
@@ -123,10 +123,10 @@ export const ContactSection: React.FC = () => {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="font-display text-2xl font-bold text-white">
-                    Mensagem Recebida com Sucesso!
+                    Mensagem recebida!
                   </h3>
                   <p className="text-sm text-slate-300 max-w-md mx-auto">
-                    Nossa equipe técnica analisará sua demanda e entrará em contato via WhatsApp e E-mail dentro de 2 horas úteis.
+                    Vou analisar sua mensagem e responder assim que possível, por e-mail ou WhatsApp.
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
@@ -145,7 +145,7 @@ export const ContactSection: React.FC = () => {
                       <input
                         type="text"
                         required
-                        placeholder="Ex: Roberto Mendes"
+                        placeholder="Ex: Ana Martins"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
@@ -154,12 +154,12 @@ export const ContactSection: React.FC = () => {
 
                     <div>
                       <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
-                        E-mail Corporativo *
+                        E-mail *
                       </label>
                       <input
                         type="email"
                         required
-                        placeholder="roberto@empresa.com.br"
+                        placeholder="ana@empresa.com.br"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
@@ -175,7 +175,7 @@ export const ContactSection: React.FC = () => {
                       <input
                         type="tel"
                         required
-                        placeholder="(11) 98765-4321"
+                        placeholder="(00) 00000-0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
@@ -199,34 +199,34 @@ export const ContactSection: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
-                        Solução Desejada
+                        Serviço de interesse
                       </label>
                       <select
                         value={formData.projectType}
                         onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       >
-                        <option>Fábrica de Software Sob Medida</option>
-                        <option>Aplicativo Mobile (iOS & Android)</option>
-                        <option>Inteligência Artificial & Machine Learning</option>
-                        <option>Design Sprint & Prototipação</option>
-                        <option>Cloud Computing & DevOps</option>
+                        <option>Sites e landing pages</option>
+                        <option>Sistemas web sob medida</option>
+                        <option>Manutenção e evolução</option>
+                        <option>IA e automações</option>
+                        <option>Ainda não sei / quero conversar</option>
                       </select>
                     </div>
 
                     <div>
                       <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
-                        Orçamento Previsto
+                        Prazo desejado
                       </label>
                       <select
-                        value={formData.budgetRange}
-                        onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
+                        value={formData.timeline}
+                        onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
                       >
-                        <option>R$ 20k a R$ 40k</option>
-                        <option>R$ 40k a R$ 80k</option>
-                        <option>R$ 80k a R$ 150k</option>
-                        <option>Acima de R$ 150k (Enterprise)</option>
+                        <option>Sem pressa</option>
+                        <option>Nas próximas semanas</option>
+                        <option>1 a 2 meses</option>
+                        <option>O quanto antes</option>
                       </select>
                     </div>
                   </div>
@@ -237,7 +237,7 @@ export const ContactSection: React.FC = () => {
                     </label>
                     <textarea
                       rows={3}
-                      placeholder="Ex: Precisamos desenvolver uma plataforma SaaS com painel administrativo e integrações financeiras..."
+                      placeholder="Ex: Preciso de um site de 4 páginas para divulgar meu serviço, com formulário de contato..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
@@ -257,13 +257,13 @@ export const ContactSection: React.FC = () => {
                     ) : (
                       <>
                         <Send className="w-4 h-4" />
-                        <span>Enviar Mensagem & Iniciar Conversa</span>
+                        <span>Enviar mensagem</span>
                       </>
                     )}
                   </button>
 
                   <p className="text-[10px] text-center text-slate-400 font-mono">
-                    Protegido por criptografia TLS 1.3 e conformidade com a LGPD.
+                    Seus dados são usados apenas para responder este contato.
                   </p>
                 </form>
               )}

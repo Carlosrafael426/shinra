@@ -12,13 +12,13 @@ export const Methodology: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
             <GitBranch className="w-3.5 h-3.5 text-blue-400" />
-            <span>Processo Ágil de Alta Precisão</span>
+            <span>Como o projeto anda</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Engenharia sem surpresas: <span className="text-blue-400">da arquitetura ao deploy contínuo</span>.
+            Sem surpresas: <span className="text-blue-400">da conversa inicial ao site publicado</span>.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-light">
-            Nossa metodologia elimina retrabalho, valida hipóteses rapidamente e garante total transparência em cada sprint.
+            Três etapas simples. O escopo e o prazo são combinados por escrito antes de começar, e você acompanha o andamento durante o desenvolvimento.
           </p>
         </div>
 
@@ -80,17 +80,17 @@ export const Methodology: React.FC = () => {
             </div>
             <div>
               <h4 className="font-display text-lg font-bold text-white">
-                Ambiente de Staging Transparente
+                Você acompanha durante o desenvolvimento
               </h4>
               <p className="text-xs text-slate-300 font-light">
-                Você acompanha e testa cada tela e funcionalidade em tempo real antes de ir para produção.
+                Envio versões para revisão ao longo do caminho, para você ver o andamento e pedir ajustes antes da publicação.
               </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-slate-400">Garantia Técnica</span>
+            <span className="text-xs font-mono text-slate-400">Combinado</span>
             <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-blue-600/20 text-blue-300 border border-blue-500/30">
-              Zero Débito Técnico
+              Escopo e prazo por escrito
             </span>
           </div>
         </div>

@@ -8,7 +8,6 @@ import { Squad } from './components/Squad';
 import { TechEcosystem } from './components/TechEcosystem';
 import { AISolutions } from './components/AISolutions';
 import { CaseStudies } from './components/CaseStudies';
-import { Testimonials } from './components/Testimonials';
 import { ProjectEstimator } from './components/ProjectEstimator';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
@@ -18,7 +17,7 @@ import { MessageSquare } from 'lucide-react';
 
 export function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedServiceForModal, setSelectedServiceForModal] = useState('Fábrica de Software Sob Medida');
+  const [selectedServiceForModal, setSelectedServiceForModal] = useState('Sites e landing pages');
 
   const handleOpenModal = (serviceName?: string) => {
     if (serviceName) {
@@ -68,9 +67,6 @@ export function App() {
         {/* Projects / Case Studies Showcase */}
         <CaseStudies onOpenModal={() => handleOpenModal()} />
 
-        {/* Client Partners Testimonials */}
-        <Testimonials />
-
         {/* Interactive Scope & Budget Estimator */}
         <ProjectEstimator />
 
@@ -94,14 +90,14 @@ export function App() {
       {/* Floating Quick Action for WhatsApp */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
         <a
-          href="https://wa.me/5511999999999?text=Ol%C3%A1%20Shinra%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto."
+          href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto."
           target="_blank"
           rel="noreferrer"
           className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-blue-600 text-white font-bold text-xs shadow-xl shadow-blue-600/30 hover:scale-105 hover:bg-blue-500 transition-all duration-200"
           aria-label="Falar pelo WhatsApp"
         >
           <MessageSquare className="w-4 h-4 fill-white" />
-          <span className="hidden sm:inline">WhatsApp Comercial</span>
+          <span className="hidden sm:inline">WhatsApp</span>
         </a>
       </div>
 

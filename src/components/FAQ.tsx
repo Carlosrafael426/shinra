@@ -6,7 +6,7 @@ export const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos');
 
-  const categories = ['Todos', 'Comercial', 'Técnico', 'Segurança', 'Metodologia'];
+  const categories = ['Todos', 'Comercial', 'Técnico', 'Metodologia'];
 
   const filteredFaq = selectedCategory === 'Todos'
     ? FAQ_DATA
@@ -31,7 +31,7 @@ export const FAQ: React.FC = () => {
             Tudo o que você precisa saber antes de <span className="text-blue-400">iniciar seu projeto</span>.
           </h2>
           <p className="text-sm sm:text-base text-slate-300 font-light">
-            Esclarecemos modelos contratuais, propriedade de código, prazos e sustentação técnica.
+            Preço, prazo, pagamento, propriedade do código e o que acontece depois da entrega.
           </p>
         </div>
 
@@ -98,15 +98,15 @@ export const FAQ: React.FC = () => {
         {/* Support Callout */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-slate-900 border border-slate-800">
           <p className="text-xs text-slate-300 mb-2">
-            Ainda tem uma dúvida técnica ou arquitetura específica para discutir?
+            Ficou com alguma dúvida que não está aqui?
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Ol%C3%A1%20Shinra%2C%20tenho%20uma%20d%C3%BAvida%20t%C3%A9cnica%20sobre%20meu%20projeto."
+            href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20um%20projeto."
             target="_blank"
             rel="noreferrer"
             className="text-xs font-mono text-blue-400 hover:text-blue-300 underline font-semibold"
           >
-            Falar diretamente com um Arquiteto de Soluções →
+            Falar direto comigo →
           </a>
         </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AI_SOLUTIONS } from '../data/content';
-import { Bot, ArrowRight, Sparkles, Shield, BarChart3, Search } from 'lucide-react';
+import { Bot, ArrowRight, Sparkles, Zap, Workflow, Plug } from 'lucide-react';
 
 interface AISolutionsProps {
   onOpenModal: () => void;
@@ -10,13 +10,13 @@ export const AISolutions: React.FC<AISolutionsProps> = ({ onOpenModal }) => {
   const getSolutionIcon = (index: number) => {
     switch (index) {
       case 0:
-        return <Shield className="w-6 h-6 text-blue-400" />;
-      case 1:
-        return <BarChart3 className="w-6 h-6 text-blue-400" />;
-      case 2:
         return <Bot className="w-6 h-6 text-blue-400" />;
+      case 1:
+        return <Zap className="w-6 h-6 text-blue-400" />;
+      case 2:
+        return <Workflow className="w-6 h-6 text-blue-400" />;
       case 3:
-        return <Search className="w-6 h-6 text-blue-400" />;
+        return <Plug className="w-6 h-6 text-blue-400" />;
       default:
         return <Sparkles className="w-6 h-6 text-blue-400" />;
     }
@@ -30,13 +30,13 @@ export const AISolutions: React.FC<AISolutionsProps> = ({ onOpenModal }) => {
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span>Shinra Intelligence</span>
+            <span>IA &amp; Automações</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Inteligência Artificial aplicada a <span className="text-blue-400">resultados reais</span>.
+            IA e automações no nível de <span className="text-blue-400">integração</span>.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-            Em um mundo moldado por dados e algoritmos, a inteligência artificial traz o poder de desvendar oportunidades, prever comportamentos e automatizar o que antes parecia impossível.
+            A IA hoje resolve bem tarefas específicas: responder perguntas, resumir texto, organizar informação. Eu conecto isso ao que você já usa e automatizo o trabalho manual repetitivo — sem treinar modelos, no nível de integração com APIs.
           </p>
         </div>
 

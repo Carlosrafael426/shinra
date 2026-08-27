@@ -1,71 +1,63 @@
-# ⚡ SHINRA | Software Engineering & High-Performance Systems
+# Shinra — site institucional
 
-> Plataforma institucional e comercial da **Shinra**, agência e software house especializada em arquitetura de microsserviços, SaaS escaláveis, aplicativos mobile nativos e inteligência artificial aplicada.
+Site institucional da **Shinra**, um estúdio enxuto de desenvolvimento web:
+sites, landing pages e sistemas web sob medida, feitos por quem programa.
 
-![Shinra Preview](https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80)
+Este repositório é apenas o site (front-end estático). Não há back-end aqui.
 
----
+<!-- Preview: adicionar um print da home em docs/preview.png e referenciar aqui
+![Shinra](docs/preview.png)
+-->
 
-## 🚀 Tecnologias & Arquitetura
+## Stack
 
-- **Frontend Core:** [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
-- **Estilização & Design System:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Ícones & Microinterações:** [Lucide React](https://lucide.dev/) + [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti)
-- **Tipografia:** Plus Jakarta Sans & JetBrains Mono
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) como build tool e dev server
+- [Tailwind CSS v4](https://tailwindcss.com/) para estilo
+- [Lucide React](https://lucide.dev/) para ícones e [canvas-confetti](https://www.npmjs.com/package/canvas-confetti) para microinterações
+- Tipografia: Plus Jakarta Sans e JetBrains Mono (Google Fonts)
 
----
+## Seções
 
-## ✨ Principais Funcionalidades da Plataforma
+- **Hero** — o que o estúdio faz e como um projeto anda, em 3 etapas
+- **Sobre** — estúdio de uma pessoa, com parceiros sob demanda
+- **Serviços** — sites e landing pages, sistemas web sob medida, manutenção e evolução, IA e automações
+- **Como o projeto anda** — conversa e proposta, desenvolvimento com acompanhamento, testes e publicação
+- **Como eu trabalho** — o fluxo real de um projeto, do primeiro contato ao suporte
+- **IA e automações** — integração com APIs de IA e automação de tarefas (nível de integração, sem treinar modelos)
+- **Projetos** — projetos reais entregues, marcados como "cliente real" ou "projeto próprio"
+- **Estimador de escopo** — monta o projeto e mostra uma estimativa inicial de prazo e complexidade (não é orçamento fechado)
+- **FAQ** — preço, prazo, pagamento, propriedade do código, pós-entrega
+- **Contato** — formulário e canais diretos
 
-1. **Hero com Terminal Interativo:**
-   - Simulação em tempo real de logs de deploy, telemetria de cluster Kubernetes e benchmarks de latência de API.
-2. **Calculadora Interativa de Escopo & Orçamento (Estimador):**
-   - Permite ao lead configurar tipo de plataforma, escala de usuários, módulos e integrações de IA, gerando na hora o prazo em semanas, complexidade e link formatado para envio direto via WhatsApp.
-3. **Showcase de Serviços Especializados:**
-   - SaaS Multi-tenant, Agentes de IA/RAG, Mobile Apps, Microsserviços de Alta Concorrência e Modernização Cloud.
-4. **Cases de Sucesso com Métricas Reais:**
-   - Destaques de projetos com SLAs, volumetria e tecnologias empregadas.
-5. **Metodologia Ágil em 5 Etapas:**
-   - Pipeline transparente da arquitetura e protótipo ao QA/Pentest e deploy contínuo.
-6. **FAQ Estratégico com Filtro por Categoria:**
-   - Quebra de objeções técnicas, contratuais, propriedade intelectual (100% do cliente) e segurança (LGPD/OWASP).
-7. **Lead Capture & Modal de Diagnóstico:**
-   - Formulários com validação imediata e canais diretos de WhatsApp.
+> Os dados de conteúdo ficam concentrados em [`src/data/content.ts`](src/data/content.ts).
+> Os prints dos projetos vão em [`public/cases/`](public/cases/) — ver o README de lá.
+> Os contatos (e-mail, WhatsApp) estão como **placeholder** até a estruturação da empresa.
 
----
+## Rodar localmente
 
-## 🛠️ Como Rodar Localmente
+```bash
+npm install
+npm run dev      # servidor de desenvolvimento em http://localhost:3030
+```
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/Carlosrafael426/shinra.git
-   cd shinra
-   ```
+Outros scripts:
 
-2. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
+```bash
+npm run build    # build de produção em dist/
+npm run preview  # serve o build de produção localmente
+npm run lint     # ESLint
+```
 
-3. **Inicie o servidor de desenvolvimento:**
-   ```bash
-   npm run dev
-   ```
+## Deploy
 
-4. **Gerar build de produção:**
-   ```bash
-   npm run build
-   ```
+O build gera arquivos estáticos em `dist/`, publicáveis em qualquer host estático
+(Vercel, Netlify, GitHub Pages, etc.).
 
----
-
-## 🛡️ Segurança & Boas Práticas
-
-- Padrões de código limpo com TypeScript Strict Mode.
-- Conformidade com LGPD e diretrizes OWASP Top 10.
-- Layout 100% responsivo com acessibilidade semântica.
+- **Vercel / Netlify / domínio próprio na raiz:** nenhuma configuração extra necessária.
+- **GitHub Pages em subpasta** (ex.: `usuario.github.io/shinra/`): definir
+  `base: '/shinra/'` em [`vite.config.ts`](vite.config.ts) antes do build.
 
 ---
 
-© 2026 Shinra Systems. Todos os direitos reservados.
+© Shinra

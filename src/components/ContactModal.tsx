@@ -11,7 +11,7 @@ interface ContactModalProps {
 export const ContactModal: React.FC<ContactModalProps> = ({
   isOpen,
   onClose,
-  initialService = 'SaaS / Plataforma Web'
+  initialService = 'Sites e landing pages'
 }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -31,7 +31,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     });
 
     const msg = encodeURIComponent(
-      `*SOLICITAÇÃO DE DIAGNÓSTICO - SHINRA*\n` +
+      `*CONTATO PELO SITE - SHINRA*\n` +
       `*Nome:* ${name}\n` +
       `*Email:* ${email}\n` +
       `*Telefone:* ${phone}\n` +
@@ -39,7 +39,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     );
 
     setTimeout(() => {
-      window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+      window.open(`https://wa.me/5500000000000?text=${msg}`, '_blank');
       setTimeout(() => {
         setIsSuccess(false);
         onClose();
@@ -65,23 +65,23 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="font-display text-xl font-bold text-white">
-              Conectando com a Engenharia...
+              Abrindo o WhatsApp...
             </h3>
             <p className="text-xs text-slate-300">
-              Redirecionando para o WhatsApp do Arquiteto Técnico de plantão.
+              Você vai conversar direto comigo sobre o seu projeto.
             </p>
           </div>
         ) : (
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-blue-400 mb-2">
               <Cpu className="w-4 h-4" />
-              <span>Sessão Técnica de Diagnóstico</span>
+              <span>Conversa inicial</span>
             </div>
             <h3 className="font-display text-2xl font-bold text-white mb-1">
-              Agendar Diagnóstico Gratuito
+              Falar sobre seu projeto
             </h3>
             <p className="text-xs text-slate-300 font-light mb-6">
-              Descubra a melhor arquitetura, estimativa de prazos e custos para seu sistema.
+              Me conte a ideia e eu retorno para entender melhor e estimar o prazo. Sem compromisso.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -92,7 +92,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <input
                   type="text"
                   required
-                  placeholder="Carlos Souza"
+                  placeholder="Ana Martins"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
@@ -106,7 +106,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <input
                   type="tel"
                   required
-                  placeholder="(11) 99999-9999"
+                  placeholder="(00) 00000-0000"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
@@ -120,7 +120,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 <input
                   type="email"
                   required
-                  placeholder="carlos@empresa.com.br"
+                  placeholder="ana@empresa.com.br"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
@@ -144,12 +144,12 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 className="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/30 mt-4"
               >
                 <Send className="w-4 h-4" />
-                <span>Confirmar & Falar com Engenharia</span>
+                <span>Enviar e abrir o WhatsApp</span>
               </button>
 
               <p className="text-[10px] text-center text-slate-400 flex items-center justify-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-                Seus dados estão protegidos por sigilo profissional.
+                Uso seus dados apenas para responder o contato.
               </p>
             </form>
           </div>

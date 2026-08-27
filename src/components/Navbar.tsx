@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
                 SHINRA<span className="text-blue-400">.</span>
               </span>
               <span className="text-[10px] uppercase font-mono tracking-widest text-slate-400">
-                Software & Systems
+                Estúdio de desenvolvimento web
               </span>
             </div>
           </a>
@@ -65,14 +65,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
           <div className="hidden md:flex items-center gap-3">
             <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              <span>Sprint Q3: Disponível</span>
+              <span>Aberto para novos projetos</span>
             </div>
 
             <button
               onClick={onOpenModal}
               className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all duration-200 active:scale-95 flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-600/25"
             >
-              <span>Solicitar Diagnóstico</span>
+              <span>Falar sobre um projeto</span>
               <ArrowUpRight className="w-4 h-4 text-white" />
             </button>
           </div>
@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
             <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
               <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-mono text-slate-400">
                 <span className="w-2 h-2 rounded-full bg-blue-400" />
-                <span>Capacidade de Novos Projetos: Ativa</span>
+                <span>Aberto para novos projetos</span>
               </div>
               <button
                 onClick={() => {
@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
                 }}
                 className="w-full py-3 rounded-xl text-center text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/25"
               >
-                <span>Falar com Engenharia</span>
+                <span>Falar sobre um projeto</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>

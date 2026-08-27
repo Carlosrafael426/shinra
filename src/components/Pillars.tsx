@@ -27,13 +27,13 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-blue-400 block mb-2">
-            Por que escolher a Shinra?
+            Por que a Shinra
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            O que é uma <span className="text-blue-400">Fábrica de Soluções</span>?
+            Um estúdio <span className="text-blue-400">pequeno e direto</span>, não uma agência.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-            Mais do que escrever código, nós assumimos a responsabilidade pela engenharia, qualidade e sucesso técnico do seu projeto digital do início ao fim.
+            A Shinra sou eu, Carlos Rafael, desenvolvedor full stack, acionando parceiros especializados quando o projeto pede. Sem camadas de intermediário entre você e quem escreve o código.
           </p>
         </div>
 
@@ -78,10 +78,10 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
             <div className="w-3 h-10 bg-blue-500 rounded-full" />
             <div>
               <p className="text-base font-semibold text-white">
-                "Nós esquentamos a cabeça por você."
+                "Você cuida do seu negócio. Eu cuido do código."
               </p>
               <p className="text-xs text-slate-400">
-                Foque nas decisões estratégicas do seu negócio enquanto cuidamos de cada detalhe técnico.
+                Um ponto de contato só, do briefing ao suporte depois da entrega.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const Pillars: React.FC<PillarsProps> = ({ onOpenModal }) => {
             onClick={onOpenModal}
             className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-blue-600/25 flex-shrink-0"
           >
-            <span>Falar com um Especialista</span>
+            <span>Falar sobre um projeto</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

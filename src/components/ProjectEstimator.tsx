@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { 
-  Calculator, 
-  Layers, 
-  Clock, 
-  Sparkles, 
-  ShieldCheck, 
-  Cpu, 
-  Server, 
+import {
+  Calculator,
+  Layers,
+  Clock,
+  Sparkles,
+  Info,
+  Cpu,
+  Wrench,
+  Bot,
   Check,
   MessageSquare
 } from 'lucide-react';
@@ -17,38 +18,34 @@ interface ProjectEstimatorProps {
 }
 
 export const ProjectEstimator: React.FC<ProjectEstimatorProps> = () => {
-  const [projectType, setProjectType] = useState<string>('saas');
-  const [scale, setScale] = useState<string>('growth');
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([
-    'auth-rbac',
-    'payments-billing',
-    'analytics-dash'
-  ]);
-  const [includeAI, setIncludeAI] = useState<boolean>(true);
+  const [projectType, setProjectType] = useState<string>('site');
+  const [scale, setScale] = useState<string>('padrao');
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [includeAI, setIncludeAI] = useState<boolean>(false);
   const [contactName, setContactName] = useState<string>('');
   const [contactPhone, setContactPhone] = useState<string>('');
 
   const projectTypes = [
-    { id: 'saas', name: 'SaaS / Plataforma Web', basePrice: 22000, baseWeeks: 6, icon: Layers },
-    { id: 'mobile', name: 'App Mobile (iOS & Android)', basePrice: 28000, baseWeeks: 8, icon: Cpu },
-    { id: 'ai-system', name: 'Sistema com Agente de IA & RAG', basePrice: 24000, baseWeeks: 5, icon: Sparkles },
-    { id: 'internal-erp', name: 'ERP / Sistema Interno Custom', basePrice: 32000, baseWeeks: 9, icon: Server },
-    { id: 'api-backend', name: 'Microsserviços & APIs de Alta Escala', basePrice: 18000, baseWeeks: 4, icon: Cpu },
+    { id: 'site', name: 'Site institucional / landing page', baseWeeks: 2, icon: Layers },
+    { id: 'multi', name: 'Site com várias páginas e conteúdo', baseWeeks: 3, icon: Sparkles },
+    { id: 'sistema', name: 'Sistema web com login e painel', baseWeeks: 6, icon: Cpu },
+    { id: 'manutencao', name: 'Manutenção / evolução de site existente', baseWeeks: 1, icon: Wrench },
+    { id: 'ia', name: 'Integração com IA / automação', baseWeeks: 3, icon: Bot },
   ];
 
   const scaleOptions = [
-    { id: 'mvp', name: 'MVP / Até 5.000 usuários', multiplier: 1.0, weeksAdd: 0 },
-    { id: 'growth', name: 'Tração / 5.000 a 50.000 usuários', multiplier: 1.35, weeksAdd: 2 },
-    { id: 'enterprise', name: 'Enterprise / Alta Concorrência', multiplier: 1.75, weeksAdd: 4 },
+    { id: 'enxuto', name: 'Enxuto / uma página ou poucas seções', weeksAdd: 0 },
+    { id: 'padrao', name: 'Padrão / várias páginas e conteúdo', weeksAdd: 1 },
+    { id: 'completo', name: 'Completo / várias funcionalidades e integrações', weeksAdd: 3 },
   ];
 
   const availableFeatures = [
-    { id: 'auth-rbac', name: 'Autenticação & RBAC Avançado', price: 3000, days: 3 },
-    { id: 'payments-billing', name: 'Assinaturas & Checkout (Stripe/Pix)', price: 4500, days: 4 },
-    { id: 'analytics-dash', name: 'Dashboard Analítico em Tempo Real', price: 4000, days: 4 },
-    { id: 'offline-first', name: 'Sincronização Offline-first', price: 5000, days: 5 },
-    { id: 'multi-tenant', name: 'Arquitetura Multi-tenant Isolada', price: 6000, days: 6 },
-    { id: 'erp-integration', name: 'Integração com ERP / CRM Legado', price: 5500, days: 5 },
+    { id: 'auth', name: 'Cadastro e login de usuários', days: 4 },
+    { id: 'admin', name: 'Painel administrativo', days: 5 },
+    { id: 'db', name: 'Integração com banco de dados', days: 3 },
+    { id: 'forms', name: 'Formulários com envio de e-mail', days: 2 },
+    { id: 'blog', name: 'Blog / área de conteúdo editável', days: 4 },
+    { id: 'api', name: 'Integração com API externa', days: 3 },
   ];
 
   const toggleFeature = (id: string) => {
@@ -57,27 +54,23 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = () => {
     );
   };
 
-  // Calculations
+  // Calculations — apenas prazo estimado e complexidade. Sem valores em R$.
   const currentTypeObj = projectTypes.find((p) => p.id === projectType) || projectTypes[0];
   const currentScaleObj = scaleOptions.find((s) => s.id === scale) || scaleOptions[1];
 
-  const featuresPrice = selectedFeatures.reduce((acc, featId) => {
-    const feat = availableFeatures.find((f) => f.id === featId);
-    return acc + (feat ? feat.price : 0);
-  }, 0);
-
-  const aiAddonPrice = includeAI ? 7500 : 0;
-  const rawTotal = (currentTypeObj.basePrice + featuresPrice + aiAddonPrice) * currentScaleObj.multiplier;
-  
-  const estimatedWeeks = Math.round(
-    currentTypeObj.baseWeeks +
-    currentScaleObj.weeksAdd +
-    (selectedFeatures.length * 0.5) +
-    (includeAI ? 1.5 : 0)
+  const estimatedWeeks = Math.max(
+    1,
+    Math.round(
+      currentTypeObj.baseWeeks +
+      currentScaleObj.weeksAdd +
+      selectedFeatures.length * 0.5 +
+      (includeAI ? 1.5 : 0)
+    )
   );
 
-  const estimatedMin = Math.round(rawTotal * 0.9 / 1000) * 1000;
-  const estimatedMax = Math.round(rawTotal * 1.15 / 1000) * 1000;
+  const complexityScore = selectedFeatures.length + (includeAI ? 2 : 0) + currentScaleObj.weeksAdd;
+  const complexityLabel =
+    complexityScore <= 2 ? 'Simples' : complexityScore <= 5 ? 'Intermediário' : 'Mais elaborado';
 
   const handleSendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,22 +85,22 @@ export const ProjectEstimator: React.FC<ProjectEstimatorProps> = () => {
       .filter(Boolean)
       .join(', ');
 
-    const message = `*PROPOSTA / ESTIMATIVA DE PROJETO - SHINRA SYSTEMS*
-    
-*Nome do Contato:* ${contactName || 'Não informado'}
-*Telefone:* ${contactPhone || 'Não informado'}
-*Tipo de Projeto:* ${currentTypeObj.name}
-*Escala Pretendida:* ${currentScaleObj.name}
-*Módulos Selecionados:* ${selectedFeaturesNames || 'Nenhum adicional'}
-*Inteligência Artificial Integrada:* ${includeAI ? 'Sim (RAG / LLMs)' : 'Não'}
-*Estimativa de Prazo:* ~${estimatedWeeks} semanas
-*Faixa Estimada de Investimento:* R$ ${estimatedMin.toLocaleString('pt-BR')} a R$ ${estimatedMax.toLocaleString('pt-BR')}
+    const message = `*ESTIMATIVA INICIAL DE PROJETO - SHINRA*
 
-Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e gostaria de agendar uma sessão técnica para detalhar a arquitetura!`;
+*Nome do contato:* ${contactName || 'Não informado'}
+*Telefone:* ${contactPhone || 'Não informado'}
+*Tipo de projeto:* ${currentTypeObj.name}
+*Porte:* ${currentScaleObj.name}
+*Recursos selecionados:* ${selectedFeaturesNames || 'Nenhum adicional'}
+*Integração com IA:* ${includeAI ? 'Sim' : 'Não'}
+*Prazo estimado:* ~${estimatedWeeks} semana(s)
+*Complexidade:* ${complexityLabel}
+
+Esta é uma estimativa inicial gerada no site, sujeita a conversa — não é um orçamento fechado. Gostaria de conversar para detalhar o escopo.`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodedMessage}`;
-    
+    const whatsappUrl = `https://wa.me/5500000000000?text=${encodedMessage}`;
+
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
     }, 400);
@@ -115,32 +108,32 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
 
   return (
     <section id="estimador" className="py-24 relative bg-transparent border-b border-slate-800/80">
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-blue-500/30 text-xs font-mono text-blue-300 mb-4">
             <Calculator className="w-3.5 h-3.5 text-blue-400" />
-            <span>Simulador de Escopo & Orçamento em Tempo Real</span>
+            <span>Estimativa de escopo e prazo</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Configure seu projeto e receba uma <span className="text-blue-400">estimativa técnica instantânea</span>.
+            Monte seu projeto e veja uma <span className="text-blue-400">estimativa inicial de prazo</span>.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-light">
-            Selecione o tipo de sistema, escala de usuários e integrações para calcular o tempo de entrega e arquitetura recomendada.
+            Selecione o tipo de projeto, o porte e os recursos para ter uma ideia do prazo e da complexidade. É um ponto de partida para a conversa, não um orçamento fechado.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Configurator Steps */}
           <div className="lg:col-span-7 space-y-8">
-            
+
             {/* Step 1: Project Type */}
             <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center gap-2">
-                <span>01. Selecione o Tipo de Plataforma</span>
+                <span>01. Tipo de projeto</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {projectTypes.map((type) => {
@@ -162,7 +155,7 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
                       </div>
                       <div>
                         <p className="font-semibold text-sm leading-tight text-white">{type.name}</p>
-                        <p className="text-[11px] text-slate-400 mt-1">Base ~{type.baseWeeks} semanas</p>
+                        <p className="text-[11px] text-slate-400 mt-1">Base ~{type.baseWeeks} semana(s)</p>
                       </div>
                     </button>
                   );
@@ -170,10 +163,10 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
               </div>
             </div>
 
-            {/* Step 2: Scale & Concurrency */}
+            {/* Step 2: Scope size */}
             <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center gap-2">
-                <span>02. Escala & Capacidade Concorrente</span>
+                <span>02. Porte do projeto</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {scaleOptions.map((opt) => {
@@ -200,7 +193,7 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
             {/* Step 3: Features Checklist */}
             <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800">
               <label className="text-xs font-mono uppercase tracking-widest text-slate-300 block mb-4 flex items-center justify-between">
-                <span>03. Módulos & Recursos Críticos</span>
+                <span>03. Recursos</span>
                 <span className="text-slate-400 lowercase font-normal">{selectedFeatures.length} selecionados</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -239,8 +232,8 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">Adicionar Agente de IA / RAG Privado</p>
-                    <p className="text-xs text-slate-400">Embeddings semânticos, automação com LLM e base vetorial segura.</p>
+                    <p className="text-sm font-semibold text-white">Incluir integração com IA</p>
+                    <p className="text-xs text-slate-400">Conexão com APIs de IA (assistente, geração de texto) ou automação de tarefas.</p>
                   </div>
                 </div>
                 <button
@@ -262,65 +255,67 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
           {/* Right Live Summary & Proposal Submission Card */}
           <div className="lg:col-span-5 sticky top-28">
             <div className="p-7 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl relative overflow-hidden">
-              
+
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <span className="text-xs font-mono text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-blue-400" />
-                  Blueprint Estimado
+                  Estimativa
                 </span>
-                <span className="text-[11px] font-mono text-slate-400">Shinra Engine v4.8</span>
+                <span className="text-[11px] font-mono text-slate-400">Ponto de partida</span>
               </div>
 
               {/* Estimate Numbers */}
               <div className="py-6 border-b border-slate-800">
-                <p className="text-xs font-mono text-slate-400 uppercase">Faixa de Investimento Estimada:</p>
-                <div className="text-3xl sm:text-4xl font-extrabold font-display text-white tracking-tight mt-1 text-blue-400">
-                  R$ {estimatedMin.toLocaleString('pt-BR')} - {estimatedMax.toLocaleString('pt-BR')}
+                <p className="text-xs font-mono text-slate-400 uppercase">Prazo estimado:</p>
+                <div className="text-3xl sm:text-4xl font-extrabold font-display tracking-tight mt-1 text-blue-400">
+                  ~{estimatedWeeks} semana{estimatedWeeks > 1 ? 's' : ''}
                 </div>
                 <div className="flex items-center gap-4 mt-3 text-xs text-slate-300">
                   <span className="flex items-center gap-1.5">
                     <Clock className="w-4 h-4 text-blue-400" />
-                    Prazo: ~<strong>{estimatedWeeks} semanas</strong>
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-blue-400" />
-                    Garantia 90d inclusa
+                    Complexidade: <strong>{complexityLabel}</strong>
                   </span>
                 </div>
               </div>
 
-              {/* Architecture Blueprint Summary */}
+              {/* Blueprint Summary */}
               <div className="py-4 space-y-2.5 text-xs text-slate-300 border-b border-slate-800">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Plataforma:</span>
-                  <span className="font-semibold text-white">{currentTypeObj.name}</span>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-400">Tipo:</span>
+                  <span className="font-semibold text-white text-right">{currentTypeObj.name}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Escopo de Infra:</span>
-                  <span className="font-semibold text-blue-300">{currentScaleObj.name.split('/')[0]}</span>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-400">Porte:</span>
+                  <span className="font-semibold text-blue-300 text-right">{currentScaleObj.name.split('/')[0]}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Módulos extras:</span>
-                  <span className="font-semibold text-slate-200">{selectedFeatures.length} integrados</span>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-400">Recursos:</span>
+                  <span className="font-semibold text-slate-200">{selectedFeatures.length} selecionados</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Inteligência Artificial:</span>
+                <div className="flex justify-between gap-4">
+                  <span className="text-slate-400">Integração com IA:</span>
                   <span className={includeAI ? 'text-blue-300 font-semibold' : 'text-slate-500'}>
-                    {includeAI ? 'Habilitada (Vector + LLM)' : 'Não'}
+                    {includeAI ? 'Sim' : 'Não'}
                   </span>
                 </div>
+              </div>
+
+              {/* Disclaimer */}
+              <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-2 text-[11px] text-slate-400 leading-relaxed">
+                <Info className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                <span>Estimativa inicial, sujeita a conversa. O escopo, o prazo e o valor só são fechados por escrito depois de entender o projeto.</span>
               </div>
 
               {/* Lead Information & Submit Form */}
               <form onSubmit={handleSendWhatsApp} className="pt-5 space-y-3">
                 <div>
                   <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
-                    Seu Nome / Empresa:
+                    Seu nome / empresa:
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Ex: Carlos Silva (Nexus Corp)"
+                    placeholder="Ex: Ana Martins"
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
@@ -329,12 +324,12 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
 
                 <div>
                   <label className="text-[11px] font-mono uppercase text-slate-400 block mb-1">
-                    WhatsApp para Contato:
+                    WhatsApp para contato:
                   </label>
                   <input
                     type="tel"
                     required
-                    placeholder="(11) 98765-4321"
+                    placeholder="(00) 00000-0000"
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-sm text-white focus:outline-none focus:border-blue-500"
@@ -346,12 +341,12 @@ Olá time da Shinra, configurei essa especificação na Calculadora de Escopo e 
                   className="w-full py-4 px-6 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2.5 cursor-pointer mt-2 shadow-lg shadow-blue-600/30"
                 >
                   <MessageSquare className="w-4 h-4 fill-white" />
-                  <span>Enviar Especificação via WhatsApp</span>
+                  <span>Enviar estimativa via WhatsApp</span>
                 </button>
 
                 <p className="text-[10px] text-center text-slate-400 flex items-center justify-center gap-1.5 pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-                  Sem compromisso. Atendimento direto por um Arquiteto de Software.
+                  <Info className="w-3.5 h-3.5 text-blue-400" />
+                  Sem compromisso. Quem responde é quem vai programar.
                 </p>
               </form>
 

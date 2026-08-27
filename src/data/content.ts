@@ -20,22 +20,16 @@ export interface CaseStudy {
   client: string;
   industry: string;
   category: string;
+  nature: 'Cliente real' | 'Projeto próprio';
   title: string;
   description: string;
+  url?: string;
   metrics: {
     label: string;
     value: string;
   }[];
   tags: string[];
   image: string;
-}
-
-export interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  quote: string;
-  highlight: string;
 }
 
 export interface FAQItem {
@@ -53,59 +47,61 @@ export interface MethodologyStep {
   duration: string;
 }
 
+// Compromissos verificáveis de um estúdio novo e enxuto — sem números de vitrine.
 export const COMPANY_METRICS = [
-  { value: '+60', label: 'Projetos Entregues', desc: 'Sistemas e produtos digitais em produção' },
-  { value: '99.98%', label: 'Disponibilidade', desc: 'Infraestruturas resilientes e tolerantes a falhas' },
-  { value: '100%', label: 'Código do Cliente', desc: 'Propriedade intelectual integralmente transferida' },
-  { value: '90 dias', label: 'Garantia Contratual', desc: 'Suporte pós-lançamento e sustentação técnica' },
+  { value: 'Direto', label: 'Sem intermediário', desc: 'Você fala com quem escreve o código, do primeiro contato ao suporte.' },
+  { value: '100%', label: 'Código do cliente', desc: 'Todo o código-fonte e os acessos são seus, sem dependência da Shinra.' },
+  { value: 'Por escrito', label: 'Escopo e prazo', desc: 'O que será entregue e em quanto tempo é combinado antes de começar.' },
+  { value: 'No ar', label: 'Entrega publicada', desc: 'O projeto é entregue publicado e funcionando, não só em arquivo.' },
 ];
 
 export const TECH_STACKS = [
-  { name: 'React / Next.js', category: 'Frontend' },
+  { name: 'React', category: 'Frontend' },
   { name: 'TypeScript', category: 'Linguagem' },
-  { name: 'Node.js & NestJS', category: 'Backend' },
-  { name: 'Python & FastAPI', category: 'IA & Dados' },
-  { name: 'React Native', category: 'Mobile' },
-  { name: 'PostgreSQL', category: 'Banco de Dados' },
-  { name: 'AWS & GCP', category: 'Cloud' },
-  { name: 'Docker & Kubernetes', category: 'DevOps' },
+  { name: 'Tailwind CSS', category: 'Estilo' },
+  { name: 'React Router', category: 'Navegação' },
+  { name: 'Motion', category: 'Animação' },
+  { name: 'Node.js & Express', category: 'Backend' },
+  { name: 'MongoDB', category: 'Banco de Dados' },
+  { name: 'PostgreSQL & Sequelize', category: 'Banco de Dados' },
+  { name: 'Vite', category: 'Build' },
+  { name: 'Git & GitHub', category: 'Versionamento' },
 ];
 
 export const METHODOLOGY_STEPS: MethodologyStep[] = [
   {
     step: '01',
-    title: 'Design Sprint & Descoberta',
-    subtitle: 'Alinhamento e blueprint',
-    description: 'Mapeamento de requisitos, arquitetura técnica e protótipo navegável validado.',
-    deliverables: ['Documento de Arquitetura', 'Protótipo Figma', 'Backlog Priorizado'],
-    duration: 'Semana 1-2'
+    title: 'Conversa e proposta',
+    subtitle: 'Entender o problema',
+    description: 'Conversa inicial para entender o negócio e o objetivo do projeto. Depois, uma proposta com escopo, prazo e valor fechados por escrito.',
+    deliverables: ['Escopo do que será feito', 'Prazo combinado', 'Valor fechado antes de começar'],
+    duration: 'Antes de começar'
   },
   {
     step: '02',
-    title: 'Desenvolvimento em Sprints',
-    subtitle: 'Entregas quinzenais contínuas',
-    description: 'Construção modular com branches rastreáveis e ambiente de staging ao vivo.',
-    deliverables: ['Staging Funcional', 'Changelog Semanal', 'Código Versionado'],
-    duration: 'Sprints Ágeis'
+    title: 'Desenvolvimento com acompanhamento',
+    subtitle: 'Você acompanha',
+    description: 'Construção do projeto com atualizações ao longo do caminho, para você ver o andamento e ajustar o que for preciso.',
+    deliverables: ['Versões para revisão', 'Ajustes combinados', 'Código versionado no Git'],
+    duration: 'Durante o projeto'
   },
   {
     step: '03',
-    title: 'QA, Testes & Homologação',
-    subtitle: 'Só termina quando testa',
-    description: 'Validação de performance, testes automatizados e homologação rigorosa.',
-    deliverables: ['Relatório de Carga', 'Auditoria de Segurança', 'Plano de Deploy'],
-    duration: 'Pré-Deploy'
+    title: 'Testes e publicação',
+    subtitle: 'Entrega no ar',
+    description: 'Revisão e testes antes de publicar. O site ou sistema é entregue publicado, funcionando e com orientação de uso.',
+    deliverables: ['Testes antes de publicar', 'Publicação em produção', 'Suporte combinado após a entrega'],
+    duration: 'Na entrega'
   }
 ];
 
 export const NAV_LINKS: NavItem[] = [
-  { label: 'Fábrica de Soluções', href: '#sobre' },
-  { label: 'Soluções', href: '#solucoes' },
-  { label: 'Metodologia', href: '#metodologia' },
-  { label: 'Inteligência Artificial', href: '#ia' },
-  { label: 'Cases', href: '#cases' },
-  { label: 'Estimador', href: '#estimador', badge: 'Simular' },
-  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Sobre', href: '#sobre' },
+  { label: 'Serviços', href: '#solucoes' },
+  { label: 'Como trabalho', href: '#squad' },
+  { label: 'IA & Automações', href: '#ia' },
+  { label: 'Projetos', href: '#cases' },
+  { label: 'Estimativa', href: '#estimador', badge: 'Simular' },
   { label: 'Contato', href: '#contato' },
 ];
 
@@ -119,260 +115,238 @@ export interface TeamRole {
 export const TEAM_ROLES: TeamRole[] = [
   {
     step: '01',
-    title: 'Time Comercial & Discovery',
-    desc: 'Entende a fundo o seu negócio antes de qualquer linha de código ser escrita.',
-    icon: 'Users'
+    title: 'Conversa inicial',
+    desc: 'Entendo o que você precisa, para quem é o projeto e qual o objetivo. Sem compromisso.',
+    icon: 'MessageCircle'
   },
   {
     step: '02',
-    title: 'Product Owners',
-    desc: 'Traduz visão de negócio em backlog priorizado e decisões de escopo ágeis.',
-    icon: 'Compass'
+    title: 'Proposta com escopo e prazo',
+    desc: 'Você recebe por escrito o que será entregue, em quanto tempo e por quanto — antes de começar.',
+    icon: 'FileText'
   },
   {
     step: '03',
-    title: 'UX/UI Designers',
-    desc: 'Desenha jornadas e interfaces validadas com usuários reais antes do desenvolvimento.',
-    icon: 'Palette'
-  },
-  {
-    step: '04',
-    title: 'Arquitetos de Software',
-    desc: 'Projeta a arquitetura técnica, escalável e segura, sob medida para o seu produto.',
-    icon: 'Boxes'
-  },
-  {
-    step: '05',
-    title: 'Engenheiros de Desenvolvimento',
-    desc: 'Constrói o sistema em sprints, com código limpo e 100% documentado.',
+    title: 'Desenvolvimento com acompanhamento',
+    desc: 'Eu programo e vou mostrando o andamento. Quem atende é quem escreve o código.',
     icon: 'Code2'
   },
   {
-    step: '06',
-    title: 'Quality Assurance',
-    desc: 'Testa cada entrega à exaustão até garantir zero bugs críticos em produção.',
-    icon: 'Bug'
+    step: '04',
+    title: 'Publicação e suporte',
+    desc: 'Entrego publicado e funcionando, com orientação de uso. Parceiros de design, conteúdo e mídia entram sob demanda quando o projeto pede.',
+    icon: 'Rocket'
   }
 ];
 
 export const TRUST_PILLARS = [
   {
-    title: 'Diga adeus a projetos atrasados',
-    subtitle: 'Soluções completas do conceito à entrega final',
-    desc: 'A Shinra proporciona a solução de ponta a ponta para o seu software ou app. Nossa equipe sênior atua desde o Design Sprint e validação arquitetural até o desenvolvimento e deploy em produção.',
-    icon: 'Clock'
-  },
-  {
-    title: 'Fidelidade do início ao fim',
-    subtitle: 'O que foi concebido é o que vai para o ar',
-    desc: 'Nosso método ágil estruturado garante que o produto final esteja 100% alinhado aos objetivos de negócio e ao conceito validado nas etapas iniciais, sem desvios de escopo.',
+    title: 'Escopo fechado antes de começar',
+    subtitle: 'Você sabe o que vai receber',
+    desc: 'Antes de qualquer linha de código, combinamos por escrito o que será entregue, o prazo e o valor. Sem surpresa no meio do caminho.',
     icon: 'Target'
   },
   {
-    title: 'Só termina quando testa',
-    subtitle: 'Garantia rigorosa de qualidade & QA contínuo',
-    desc: 'Possuímos rotinas de testes automatizados, testes de carga e validação cruzada focada em garantir zero vulnerabilidades e estabilidade operacional inegociável.',
+    title: 'Quem atende é quem programa',
+    subtitle: 'Sem telefone sem fim',
+    desc: 'Você fala direto comigo, do primeiro contato ao suporte depois da entrega. Parceiros especializados entram só quando o projeto pede.',
+    icon: 'Clock'
+  },
+  {
+    title: 'Testado antes de publicar',
+    subtitle: 'Entrega no ar e funcionando',
+    desc: 'Reviso e testo cada tela antes de publicar. O projeto é entregue em produção, funcionando, e o código é 100% seu.',
     icon: 'ShieldCheck'
   }
 ];
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'software-house',
-    title: 'Fábrica de Software Sob Medida',
-    tagline: 'Sistemas corporativos e plataformas web projetadas para a sua regra de negócio.',
-    description: 'Desenvolvimento ágil de sistemas complexos, ERPs internos, painéis analíticos e portais corporativos com arquiteturas limpas e escaláveis.',
+    id: 'sites',
+    title: 'Sites e landing pages',
+    tagline: 'Sites institucionais, páginas de produto e sites de evento.',
+    description: 'Um site rápido, que funciona bem no celular e que as pessoas encontram no Google. Do texto à publicação.',
     iconName: 'LayoutGrid',
-    badge: 'Core',
+    badge: 'Site',
     features: [
-      'Modelagem de requisitos e arquitetura orientada a microsserviços',
-      'Painéis em tempo real com permissões granulares de acesso (RBAC)',
-      'Integrações com ERPs, CRMs e gateways financeiros',
-      'Código limpo, documentado e 100% de propriedade do cliente'
+      'Layout responsivo, pensado primeiro no celular',
+      'Boa performance de carregamento',
+      'SEO básico: título, descrição e estrutura para o Google',
+      'Publicado e no ar, com domínio configurado'
     ],
-    techStack: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'TypeScript', 'Docker']
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'React Router']
   },
   {
-    id: 'mobile-apps',
-    title: 'Aplicativos Móveis (iOS & Android)',
-    tagline: 'Experiências intuitivas e performáticas para os mais variados cenários.',
-    description: 'Criamos aplicativos nativos e híbridos fluidos, com suporte offline-first, biometria nativa, push notifications e publicação assistida nas lojas.',
-    iconName: 'Smartphone',
-    badge: 'Mobile',
-    features: [
-      'Experiência de uso intuitiva com interface moderna e responsiva',
-      'Arquitetura offline-first com sincronização assíncrona',
-      'Integração nativa com câmera, geolocalização e biometria',
-      'Homologação completa na Apple App Store e Google Play'
-    ],
-    techStack: ['React Native', 'Expo', 'TypeScript', 'Tailwind', 'REST/GraphQL']
-  },
-  {
-    id: 'ai-solutions',
-    title: 'Inteligência Artificial & Machine Learning',
-    tagline: 'Algoritmos treinados para classificar, automatizar e prever insights.',
-    description: 'Transforme dados e rotinas repetitivas em inteligência competitiva com agentes de IA, RAG privativo e modelos preditivos sob medida.',
-    iconName: 'Bot',
-    badge: 'Inovação',
-    features: [
-      'Agentes autônomos de atendimento e triagem 24/7',
-      'Detecção inteligente de fraudes e auditoria automatizada',
-      'Processamento e extração de documentos via OCR + LLMs',
-      'Base vetorial de conhecimento corporativo com segurança de dados'
-    ],
-    techStack: ['Python', 'FastAPI', 'LangChain', 'OpenAI/Claude', 'pgvector']
-  },
-  {
-    id: 'design-sprint',
-    title: 'Design Sprint & Descoberta Ágil',
-    tagline: 'Conceitue, valide e tangibilize a sua ideia em pouco tempo.',
-    description: 'Metodologia colaborativa e estruturada para transformar ideias abstratas em protótipos navegáveis testados com usuários reais antes de programar.',
-    iconName: 'Sparkles',
-    badge: 'Estratégia',
-    features: [
-      'Mapeamento detalhado da jornada do usuário e regras de negócio',
-      'Wireframes e design system moderno no Figma',
-      'Validação prévia de viabilidade técnica e financeira',
-      'Backlog priorizado para início imediato do desenvolvimento'
-    ],
-    techStack: ['Figma', 'User Research', 'Design System', 'Prototipação']
-  },
-  {
-    id: 'cloud-devops',
-    title: 'Cloud Computing, DevOps & APIs',
-    tagline: 'Infraestruturas resilientes e esteiras automatizadas de entrega contínua.',
-    description: 'Projetamos arquiteturas em nuvem (AWS/GCP), esteiras de CI/CD automatizadas, microsserviços de baixa latência e observabilidade completa.',
+    id: 'sistemas',
+    title: 'Sistemas web sob medida',
+    tagline: 'Aplicações com login, banco de dados e painel administrativo.',
+    description: 'Quando um site não basta: cadastro e login de usuários, área administrativa, relatórios e as regras do seu negócio.',
     iconName: 'Cpu',
-    badge: 'Performance',
+    badge: 'Sistema',
     features: [
-      'Deploy automatizado com zero downtime via CI/CD',
-      'Orquestração de contêineres com Docker e Kubernetes',
-      'Monitoramento 24/7 com alertas de anomalias',
-      'Otimização de custos de servidores e infraestrutura em nuvem'
+      'Cadastro e login de usuários (autenticação)',
+      'Painel administrativo para gerenciar o conteúdo',
+      'Banco de dados modelado para o seu caso',
+      'Relatórios e exportação de dados'
     ],
-    techStack: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions']
+    techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL']
+  },
+  {
+    id: 'manutencao',
+    title: 'Manutenção e evolução',
+    tagline: 'Cuidar de um site ou sistema que já existe.',
+    description: 'Seu site já está no ar, mas precisa de ajustes, novas seções ou está lento? Eu assumo a manutenção e a evolução.',
+    iconName: 'Sparkles',
+    badge: 'Contínuo',
+    features: [
+      'Correção de erros e ajustes de layout',
+      'Novas seções e funcionalidades',
+      'Melhora de performance e velocidade',
+      'Ajustes de SEO básico'
+    ],
+    techStack: ['React', 'TypeScript', 'Node.js', 'Git']
+  },
+  {
+    id: 'ia',
+    title: 'IA e automações',
+    tagline: 'Integração com IA e automação de tarefas repetitivas.',
+    description: 'Conectar seu site ou sistema a APIs de IA e automatizar tarefas manuais que tomam tempo. No nível de integração, não de treinar modelos.',
+    iconName: 'Bot',
+    badge: 'Automação',
+    features: [
+      'Integração com APIs de IA (assistentes, geração de texto)',
+      'Automação de tarefas repetitivas entre ferramentas',
+      'Formulários e fluxos que disparam ações automáticas',
+      'Conexão entre planilhas, e-mail e sistemas'
+    ],
+    techStack: ['Node.js', 'APIs REST', 'OpenAI / Claude API']
   }
 ];
 
 export const AI_SOLUTIONS = [
   {
-    title: 'Detecção Inteligente de Fraudes',
-    desc: 'Identifique anomalias e comportamentos suspeitos em transações e documentos antes que causem prejuízos.',
-    badge: 'Machine Learning'
+    title: 'Integração com APIs de IA',
+    desc: 'Conecte seu site ou sistema a assistentes e geração de texto via API, como OpenAI e Claude.',
+    badge: 'Integração'
   },
   {
-    title: 'Previsão de Churn & Retenção',
-    desc: 'Saiba quais clientes têm propensão ao cancelamento e trace a melhor estratégia automatizada para reconquistá-los.',
-    badge: 'Modelos Preditivos'
+    title: 'Automação de tarefas repetitivas',
+    desc: 'Tarefas manuais que se repetem todo dia — copiar dados, enviar e-mails, organizar planilhas — passam a rodar sozinhas.',
+    badge: 'Automação'
   },
   {
-    title: 'Agentes Virtuais & Chatbots IA',
-    desc: 'Uma IA treinada para transformar o atendimento aos seus clientes em uma experiência humana, precisa e contextual.',
-    badge: 'LLMs & GenAI'
+    title: 'Formulários que disparam ações',
+    desc: 'Um formulário preenchido no site pode enviar e-mail, registrar em planilha ou abrir um chamado, sem trabalho manual.',
+    badge: 'Fluxos'
   },
   {
-    title: 'Auditoria Automatizada de Processos',
-    desc: 'Automatize a conferência e classificação de centenas de arquivos e relatórios diários em segundos com IA.',
-    badge: 'Automação Inteligente'
+    title: 'Conexão entre ferramentas',
+    desc: 'Ligar planilha, e-mail, sistema e API para que a informação circule sem alguém copiando e colando.',
+    badge: 'Integração'
   }
 ];
 
+// Projetos reais entregues. "Cliente real" e "Projeto próprio" marcados explicitamente.
+// Prints ainda a subir em public/cases/ — ver public/cases/README.md.
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: 'sebrae-platform',
-    client: 'Sebrae Place',
-    industry: 'Marketplace & Negócios',
-    category: 'Software Web',
-    title: 'Marketplace de Soluções com Curadoria e Pagamentos Integrados',
-    description: 'Desenvolvimento de uma plataforma completa que conecta empreendedores a provedores de serviços homologados, com divisão de pagamentos (split) e painel de controle analítico.',
+    id: 'historias-para-a-vida',
+    client: 'Izabel Devecchi',
+    industry: 'Livro infantil',
+    category: 'Site de divulgação',
+    nature: 'Cliente real',
+    title: 'Histórias para a Vida — site do livro "Zeca Tatu e Sua Roupa Nova"',
+    description: 'Site de divulgação do livro infantil "Zeca Tatu e Sua Roupa Nova", da autora Izabel Devecchi. Páginas sobre o livro, a autora e contato, com animações leves e navegação simples.',
+    url: 'https://carlosrafael426.github.io/historias-para-a-vida/',
     metrics: [
-      { label: 'Usuários Ativos', value: '+45.000' },
-      { label: 'Transações/Mês', value: 'R$ 3.2M' },
-      { label: 'Disponibilidade', value: '99.98%' }
+      { label: 'Tipo', value: 'Site do livro' },
+      { label: 'Stack', value: 'React 19 + TS' },
+      { label: 'Status', value: 'No ar' }
     ],
-    tags: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
+    tags: ['React 19', 'TypeScript', 'Tailwind v4', 'Motion', 'React Router'],
+    image: '/cases/historias-para-a-vida.png'
   },
   {
-    id: 'health-app',
-    client: 'Dental Uni & Saúde',
-    industry: 'Saúde & Convênios',
-    category: 'Aplicativo Mobile',
-    title: 'Aplicativo de Busca de Especialistas, Agendamento e Carteirinha Digital',
-    description: 'Super aplicativo para beneficiários encontrarem especialistas próximos via geolocalização com rotas, solicitação de guias e atendimento humanizado em tempo real.',
+    id: 'missao-santa-faustina',
+    client: 'Missão Santa Faustina',
+    industry: 'Comunidade católica · PR',
+    category: 'Site institucional',
+    nature: 'Cliente real',
+    title: 'Missão Santa Faustina — site institucional da comunidade',
+    description: 'Site institucional de uma comunidade católica em Fazenda Rio Grande (PR), com história, calendário de atividades e contato.',
+    url: 'https://carlosrafael426.github.io/missao-santa-faustina/',
     metrics: [
-      { label: 'Downloads', value: '+120.000' },
-      { label: 'Avaliação Lojas', value: '4.8 / 5.0' },
-      { label: 'Tempo de Busca', value: '-60%' }
+      { label: 'Tipo', value: 'Site institucional' },
+      { label: 'Stack', value: 'React 19 + TS' },
+      { label: 'Status', value: 'No ar' }
     ],
-    tags: ['React Native', 'TypeScript', 'PostGIS', 'Expo'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'
+    tags: ['React 19', 'TypeScript', 'Tailwind v4', 'React Router'],
+    image: '/cases/missao-santa-faustina.png'
   },
   {
-    id: 'logistics-ai',
-    client: 'LogisFleet Brasil',
-    industry: 'Logística & Frotas',
-    category: 'IA & Telemetria',
-    title: 'Sistema de Roteirização Preditiva e Rastreamento em Tempo Real',
-    description: 'Painel operacional para centrais logísticas com algoritmo inteligente de rotas que reduz o consumo de combustível e avisa clientes sobre a previsão exata de entrega.',
+    id: 'financemate',
+    client: 'Projeto próprio',
+    industry: 'Finanças pessoais',
+    category: 'Aplicação web',
+    nature: 'Projeto próprio',
+    title: 'FinanceMate — controle financeiro com dashboard e relatórios',
+    description: 'Sistema de controle financeiro pessoal com cadastro e login (JWT), dashboard, gráficos de receitas e despesas e exportação de relatórios em PDF e Excel.',
+    url: 'https://finance-mate-gray.vercel.app',
     metrics: [
-      { label: 'Economia Diesel', value: '17.8%' },
-      { label: 'Entregas Pontuais', value: '98.5%' },
-      { label: 'Veículos Monitorados', value: '+3.500' }
+      { label: 'Tipo', value: 'App financeiro' },
+      { label: 'Stack', value: 'React + Node' },
+      { label: 'Status', value: 'No ar' }
     ],
-    tags: ['Go', 'FastAPI', 'WebSockets', 'Kubernetes'],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80'
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Allan Marcelo Costa',
-    role: 'Diretor de Operações e Inovação',
-    company: 'Sebrae / Ecossistema Tech',
-    quote: 'A Shinra é um parceiro confiável e comprometido não apenas com as entregas pactuadas, mas com o resultado efetivo decorrente do uso dessas entregas. Profissionalismo, competência técnica e empatia são marcas registradas deste relacionamento.',
-    highlight: 'Parceiro estratégico e confiável'
+    tags: ['React', 'Tailwind', 'Node', 'Express', 'MongoDB', 'JWT'],
+    image: '/cases/financemate.png'
   },
   {
-    name: 'Mariana Duarte',
-    role: 'Head de Produto & Tecnologia',
-    company: 'Nexus Finanças Corporativas',
-    quote: 'Reduzimos nosso tempo de lançamento de novos módulos de 4 meses para apenas 5 semanas com a metodologia da Shinra. A arquitetura de microsserviços deles suportou um aumento de 10x na volumetria de transações sem qualquer lentidão.',
-    highlight: 'Entregas 3x mais rápidas'
-  },
-  {
-    name: 'Carlos Eduardo Nogueira',
-    role: 'CTO & Co-fundador',
-    company: 'Veloce Supply Chain',
-    quote: 'A qualidade técnica do time é impecável. Desde a primeira reunião de arquitetura até o deploy com zero downtime, tivemos total visibilidade do projeto através do ambiente de staging.',
-    highlight: 'Excelência técnica e transparência'
+    id: 'devburger',
+    client: 'Projeto próprio',
+    industry: 'E-commerce',
+    category: 'App web + API',
+    nature: 'Projeto próprio',
+    title: 'DevBurger — loja online com API REST própria',
+    description: 'Loja online completa: front-end em React consumindo uma API REST própria, com autenticação, permissão de administrador e upload de imagens dos produtos.',
+    metrics: [
+      { label: 'Tipo', value: 'Loja + API REST' },
+      { label: 'Back-end', value: 'Node + Sequelize' },
+      { label: 'Status', value: 'Portfólio' }
+    ],
+    tags: ['Node', 'Express', 'Sequelize', 'PostgreSQL', 'MongoDB', 'React'],
+    image: '/cases/devburger.png'
   }
 ];
 
 export const FAQ_DATA: FAQItem[] = [
   {
     category: 'Comercial',
-    question: 'O que diferencia uma Fábrica de Soluções de uma software house comum?',
-    answer: 'Uma Fábrica de Soluções não se limita a fornecer mão de obra ou escrever linhas de código. Nós atuamos desde o entendimento profundo do seu desafio de negócio e Design Sprint até a arquitetura, desenvolvimento, testes rigorosos de QA e sustentação pós-lançamento, garantindo que o produto traga retorno real.'
-  },
-  {
-    category: 'Técnico',
-    question: 'A propriedade intelectual e o código-fonte pertencem à minha empresa?',
-    answer: 'Sim, 100%. Todo o código-fonte, diagramas de arquitetura, documentações e credenciais de nuvem desenvolvidos durante o projeto pertencem exclusivamente à sua organização, sem nenhum lock-in ou dependência contratual obrigatória.'
-  },
-  {
-    category: 'Metodologia',
-    question: 'Como acompanho o andamento das entregas do meu sistema?',
-    answer: 'Trabalhamos com metodologia ágil e sprints quinzenais. A cada sprint, realizamos uma sessão de demonstração com um ambiente de staging funcional para que você teste as novas funcionalidades em tempo real antes de irem para produção.'
-  },
-  {
-    category: 'Segurança',
-    question: 'Quais padrões de segurança e privacidade são aplicados nos projetos?',
-    answer: 'Adotamos os padrões globais do OWASP Top 10, criptografia de ponta a ponta (TLS 1.3 e AES-256), conformidade estrita com a LGPD e rotinas de testes de carga e vulnerabilidades em esteiras automatizadas de CI/CD.'
+    question: 'Quanto custa um projeto?',
+    answer: 'Depende do escopo. Um site institucional simples tem um custo bem diferente de um sistema com login e painel administrativo. O valor é fechado por escrito antes de começar, sem cobrança por hora surpresa. Use o estimador aqui do site para ter uma ideia inicial do porte e do prazo.'
   },
   {
     category: 'Comercial',
-    question: 'Qual é o modelo de contratação e como funcionam os pagamentos?',
-    answer: 'Trabalhamos com dois modelos flexíveis: 1) Escopo e Preço Fechado com marcos de entrega bem definidos (ideal para projetos com requisitos claros) e 2) Squad Dedicada Ágil (ideal para evolução contínua de produtos e roadmaps tecnológicos em constante expansão).'
+    question: 'Quanto tempo leva?',
+    answer: 'Um site institucional costuma levar poucas semanas; um sistema sob medida, mais. O prazo é combinado junto com o escopo, por escrito, antes de iniciar. Se algo mudar no meio do caminho, a gente reajusta em acordo.'
+  },
+  {
+    category: 'Comercial',
+    question: 'Como funciona o pagamento?',
+    answer: 'É combinado caso a caso na proposta — normalmente uma parte no início e o restante em etapas até a entrega. Fica tudo por escrito antes de começar.'
+  },
+  {
+    category: 'Técnico',
+    question: 'O site é meu mesmo? E o código?',
+    answer: 'Sim. Todo o código-fonte e os acessos (domínio, hospedagem, contas) são seus. Não existe dependência da Shinra para você mexer, evoluir ou levar o projeto para outra pessoa depois.'
+  },
+  {
+    category: 'Metodologia',
+    question: 'E se eu precisar mudar algo depois da entrega?',
+    answer: 'Dá para contratar a manutenção e evolução: correções, novas seções, ajustes de performance e SEO. Combinamos se é pontual ou um acompanhamento contínuo.'
+  },
+  {
+    category: 'Metodologia',
+    question: 'Quem faz o trabalho?',
+    answer: 'Eu, Carlos Rafael, desenvolvedor full stack. Você fala direto comigo do começo ao fim. Quando o projeto pede design, conteúdo ou mídia mais dedicados, aciono parceiros especializados — sempre com você sabendo.'
   }
 ];

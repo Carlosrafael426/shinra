@@ -45,13 +45,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-blue-400 block mb-2">
-            Nossas Especialidades
+            O que eu faço
           </span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Alta tecnologia embarcada no <span className="text-blue-400">desenvolvimento de softwares</span>.
+            Quatro serviços, <span className="text-blue-400">sem sopa de siglas</span>.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-            A Shinra analisa o seu projeto e fornece a solução ideal baseada no que é necessário para o seu crescimento. Seja no Design Sprint, Ágil ou microsserviços, nós desenvolvemos com máxima eficiência.
+            De um site institucional a um sistema com login e painel administrativo. Você me conta o problema; eu digo o que dá para fazer, em quanto tempo e por quanto.
           </p>
         </div>
 
@@ -127,7 +127,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                   </div>
                 </div>
                 <span className="text-xs font-mono px-3 py-1 bg-blue-500/15 text-blue-300 border border-blue-500/30 rounded-full">
-                  Pronto para Produção
+                  Entrega publicada
                 </span>
               </div>
 
@@ -139,7 +139,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
 
                 {/* Key Features List */}
                 <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
-                  <span>Diferenciais de Entrega & Metodologia</span>
+                  <span>O que está incluído</span>
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
                   {currentService.features.map((feature, idx) => (
@@ -175,13 +175,13 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {/* Action CTA */}
                 <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-xs text-slate-400">
-                    <span className="text-white font-medium">Metodologia Ágil:</span> Sprints quinzenais com staging ao vivo
+                    <span className="text-white font-medium">Sempre:</span> escopo, prazo e valor combinados por escrito antes de começar
                   </div>
                   <button
                     onClick={() => onSelectService(currentService.title)}
                     className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-sm text-white bg-blue-600 hover:bg-blue-500 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-600/30"
                   >
-                    <span>Iniciar este Projeto</span>
+                    <span>Falar sobre este serviço</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
