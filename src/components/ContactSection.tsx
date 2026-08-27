@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
             <button
               type="button"
               onClick={handleWhatsAppDirect}
-              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-white border border-slate-200 text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
+              className="mt-8 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#ccd1d9] border border-slate-300 text-slate-700 hover:border-blue-300 hover:text-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               Falar pelo WhatsApp
@@ -76,7 +76,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Form */}
           <Reveal delay={100}>
-            <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8">
+            <div className="rounded-2xl bg-[#ccd1d9] border border-slate-300 p-6 sm:p-8">
               {isSuccess ? (
                 <div className="text-center py-10 space-y-3">
                   <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 mx-auto flex items-center justify-center">
@@ -102,7 +102,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="Seu nome *"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
                     />
                     <input
                       type="email"
@@ -110,7 +110,7 @@ export const ContactSection: React.FC = () => {
                       placeholder="E-mail *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
                     />
                   </div>
 
@@ -120,12 +120,12 @@ export const ContactSection: React.FC = () => {
                       placeholder="WhatsApp"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors"
                     />
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:border-blue-300 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300 transition-colors"
                     >
                       <option>Sites e landing pages</option>
                       <option>Sistemas web sob medida</option>
@@ -140,7 +140,7 @@ export const ContactSection: React.FC = () => {
                     placeholder="Descreva brevemente sua ideia ou necessidade"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-300 transition-colors resize-none"
                   />
 
                   <button

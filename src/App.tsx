@@ -25,7 +25,7 @@ export function App() {
     <div className="min-h-screen bg-tech-dots bg-fixed text-slate-900 font-sans selection:bg-blue-200 selection:text-blue-900 relative overflow-x-hidden">
       <Navbar onOpenModal={() => handleOpenModal()} />
 
-      <main className="relative z-10 divide-y divide-slate-200/70">
+      <main className="relative z-10 divide-y divide-slate-300/70">
         <Hero onOpenModal={() => handleOpenModal()} />
         <Services onSelectService={(t) => handleOpenModal(t)} />
         <Methodology />

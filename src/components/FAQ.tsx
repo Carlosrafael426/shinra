@@ -18,7 +18,7 @@ export const FAQ: React.FC = () => {
           </h2>
         </Reveal>
 
-        <div className="divide-y divide-slate-200 border-y border-slate-200">
+        <div className="divide-y divide-slate-300 border-y border-slate-300">
           {FAQ_DATA.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (

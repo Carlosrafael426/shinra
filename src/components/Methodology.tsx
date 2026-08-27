@@ -16,7 +16,7 @@ export const Methodology: React.FC = () => {
         </Reveal>
 
         <Reveal>
-          <div className="rounded-2xl border border-slate-200 bg-white divide-y divide-slate-200 overflow-hidden">
+          <div className="rounded-2xl border border-slate-300 bg-[#ccd1d9] divide-y divide-slate-300 overflow-hidden">
             {PROCESS_STEPS.map((step) => (
               <div
                 key={step.step}

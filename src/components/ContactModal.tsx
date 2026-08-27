@@ -50,11 +50,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-md">
       <div
-        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-white border border-slate-300 shadow-2xl animate-in fade-in zoom-in duration-200"
+        className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#ccd1d9] border border-slate-400 shadow-2xl animate-in fade-in zoom-in duration-200"
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -95,7 +95,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="Ana Martins"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -109,7 +109,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="(00) 00000-0000"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -123,7 +123,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   placeholder="ana@empresa.com.br"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 
@@ -135,7 +135,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   type="text"
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-300 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-400 text-sm text-slate-900 focus:outline-none focus:border-blue-300"
                 />
               </div>
 

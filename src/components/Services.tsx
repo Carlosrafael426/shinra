@@ -52,7 +52,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 <button
                   key={s.id}
                   onClick={() => setSelectedId(s.id)}
-                  className={`w-full text-left py-4 border-b border-slate-200 flex items-center gap-4 transition-colors cursor-pointer ${
+                  className={`w-full text-left py-4 border-b border-slate-300 flex items-center gap-4 transition-colors cursor-pointer ${
                     active ? 'text-slate-900' : 'text-slate-500 hover:text-slate-900'
                   }`}
                 >
@@ -97,7 +97,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
                 {current.techStack.map((t) => (
                   <span
                     key={t}
-                    className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-[11px] font-mono text-slate-500"
+                    className="px-2.5 py-0.5 rounded-md bg-[#ccd1d9] border border-slate-300 text-[11px] font-mono text-slate-500"
                   >
                     {t}
                   </span>

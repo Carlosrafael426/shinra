@@ -26,13 +26,13 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {CASE_STUDIES.map((study, idx) => (
             <Reveal key={study.id} delay={idx * 70}>
-              <div className="group h-full rounded-2xl bg-white border border-slate-200 p-6 flex flex-col hover:border-blue-300 transition-colors">
+              <div className="group h-full rounded-2xl bg-[#ccd1d9] border border-slate-300 p-6 flex flex-col hover:border-blue-300 transition-colors">
                 <div className="flex items-center gap-2 mb-4">
                   <span
                     className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border ${
                       study.nature === 'Cliente real'
                         ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
-                        : 'bg-slate-50 border-slate-200 text-slate-500'
+                        : 'bg-white border-slate-300 text-slate-500'
                     }`}
                   >
                     {study.nature}
@@ -51,7 +51,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenModal }) => {
                   {study.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-[10px] font-mono text-slate-500"
+                      className="px-2 py-0.5 rounded-md bg-white border border-slate-300 text-[10px] font-mono text-slate-500"
                     >
                       {tag}
                     </span>
