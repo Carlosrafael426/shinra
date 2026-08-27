@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Cpu } from 'lucide-react';
-import { NAV_LINKS } from '../data/content';
+import { Menu, X, ChevronDown, Cpu } from 'lucide-react';
+import { NAV_LINKS, SERVICES_DATA } from '../data/content';
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -8,123 +8,126 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200 py-3 shadow-lg shadow-slate-400/30'
-          : 'bg-transparent py-5'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200 py-2.5 shadow-sm'
+          : 'bg-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Brand Logo */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-blue-100 border border-blue-300/40 flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm shadow-blue-300/20">
-              <Cpu className="w-5 h-5 text-blue-500 group-hover:text-blue-500 transition-colors" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display text-xl font-bold tracking-wider text-slate-900 flex items-center gap-1">
-                SHINRA<span className="text-blue-500">.</span>
-              </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-slate-500">
-                Estúdio de desenvolvimento web
-              </span>
-            </div>
-          </a>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#top" className="flex items-center gap-2.5 group">
+          <div className="w-9 h-9 rounded-lg bg-blue-500 flex items-center justify-center">
+            <Cpu className="w-5 h-5 text-white" />
+          </div>
+          <div className="leading-none">
+            <span className="font-display text-lg font-bold tracking-wider text-slate-900">
+              SHINRA<span className="text-blue-500">.</span>
+            </span>
+            <span className="block text-[9px] uppercase font-mono tracking-widest text-slate-400 mt-0.5">
+              Desenvolvimento web
+            </span>
+          </div>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/80 border border-slate-200 rounded-full px-4 py-1.5 backdrop-blur-md">
-            {NAV_LINKS.map((link) => (
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map((link) =>
+            link.label === 'Serviços' ? (
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
+                <a
+                  href={link.href}
+                  className="px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors flex items-center gap-1"
+                >
+                  {link.label}
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </a>
+                {servicesOpen && (
+                  <div className="absolute left-0 top-full pt-2 w-64">
+                    <div className="rounded-xl bg-white border border-slate-200 shadow-xl p-2">
+                      {SERVICES_DATA.map((s) => (
+                        <a
+                          key={s.id}
+                          href="#solucoes"
+                          className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-slate-900 hover:bg-[#eef3fc] transition-colors"
+                        >
+                          {s.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
               <a
                 key={link.href}
                 href={link.href}
-                className="relative px-3.5 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors rounded-full hover:bg-[#eef3fc] flex items-center gap-1.5"
+                className="px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
               >
                 {link.label}
-                {link.badge && (
-                  <span className="text-[10px] font-mono px-1.5 py-0.5 bg-blue-100 text-blue-500 border border-blue-300/30 rounded-full">
-                    {link.badge}
-                  </span>
-                )}
               </a>
-            ))}
-          </nav>
+            )
+          )}
+        </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-600">
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              <span>Aberto para novos projetos</span>
-            </div>
+        {/* CTA */}
+        <button
+          onClick={onOpenModal}
+          className="hidden md:inline-flex px-5 py-2.5 rounded-lg text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 transition-colors active:scale-95 cursor-pointer shadow-lg shadow-blue-500/25"
+        >
+          Orçamento
+        </button>
 
-            <button
-              onClick={onOpenModal}
-              className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-blue-500 hover:bg-blue-400 transition-all duration-200 active:scale-95 flex items-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25"
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden p-2 rounded-lg bg-white border border-slate-200 text-slate-600"
+          aria-label="Abrir menu"
+        >
+          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="lg:hidden mx-4 mt-3 p-4 rounded-2xl bg-white border border-slate-200 shadow-2xl flex flex-col gap-1">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-[#eef3fc]"
             >
-              <span>Falar sobre um projeto</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-900" />
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
+              {link.label}
+            </a>
+          ))}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg bg-white border border-slate-200 focus:outline-none cursor-pointer"
-            aria-label="Abrir menu"
+            onClick={() => {
+              setMobileOpen(false);
+              onOpenModal();
+            }}
+            className="mt-2 w-full py-3 rounded-lg text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            Orçamento
           </button>
         </div>
-
-        {/* Mobile Dropdown */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 p-4 rounded-2xl bg-white border border-slate-200 backdrop-blur-2xl shadow-2xl flex flex-col gap-3">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-[#eef3fc] text-sm font-medium flex items-center justify-between"
-              >
-                <span>{link.label}</span>
-                {link.badge && (
-                  <span className="text-[10px] font-mono px-2 py-0.5 bg-blue-100 text-blue-500 border border-blue-300/30 rounded-full">
-                    {link.badge}
-                  </span>
-                )}
-              </a>
-            ))}
-
-            <div className="pt-2 border-t border-slate-200 flex flex-col gap-2">
-              <div className="flex items-center gap-2 px-3 py-1.5 text-xs font-mono text-slate-500">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                <span>Aberto para novos projetos</span>
-              </div>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenModal();
-                }}
-                className="w-full py-3 rounded-xl text-center text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25"
-              >
-                <span>Falar sobre um projeto</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </header>
   );
 };

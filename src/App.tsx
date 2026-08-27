@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
+import { Showcase } from './components/Showcase';
+import { Benefits } from './components/Benefits';
 import { Methodology } from './components/Methodology';
+import { AddOns } from './components/AddOns';
 import { CaseStudies } from './components/CaseStudies';
 import { ProjectEstimator } from './components/ProjectEstimator';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
+import { CtaBand } from './components/CtaBand';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { MessageSquare } from 'lucide-react';
@@ -27,11 +31,15 @@ export function App() {
       <main className="relative z-10 divide-y divide-slate-200/70">
         <Hero onOpenModal={() => handleOpenModal()} />
         <Services onSelectService={(t) => handleOpenModal(t)} />
+        <Showcase />
+        <Benefits />
         <Methodology />
+        <AddOns />
         <CaseStudies onOpenModal={() => handleOpenModal()} />
         <ProjectEstimator />
         <FAQ />
         <ContactSection />
+        <CtaBand onOpenModal={() => handleOpenModal()} />
       </main>
 
       <Footer />

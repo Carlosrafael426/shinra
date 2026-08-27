@@ -40,11 +40,52 @@ export interface ProcessStep {
 }
 
 export const NAV_LINKS: NavItem[] = [
+  { label: 'Início', href: '#top' },
+  { label: 'Sobre', href: '#sobre' },
   { label: 'Serviços', href: '#solucoes' },
-  { label: 'Processo', href: '#metodologia' },
   { label: 'Projetos', href: '#cases' },
-  { label: 'Estimativa', href: '#estimador', badge: 'Simular' },
   { label: 'Contato', href: '#contato' },
+];
+
+// Slides do Hero (carrossel), um por serviço.
+export const HERO_SLIDES = [
+  {
+    eyebrow: 'Sites e landing pages',
+    title: 'Seu site institucional, rápido e no ar.',
+    text: 'Páginas que carregam rápido, funcionam bem no celular e as pessoas encontram no Google.',
+  },
+  {
+    eyebrow: 'Sistemas web sob medida',
+    title: 'Sistemas com login, banco de dados e painel.',
+    text: 'Quando um site não basta: área administrativa, cadastro de usuários e as regras do seu negócio.',
+  },
+  {
+    eyebrow: 'Manutenção e evolução',
+    title: 'Cuido do site que você já tem.',
+    text: 'Ajustes, novas seções, correções e melhora de performance em projetos que já estão no ar.',
+  },
+  {
+    eyebrow: 'IA e automações',
+    title: 'Integração com IA e automação de tarefas.',
+    text: 'Conecto seu site a APIs de IA e automatizo o trabalho manual que se repete todo dia.',
+  },
+];
+
+// "O que você ganha" — benefícios verificáveis.
+export const BENEFITS = [
+  { title: 'Escopo e prazo por escrito', desc: 'Você sabe o que vai receber e em quanto tempo antes de começar.' },
+  { title: 'Sem intermediário', desc: 'Fala direto comigo, do primeiro contato ao suporte depois da entrega.' },
+  { title: 'Código 100% seu', desc: 'Código-fonte e acessos são seus. Sem lock-in.' },
+  { title: 'Entrega publicada', desc: 'O projeto vai para o ar funcionando, não fica só em arquivo.' },
+  { title: 'Acompanhamento no caminho', desc: 'Versões para revisão ao longo do desenvolvimento.' },
+  { title: 'Responsivo e com SEO básico', desc: 'Pensado primeiro no celular, com título e estrutura para o Google.' },
+];
+
+// Também ajudo com — apoios que entram junto do projeto.
+export const ADDONS = [
+  { title: 'Domínio e publicação', desc: 'Configuro domínio, hospedagem e deixo tudo publicado e acessível.' },
+  { title: 'SEO básico', desc: 'Títulos, descrições e estrutura semântica para o site ser encontrado.' },
+  { title: 'Integrações com APIs', desc: 'Formulários, pagamentos, mapas, IA e outros serviços conectados ao site.' },
 ];
 
 // Três princípios curtos, mostrados de forma compacta no Hero.

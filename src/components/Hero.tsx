@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from 'react';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import { PRINCIPLES } from '../data/content';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { HERO_SLIDES } from '../data/content';
 
 const HeroCanvas = lazy(() => import('./HeroCanvas'));
 
@@ -9,11 +9,24 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
+  const [i, setI] = useState(0);
+  const count = HERO_SLIDES.length;
+  const go = (n: number) => setI((n + count) % count);
+
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % count), 6000);
+    return () => clearInterval(t);
+  }, [count]);
+
+  const slide = HERO_SLIDES[i];
+
   return (
-    <section className="relative min-h-[44rem] flex items-center pt-36 pb-24 overflow-hidden bg-hero-spotlight">
-      {/* three.js — campo de pontos que ondula */}
+    <section
+      id="top"
+      className="relative min-h-[42rem] flex items-center pt-32 pb-24 overflow-hidden bg-hero-spotlight"
+    >
       <div
-        className="absolute inset-0 pointer-events-none opacity-60 [mask-image:radial-gradient(115%_85%_at_72%_18%,black,transparent_72%)]"
+        className="absolute inset-0 pointer-events-none opacity-60 [mask-image:radial-gradient(120%_90%_at_75%_15%,black,transparent_74%)]"
         aria-hidden="true"
       >
         <Suspense fallback={null}>
@@ -21,58 +34,71 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         </Suspense>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/70 backdrop-blur border border-slate-200 text-xs font-mono text-blue-500 mb-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/70 backdrop-blur border border-slate-200 text-xs font-mono text-blue-500 mb-7">
           <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse" />
-          <span>Estúdio de desenvolvimento web</span>
+          <span>{slide.eyebrow}</span>
         </div>
 
-        <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
-          Seu site ou sistema web,<br className="hidden sm:block" /> feito por{' '}
-          <span className="text-blue-500">quem programa</span>.
+        <h1
+          key={`t-${i}`}
+          className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-5 max-w-3xl animate-[fadeIn_.4s_ease-out_both]"
+        >
+          {slide.title}
         </h1>
-
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 max-w-xl font-light">
-          Estúdio enxuto: sites, landing pages e sistemas sob medida. Escopo e prazo
-          por escrito antes de começar, e o código 100% seu no final.
+        <p
+          key={`p-${i}`}
+          className="text-base sm:text-lg text-slate-600 leading-relaxed mb-9 max-w-xl font-light animate-[fadeIn_.5s_ease-out_both]"
+        >
+          {slide.text}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 mb-16">
+        <div className="flex flex-col sm:flex-row gap-3 mb-10">
           <button
             onClick={onOpenModal}
-            className="group px-6 py-3.5 rounded-xl text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25 active:scale-95"
+            className="group px-6 py-3.5 rounded-lg text-sm font-bold text-white bg-blue-500 hover:bg-blue-400 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-blue-500/25 active:scale-95"
           >
-            <span>Falar sobre um projeto</span>
+            <span>Solicitar orçamento</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
           <a
             href="#solucoes"
-            className="px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-900 bg-white/70 backdrop-blur hover:bg-white border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-700 hover:text-slate-900 bg-white/70 backdrop-blur hover:bg-white border border-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
           >
             Ver serviços
           </a>
         </div>
 
-        {/* 3 princípios compactos */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-slate-200 bg-slate-200 max-w-3xl">
-          {PRINCIPLES.map((p) => (
-            <div key={p.title} className="bg-white/80 backdrop-blur p-4">
-              <p className="text-sm font-semibold text-slate-900 mb-1">{p.title}</p>
-              <p className="text-xs text-slate-500 leading-relaxed">{p.desc}</p>
-            </div>
-          ))}
+        {/* Slider controls */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => go(i - 1)}
+            className="w-9 h-9 rounded-full bg-white/70 backdrop-blur border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <div className="flex items-center gap-1.5">
+            {HERO_SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setI(idx)}
+                aria-label={`Slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === i ? 'w-6 bg-blue-500' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => go(i + 1)}
+            className="w-9 h-9 rounded-full bg-white/70 backdrop-blur border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
-
-      <a
-        href="#solucoes"
-        className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-slate-400 hover:text-blue-500 transition-colors"
-        aria-label="Rolar para os serviços"
-      >
-        <span className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center animate-bounce">
-          <ChevronDown className="w-4 h-4" />
-        </span>
-      </a>
     </section>
   );
 };
