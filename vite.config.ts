@@ -4,6 +4,9 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // caminhos relativos: funciona em GitHub Pages (user.github.io/repo/),
+  // em subpasta, em domínio próprio e no preview local — sem hardcode do repo.
+  base: './',
   plugins: [
     react(),
     tailwindcss(),

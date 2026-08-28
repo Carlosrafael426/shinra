@@ -52,12 +52,21 @@ npm run lint     # ESLint
 
 ## Deploy
 
-O build gera arquivos estáticos em `dist/`, publicáveis em qualquer host estático
-(Vercel, Netlify, GitHub Pages, etc.).
+`vite.config.ts` usa `base: './'` (caminhos relativos), então o build funciona
+em qualquer host — Vercel, Netlify, domínio próprio **e GitHub Pages em subpasta**
+(`usuario.github.io/repo/`) — sem configuração por projeto.
 
-- **Vercel / Netlify / domínio próprio na raiz:** nenhuma configuração extra necessária.
-- **GitHub Pages em subpasta** (ex.: `usuario.github.io/shinra/`): definir
-  `base: '/shinra/'` em [`vite.config.ts`](vite.config.ts) antes do build.
+### GitHub Pages (automático)
+
+O workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) faz
+`build` e publica a cada push em `main`/`conteudo-real`. Basta habilitar uma vez:
+
+**Settings → Pages → Build and deployment → Source: `GitHub Actions`.**
+
+Não é mais preciso subir a pasta `dist/` manualmente.
+
+> O 404 clássico do Vite no Pages vem de assets em caminho absoluto (`/assets/...`).
+> Com `base: './'` eles passam a ser `./assets/...` e resolvem certo na subpasta.
 
 ---
 
