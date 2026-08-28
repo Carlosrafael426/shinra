@@ -1,107 +1,75 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { HERO_SLIDES } from '../data/content';
-
-const HeroCanvas = lazy(() => import('./HeroCanvas'));
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { HERO } from '../data/content';
+import { HeroCore } from './HeroCore';
 
 interface HeroProps {
   onOpenModal: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
-  const [i, setI] = useState(0);
-  const count = HERO_SLIDES.length;
-  const go = (n: number) => setI((n + count) % count);
-
-  useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % count), 6000);
-    return () => clearInterval(t);
-  }, [count]);
-
-  const slide = HERO_SLIDES[i];
-
   return (
-    <section
-      id="top"
-      className="relative min-h-screen flex flex-col justify-end overflow-hidden bg-hero-spotlight border-b-2 border-cyan-400 shadow-[0_30px_90px_-20px_rgba(34,211,238,0.55)]"
-    >
-      {/* three.js — campo de pontos em azul piscina sobre o branco */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-70 [mask-image:radial-gradient(130%_100%_at_70%_10%,black,transparent_78%)]"
-        aria-hidden="true"
-      >
-        <Suspense fallback={null}>
-          <HeroCanvas />
-        </Suspense>
-      </div>
+    <section id="inicio" className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      {/* faint tech background */}
+      <div className="pointer-events-none absolute inset-0 bg-grid-light [mask-image:radial-gradient(80%_60%_at_50%_20%,black,transparent)]" />
+      <div className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[420px] rounded-full bg-brand/10 blur-[120px]" />
 
-      {/* Edge arrows */}
-      <button
-        onClick={() => go(i - 1)}
-        aria-label="Anterior"
-        className="hidden sm:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-slate-200 items-center justify-center text-slate-700 hover:border-cyan-400/60 hover:text-cyan-600 transition-colors cursor-pointer shadow-md"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
-      <button
-        onClick={() => go(i + 1)}
-        aria-label="Próximo"
-        className="hidden sm:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-slate-200 items-center justify-center text-slate-700 hover:border-cyan-400/60 hover:text-cyan-600 transition-colors cursor-pointer shadow-md"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
-      {/* Slide content — lower-left */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-40">
-        <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-cyan-400/50 text-xs font-mono text-cyan-600 mb-6 neon-ring">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>{slide.eyebrow}</span>
-          </div>
-
-          <h1
-            key={`t-${i}`}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] mb-5 animate-[fadeIn_.4s_ease-out_both]"
-          >
-            {slide.title}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
+        {/* left */}
+        <div className="lg:col-span-6">
+          <h1 className="font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.6rem]">
+            {HERO.words.map((w, i) => (
+              <span
+                key={w}
+                className={`block ${i === HERO.highlightIndex ? 'text-brand text-brand-glow' : ''}`}
+              >
+                {w}
+              </span>
+            ))}
           </h1>
-          <p
-            key={`p-${i}`}
-            className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl font-light animate-[fadeIn_.5s_ease-out_both]"
-          >
-            {slide.text}
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+          <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted">{HERO.lead}</p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#solucoes"
-              className="group px-6 py-3.5 rounded-lg text-sm font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors flex items-center gap-2 cursor-pointer shadow-[0_0_26px_rgba(34,211,238,0.6)]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[12px] font-bold uppercase tracking-wider text-white transition-transform hover:-translate-y-0.5"
             >
-              Saiba mais
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              Conheça nossas soluções
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <button
               onClick={onOpenModal}
-              className="px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-silver bg-white px-6 py-3.5 text-[12px] font-bold uppercase tracking-wider text-ink transition-colors hover:border-brand hover:text-brand-2"
             >
-              Solicitar orçamento
+              Quero transformar meu negócio
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
+          </div>
 
-            <div className="flex items-center gap-1.5 sm:ml-4 mt-2 sm:mt-0">
-              {HERO_SLIDES.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setI(idx)}
-                  aria-label={`Slide ${idx + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    idx === i
-                      ? 'w-6 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]'
-                      : 'w-1.5 bg-slate-300 hover:bg-slate-400'
-                  }`}
-                />
+          <div className="mt-12 border-t border-silver/60 pt-6">
+            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">
+              {HERO.trioLabel}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-x-10 gap-y-4">
+              {HERO.trio.map(({ icon: Icon, label, sub }) => (
+                <div key={label} className="flex items-center gap-3">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg border border-silver bg-white text-brand-2">
+                    <Icon className="h-4 w-4" />
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-[12px] font-bold tracking-wide text-ink">{label}</span>
+                    <span className="block text-[11px] text-muted">{sub}</span>
+                  </span>
+                </div>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* right */}
+        <div className="lg:col-span-6">
+          <HeroCore />
         </div>
       </div>
     </section>

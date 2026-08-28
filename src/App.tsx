@@ -1,58 +1,59 @@
 import { useState } from 'react';
+import { MessageSquare } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { ResponsiveText } from './components/ResponsiveText';
-import { Benefits } from './components/Benefits';
-import { AddOns } from './components/AddOns';
-import { CtaBand } from './components/CtaBand';
+import { DigitalCore } from './components/DigitalCore';
+import { About } from './components/About';
+import { ProblemSection } from './components/ProblemSection';
+import { Solutions } from './components/Solutions';
+import { ImpactSection } from './components/ImpactSection';
+import { Technologies } from './components/Technologies';
+import { Projects } from './components/Projects';
+import { Results } from './components/Results';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
-import { MessageSquare } from 'lucide-react';
 
 export function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedServiceForModal, setSelectedServiceForModal] = useState('Sites e landing pages');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [service, setService] = useState('Websites & Landing Pages');
 
-  const handleOpenModal = (serviceName?: string) => {
-    if (serviceName) setSelectedServiceForModal(serviceName);
-    setIsModalOpen(true);
+  const openModal = (name?: string) => {
+    if (name) setService(name);
+    setModalOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-tech-dots bg-fixed text-white font-sans selection:bg-cyan-400 selection:text-black relative overflow-x-hidden">
-      <Navbar onOpenModal={() => handleOpenModal()} />
+    <div className="relative min-h-screen overflow-x-hidden bg-canvas text-ink">
+      <Navbar onOpenModal={() => openModal()} />
 
-      <main className="relative z-10">
-        <Hero onOpenModal={() => handleOpenModal()} />
-        <Services onSelectService={(t) => handleOpenModal(t)} />
-        <ResponsiveText onOpenModal={() => handleOpenModal()} />
-        <Benefits />
-        <AddOns />
-        <CtaBand onOpenModal={() => handleOpenModal()} />
+      <main>
+        <Hero onOpenModal={() => openModal()} />
+        <DigitalCore />
+        <About />
+        <ProblemSection />
+        <Solutions onSelect={(name) => openModal(name)} />
+        <ImpactSection onOpenModal={() => openModal()} />
+        <Technologies />
+        <Projects onOpenModal={() => openModal()} />
+        <Results />
+        <FinalCTA onOpenModal={() => openModal()} />
       </main>
 
       <Footer />
 
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        initialService={selectedServiceForModal}
-      />
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} initialService={service} />
 
-      {/* Floating WhatsApp */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <a
-          href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20projeto."
-          target="_blank"
-          rel="noreferrer"
-          className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-cyan-400 text-slate-900 font-bold text-xs shadow-xl shadow-cyan-400/30 hover:scale-105 hover:bg-cyan-300 transition-all duration-200"
-          aria-label="Falar pelo WhatsApp"
-        >
-          <MessageSquare className="w-4 h-4 fill-slate-900" />
-          <span className="hidden sm:inline">WhatsApp</span>
-        </a>
-      </div>
+      <a
+        href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Falar pelo WhatsApp"
+        className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 rounded-full bg-ink px-4 py-3 text-xs font-bold text-white shadow-[var(--shadow-lift)] transition-transform hover:scale-105"
+      >
+        <MessageSquare className="h-4 w-4 fill-brand text-brand" />
+        <span className="hidden sm:inline">WhatsApp</span>
+      </a>
     </div>
   );
 }

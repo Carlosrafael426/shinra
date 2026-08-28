@@ -1,106 +1,86 @@
 import React from 'react';
-import { Cpu, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
-
-const NAV = [
-  { label: 'Início', href: '#top' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Serviços', href: '#solucoes' },
-  { label: 'Orçamento', href: '#rodape' },
-];
-
-const SERVICES = [
-  { label: 'Sites e landing pages', href: '#solucoes' },
-  { label: 'Sistemas web sob medida', href: '#solucoes' },
-  { label: 'Manutenção e evolução', href: '#solucoes' },
-  { label: 'IA e automações', href: '#solucoes' },
-];
+import { Hexagon, Mail, Phone, MapPin, AtSign, Camera, Code2, ArrowUp } from 'lucide-react';
+import { FOOTER } from '../data/content';
 
 export const Footer: React.FC = () => {
+  const { contact } = FOOTER;
   return (
-    <footer id="rodape" className="bg-[#0b0b0d] border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-cyan-400 flex items-center justify-center">
-                <Cpu className="w-4 h-4 text-slate-900" />
-              </div>
-              <span className="font-display text-lg font-bold tracking-wider text-white">
-                SHINRA<span className="text-cyan-400">.</span>
+    <footer id="contato" className="dark-band relative overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          {/* brand */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-2.5">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-white/10 text-brand">
+                <Hexagon className="h-4 w-4" strokeWidth={2.5} />
+              </span>
+              <span className="font-display text-lg font-bold tracking-wide text-white">
+                SHINRA<span className="text-brand">.</span>
               </span>
             </div>
-            <p className="text-xs text-slate-400 font-light leading-relaxed max-w-xs">
-              Estúdio enxuto de desenvolvimento web. Sites, landing pages e sistemas sob
-              medida, feitos por quem programa.
-            </p>
-          </div>
-
-          {/* Nav */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
-              Navegação
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
-              {NAV.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} className="hover:text-cyan-400 transition-colors">
-                    {l.label}
-                  </a>
-                </li>
+            <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-white/55">{FOOTER.blurb}</p>
+            <div className="mt-5 flex gap-2">
+              {[AtSign, Camera, Code2].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  aria-label="Rede social"
+                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-white/60 transition-colors hover:border-brand/50 hover:text-brand"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
-              Serviços
-            </h4>
-            <ul className="space-y-2 text-sm text-slate-300">
-              {SERVICES.map((l) => (
-                <li key={l.label}>
-                  <a href={l.href} className="hover:text-cyan-400 transition-colors">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* link columns */}
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-5">
+            {FOOTER.columns.map((col) => (
+              <div key={col.title}>
+                <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-brand">{col.title}</h4>
+                <ul className="mt-4 space-y-2">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      <a href={l.href} className="text-[13px] text-white/60 transition-colors hover:text-white">
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-4">
-              Contato
-            </h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
+          {/* contact + big line */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-brand">Contato</h4>
+            <ul className="mt-4 space-y-2.5 text-[13px] text-white/60">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-cyan-400" />
-                <span className="font-mono">contato@exemplo.com</span>
+                <Mail className="h-4 w-4 text-brand" /> <span className="font-mono">{contact.email}</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-cyan-400" />
-                <span className="font-mono">(00) 00000-0000</span>
+                <Phone className="h-4 w-4 text-brand" /> <span className="font-mono">{contact.phone}</span>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-cyan-400" />
-                <span>Atendimento remoto</span>
+                <MapPin className="h-4 w-4 text-brand" /> {contact.place}
               </li>
             </ul>
-            <p className="mt-3 text-[11px] text-slate-400 font-mono">
-              Canais em definição — placeholders.
+            <p className="mt-3 text-[10px] font-mono text-white/35">{contact.note}</p>
+
+            <p className="mt-8 font-display text-xl font-bold leading-tight text-white">
+              {FOOTER.big[0]} <span className="text-brand">{FOOTER.big[1]}</span>
             </p>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
-          <span>© {new Date().getFullYear()} Shinra — Estúdio de desenvolvimento web</span>
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-[11px] font-mono text-white/40 sm:flex-row">
+          <span>© {new Date().getFullYear()} Shinra. Todos os direitos reservados.</span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="p-2 rounded-lg border border-white/10 hover:border-cyan-400/40 text-slate-400 hover:text-white transition-colors cursor-pointer"
             aria-label="Voltar ao topo"
+            className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 text-white/50 transition-colors hover:border-brand/50 hover:text-white"
           >
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="h-4 w-4" />
           </button>
         </div>
       </div>

@@ -1,77 +1,131 @@
 @import "tailwindcss";
 
+/* ============ DESIGN SYSTEM ============ */
+@theme {
+  --color-brand: #00d9ff;      /* azul piscina — destaque */
+  --color-brand-2: #00bbd4;    /* ciano */
+  --color-deep: #071923;       /* faixa escura */
+  --color-ink: #0b1720;        /* azul profundo / texto forte */
+  --color-canvas: #f5f8fa;     /* fundo claro dominante */
+  --color-surface: #ffffff;    /* cards */
+  --color-silver: #c7cdd4;     /* bordas / prata */
+  --color-muted: #5b6b76;      /* texto secundário */
+
+  --radius-card: 1.25rem;
+
+  --shadow-card:
+    0 1px 2px rgba(11, 23, 32, 0.04),
+    0 14px 34px -18px rgba(11, 23, 32, 0.14);
+  --shadow-lift:
+    0 2px 4px rgba(11, 23, 32, 0.05),
+    0 26px 50px -20px rgba(11, 23, 32, 0.22);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
 @layer base {
   :root {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
   }
-
   .font-display {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: var(--color-ink);
   }
 }
 
-/* Fundo preto com textura de pontos em azul piscina. */
-.bg-tech-dots {
-  background-color: #000000;
-  background-image: radial-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px);
-  background-size: 34px 34px;
+/* ============ DECORATIVE UTILITIES ============ */
+
+/* faint grid over light areas */
+.bg-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(11, 23, 32, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 23, 32, 0.04) 1px, transparent 1px);
+  background-size: 54px 54px;
 }
 
-/* Hero em branco — destaque forte contra o preto do resto do site. */
-.bg-hero-spotlight {
-  background:
-    radial-gradient(70% 60% at 50% 6%, rgba(34, 211, 238, 0.16), transparent 70%),
-    #ffffff;
+.bg-dots-light {
+  background-image: radial-gradient(rgba(11, 23, 32, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
 
-/* Neon azul piscina */
-.neon-text {
-  text-shadow: 0 0 8px rgba(34, 211, 238, 0.7), 0 0 22px rgba(34, 211, 238, 0.35);
-}
-.neon-ring {
-  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.55), 0 0 28px rgba(34, 211, 238, 0.4);
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-.animate-marquee:hover {
-  animation-play-state: paused;
+/* dark contrast bands (#071923) with a subtle inner grid + cyan haze */
+.dark-band {
+  background-color: var(--color-deep);
+  background-image:
+    radial-gradient(60% 80% at 50% 0%, rgba(0, 217, 255, 0.1), transparent 70%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 54px 54px, 54px 54px;
 }
 
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.28);
+}
+
+/* discreet — not neon */
+.text-brand-glow {
+  text-shadow: 0 0 18px rgba(0, 217, 255, 0.35);
+}
+
+.hairline {
+  border: 1px solid var(--color-silver);
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes dashflow {
+  to { stroke-dashoffset: -1000; }
+}
+@keyframes pulseCore {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+.anim-floaty { animation: floaty 7s ease-in-out infinite; }
+.anim-dash { stroke-dasharray: 6 10; animation: dashflow 24s linear infinite; }
+.anim-pulse-core { animation: pulseCore 4.5s ease-in-out infinite; }
+.anim-spin-slow { animation: spinSlow 60s linear infinite; }
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-bounce,
-  .animate-pulse {
+  html { scroll-behavior: auto; }
+  .anim-floaty,
+  .anim-dash,
+  .anim-pulse-core,
+  .anim-spin-slow {
     animation: none !important;
   }
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
-}
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #e7edf1; }
+::-webkit-scrollbar-thumb { background: var(--color-silver); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-brand-2); }
