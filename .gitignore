@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Skills instaladas localmente (não versionar)
+.agents/
+.claude/skills/
+skills-lock.json
