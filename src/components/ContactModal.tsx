@@ -44,21 +44,21 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   };
 
   const inputCls =
-    'w-full rounded-xl border border-silver bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/60 focus:border-brand focus:outline-none';
+    'w-full rounded-xl border border-line bg-mist px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/70 focus:border-brand-2 focus:outline-none';
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/40 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/60 p-4 backdrop-blur-md"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg animate-[fadeIn_.2s_ease-out] rounded-3xl border border-silver bg-white p-6 shadow-[var(--shadow-lift)] sm:p-8"
+        className="relative w-full max-w-lg animate-[fadeIn_.2s_ease-out] rounded-3xl border border-line bg-surface p-6 shadow-[var(--shadow-lift)] sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Fechar"
-          className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-xl text-muted transition-colors hover:bg-canvas hover:text-ink"
+          className="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-xl text-muted transition-colors hover:bg-mist hover:text-ink"
         >
           <X className="h-5 w-5" />
         </button>
@@ -80,40 +80,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 space-y-3.5">
-              <input
-                type="text"
-                required
-                placeholder="Seu nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className={inputCls}
-              />
-              <input
-                type="email"
-                required
-                placeholder="E-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={inputCls}
-              />
-              <input
-                type="tel"
-                required
-                placeholder="WhatsApp com DDD"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className={inputCls}
-              />
-              <input
-                type="text"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-                className={inputCls}
-              />
+              <input type="text" required placeholder="Seu nome" value={name} onChange={(e) => setName(e.target.value)} className={inputCls} />
+              <input type="email" required placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} className={inputCls} />
+              <input type="tel" required placeholder="WhatsApp com DDD" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} />
+              <input type="text" value={service} onChange={(e) => setService(e.target.value)} className={inputCls} />
 
               <button
                 type="submit"
-                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-ink py-3.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-brand-2 py-3.5 text-sm font-bold text-white transition-all hover:brightness-110"
               >
                 <Send className="h-4 w-4" />
                 Enviar e abrir o WhatsApp

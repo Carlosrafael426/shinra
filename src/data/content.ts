@@ -35,29 +35,11 @@ export interface SolutionItem extends IconItem {
   id: string;
 }
 
-export interface TechGroup {
-  group: string;
-  items: string[];
-}
-
-export interface Project {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  tech: string[];
-  nature: 'Cliente real' | 'Projeto próprio';
-  frame: 'browser' | 'phone';
-  url?: string;
-}
-
 /* ---------------- NAV ---------------- */
 export const NAV_LINKS: NavItem[] = [
   { label: 'Início', href: '#inicio' },
   { label: 'Soluções', href: '#solucoes' },
-  { label: 'Projetos', href: '#projetos' },
   { label: 'Sobre', href: '#sobre' },
-  { label: 'Tecnologias', href: '#tecnologias' },
   { label: 'Contato', href: '#contato' },
 ];
 
@@ -151,61 +133,6 @@ export const IMPACTS: IconItem[] = [
   { title: 'Tenha controle', desc: 'Tecnologia desenvolvida de acordo com sua operação.', icon: SlidersHorizontal },
 ];
 
-/* ---------------- TECHNOLOGIES ---------------- */
-export const TECHNOLOGIES: TechGroup[] = [
-  { group: 'Front-end', items: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'] },
-  { group: 'Back-end', items: ['Node.js', 'Express'] },
-  { group: 'Banco de dados', items: ['PostgreSQL', 'MongoDB'] },
-  { group: 'Deploy', items: ['Vercel', 'GitHub Pages', 'Git'] },
-];
-
-/* ---------------- PROJECTS (reais) ---------------- */
-export const PROJECTS: Project[] = [
-  {
-    id: 'historias-para-a-vida',
-    name: 'Histórias para a Vida',
-    category: 'Site de divulgação',
-    description:
-      'Site do livro infantil "Zeca Tatu e Sua Roupa Nova", da autora Izabel Devecchi, com páginas sobre o livro, a autora e contato.',
-    tech: ['React 19', 'TypeScript', 'Tailwind v4', 'Motion'],
-    nature: 'Cliente real',
-    frame: 'browser',
-    url: 'https://carlosrafael426.github.io/historias-para-a-vida/',
-  },
-  {
-    id: 'missao-santa-faustina',
-    name: 'Missão Santa Faustina',
-    category: 'Site institucional',
-    description:
-      'Site institucional de uma comunidade católica em Fazenda Rio Grande (PR), com história, calendário de atividades e contato.',
-    tech: ['React 19', 'TypeScript', 'Tailwind v4'],
-    nature: 'Cliente real',
-    frame: 'browser',
-    url: 'https://carlosrafael426.github.io/missao-santa-faustina/',
-  },
-  {
-    id: 'financemate',
-    name: 'FinanceMate',
-    category: 'Aplicação web',
-    description:
-      'Controle financeiro pessoal com login (JWT), dashboard, gráficos de receitas e despesas e exportação de relatórios em PDF e Excel.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    nature: 'Projeto próprio',
-    frame: 'browser',
-    url: 'https://finance-mate-gray.vercel.app',
-  },
-  {
-    id: 'devburger',
-    name: 'DevBurger',
-    category: 'App web + API REST',
-    description:
-      'Loja online completa: front-end em React consumindo uma API REST própria, com autenticação, permissão de administrador e upload de imagens.',
-    tech: ['Node.js', 'Express', 'Sequelize', 'PostgreSQL'],
-    nature: 'Projeto próprio',
-    frame: 'phone',
-  },
-];
-
 /* ---------------- RESULTS (qualitativo, sem números) ---------------- */
 export const RESULTS: IconItem[] = [
   { title: 'Performance', desc: 'Tecnologia rápida e eficiente.', icon: Rocket },
@@ -232,7 +159,6 @@ export const FOOTER = {
       links: [
         { label: 'Início', href: '#inicio' },
         { label: 'Soluções', href: '#solucoes' },
-        { label: 'Projetos', href: '#projetos' },
         { label: 'Sobre', href: '#sobre' },
         { label: 'Contato', href: '#contato' },
       ],
@@ -246,15 +172,6 @@ export const FOOTER = {
         { label: 'E-commerce', href: '#solucoes' },
         { label: 'Integrações & APIs', href: '#solucoes' },
         { label: 'Automação & IA', href: '#solucoes' },
-      ],
-    },
-    {
-      title: 'Tecnologias',
-      links: [
-        { label: 'Front-end', href: '#tecnologias' },
-        { label: 'Back-end', href: '#tecnologias' },
-        { label: 'Banco de Dados', href: '#tecnologias' },
-        { label: 'Deploy', href: '#tecnologias' },
       ],
     },
   ],

@@ -1,7 +1,14 @@
 <!doctype html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // anti-flash: aplica o tema salvo antes da pintura (padrão: escuro)
+      try {
+        var t = localStorage.getItem('theme');
+        document.documentElement.classList.toggle('dark', t !== 'light');
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,25 95,75 50,95 5,75 5,25' fill='%23050811' stroke='%2300f2fe' stroke-width='6'/><path d='M50 20 L80 50 L50 80 L20 50 Z' fill='none' stroke='%2310b981' stroke-width='5'/><circle cx='50' cy='50' r='12' fill='%2300f2fe'/></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Shinra — estúdio de desenvolvimento web. Sistemas, plataformas e experiências digitais: sites, sistemas web, dashboards, e-commerce, integrações e automação, com o código 100% do cliente." />
@@ -9,7 +16,8 @@
     <meta property="og:title" content="Shinra | Estúdio de desenvolvimento web" />
     <meta property="og:description" content="Desenvolvemos sistemas, plataformas e experiências digitais para transformar ideias em resultados reais." />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#f5f8fa" />
+    <meta name="theme-color" content="#0f1720" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +26,7 @@
     
     <title>Shinra | Estúdio de desenvolvimento web</title>
   </head>
-  <body class="bg-canvas text-ink antialiased overflow-x-hidden">
+  <body class="bg-canvas text-ink antialiased overflow-x-hidden" style="scroll-behavior:smooth">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
