@@ -25,5 +25,5 @@ dist-ssr
 
 # Skills instaladas localmente (não versionar)
 .agents/
-.claude/skills/
+.claude/
 skills-lock.json
